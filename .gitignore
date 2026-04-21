@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Submodule de otro ejercicio (no es parte de este proyecto)
+https-github.com-EquipoB_-RepoBase/
+
 # Build Miniverse (GitHub Actions genera el artefacto)
 miniverse/dist/
 
