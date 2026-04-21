@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "PageSpeed Daily Audit",
+  "description": "Ejecuta auditorías Lighthouse sobre las 5 URLs clave de Ciencuadras en producción (Home, Arriendo, Venta, Proyectos, Detalle) y guarda los resultados JSON con fecha en Workspace/ciencuadras/reports/pagespeed/. Ejecutar diariamente para tracking de tendencias.",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Ejecuta auditorías Lighthouse sobre las 5 URLs clave de Ciencuadras en producción en modo mobile. Para cada URL, ejecuta el comando npx lighthouse con --output=json --chrome-flags=\"--headless --no-sandbox\" --only-categories=performance. Las URLs son: (1) https://www.ciencuadras.com/ (2) https://www.ciencuadras.com/arriendo/bogota/apartamento (3) https://www.ciencuadras.com/venta/bogota/apartamento (4) https://www.ciencuadras.com/proyectos-vivienda-nueva/bogota/casa-apartamento (5) https://www.ciencuadras.com/inmueble/apartamento-en-arriendo-en-riomar-barranquilla-3639873. Guarda cada resultado en Workspace/ciencuadras/reports/pagespeed/ con nombre {tipo}-{fecha}.json. Al final genera un resumen comparando con el baseline (Score promedio 50.2, Home 30, Arriendo 45, Venta 69, Proyectos 59, Detalle 48)."
+  }
+}

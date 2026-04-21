@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+
+# Build Miniverse (GitHub Actions genera el artefacto)
+miniverse/dist/
+
+# Vitest
+coverage/
+
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Reportes y artefactos generados
+reporte-visual/
+
+# Workspace: resultados del trabajo de agentes (separación estricta código/artifacts)
+Workspace/
+
+# Obsoleto: auditorías van en Workspace/audit/
+audit-output/
+
+# Repos externos legacy (migrados a Workspace/*/repos/)
+ciencuadras-repos/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+
+# Backend exports
+/tmp/exports/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Kiro: MCP config local (cada usuario configura sus propios MCPs/tokens)
+.kiro/settings/mcp.json
+
+# Cursor + Miniverse: estado efímero (legacy)
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Archivos comprimidos del proyecto
+*.zip

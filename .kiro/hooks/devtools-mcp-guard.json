@@ -1,0 +1,13 @@
+{
+  "name": "devtools-mcp-guard",
+  "version": "1.0.0",
+  "description": "Guardia de acceso a herramientas MCP de Chrome DevTools. Solo el agente Guardian en contexto del skill prueba debe invocarlas.",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [".*chrome.devtools.*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CHECKPOINT DE DOMINIO — Chrome DevTools MCP.\n\nEstás a punto de invocar una herramienta del MCP de Chrome DevTools (take_screenshot, take_snapshot, navigate_page, etc.).\n\nEvalúa lo siguiente:\n1. Revisa los archivos de steering activos en tu contexto. ¿Tu rol actual corresponde al agente Guardian (QA Specialist / Tech Guardian)?\n2. ¿La invocación ocurre dentro del contexto del skill prueba (validación E2E, tests Playwright)?\n3. Si tu rol NO es Guardian o NO estás en contexto del skill prueba: CANCELA esta invocación. Sugiere al usuario delegar al agente Guardian con el skill prueba.\n4. EXCEPCIÓN: Si el usuario ha solicitado EXPLÍCITAMENTE en este turno el uso de Chrome DevTools por otro agente, documenta la excepción y procede.\n\nResponde con tu evaluación antes de continuar."
+  }
+}

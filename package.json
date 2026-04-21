@@ -1,0 +1,46 @@
+{
+  "name": "squad-agentes-ia",
+  "version": "1.0.0",
+  "description": "Workspace agnóstico de pruebas E2E y auditoría para cualquier plataforma",
+  "scripts": {
+    "test": "playwright test",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest watch",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:coverage": "vitest run --coverage",
+    "test:unit:list": "vitest list",
+    "test:unit:related": "vitest related --run",
+    "test:ui": "playwright test --ui",
+    "audit": "node scripts/audit-console-errors.js",
+    "audit:lighthouse": "node scripts/audit-lighthouse.js",
+    "report:cycle": "node tools/scripts/generate-cycle-report-html.js",
+    "deploy:pages": "node tools/scripts/deploy-pages.js",
+    "automation:create-cursor": "node tools/scripts/create-cursor-automation.js",
+    "clarity:open-token": "node scripts/playwright-open-clarity-token.js",
+    "diagrams:regenerate-html": "node tools/scripts/regenerate-diagram-html.js",
+    "demo:agentes": "node scripts/demo-agentes-run.js",
+    "demo:agentes:open": "open docs/demo-agentes.html",
+    "seed:agents": "npm --prefix miniverse run seed:agents",
+    "seed:agents:live": "npm --prefix miniverse run seed:agents:live",
+    "lint": "eslint . --ext .js,.cjs --ignore-pattern Workspace",
+    "format": "prettier --write \"**/*.{js,cjs,json,md}\""
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "smoke-tests",
+    "audit"
+  ],
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@vitest/coverage-v8": "^4.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "fast-check": "^4.6.0",
+    "prettier": "^3.3.0",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.0"
+  }
+}

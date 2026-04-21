@@ -1,0 +1,29 @@
+---
+description: Framework Spec Driven Development para el proyecto.
+globs: "docs/*.md, Workspace/plans/*, requirements/*"
+alwaysApply: false
+---
+
+# Spec Driven Development (SDD)
+
+## Principio
+
+La especificación formal es la **fuente de verdad**. El código se deriva de la spec, no al revés.
+
+## Ciclo SDD
+
+1. **Specify:** Define requisitos, criterios de aceptación y contexto (Jira, Confluence, PRD).
+2. **Plan:** Traduce la intención en arquitectura técnica y plan en `Workspace/plans/`.
+3. **Task:** Descompón el trabajo en unidades atómicas y testeables.
+4. **Implement & Iterate:** Genera código desde la spec; valida con Playwright cuando aplique.
+
+## Relación con otras metodologías
+
+- **TDD:** SDD usa la spec para generar los tests iniciales.
+- **BDD:** Las historias Gherkin (Given/When/Then) son parte del ciclo Specify/Deliver.
+
+## Referencias en el proyecto
+
+- `rules/process-prd-generation.mdc` — Formato de PRD (ciclo Specify).
+- `rules/AGENTS.md` — Ciclo Problem/Design/Deliver (SPECDD).
+- `docs/resumen-proyecto.md` — Reglas y framework de trabajo.

@@ -1,0 +1,41 @@
+#!/bin/sh
+# Pre-commit: recordatorio de actualizar documentación
+# Se activa cuando hay cambios en código con solución definitiva.
+# Ver: .kiro/steering/agent-doc-updater.md
+
+# Patrones de archivos de código (excluyendo docs)
+CODE_PATTERNS="scripts/ tests/ tools/ miniverse/ playwright.config.js vitest.config.js package.json .kiro/steering/ rules/"
+# Patrones de documentación
+DOCS_PATTERNS="docs/ docs/architecture/6-inventario-agentes.md"
+
+has_code=0
+has_docs=0
+
+# Obtener archivos staged
+staged=$(git diff --cached --name-only 2>/dev/null)
+
+for f in $staged; do
+  for p in $CODE_PATTERNS; do
+    case "$f" in
+      $p*) has_code=1; break ;;
+    esac
+  done
+  for p in $DOCS_PATTERNS; do
+    case "$f" in
+      $p*) has_docs=1; break ;;
+    esac
+  done
+done
+
+# Si hay cambios en código pero no en docs, mostrar recordatorio
+if [ "$has_code" = 1 ] && [ "$has_docs" = 0 ]; then
+  echo ""
+  echo "📋 DOC UPDATER: Has modificado código. ¿Actualizaste la documentación?"
+  echo "   Si la solución es definitiva, invoca el agente Doc Updater antes del commit:"
+  echo "   → @agent-doc-updater o menciona 'actualizar docs' en el chat."
+  echo ""
+  echo "   Para saltar este recordatorio: git commit --no-verify"
+  echo ""
+fi
+
+exit 0

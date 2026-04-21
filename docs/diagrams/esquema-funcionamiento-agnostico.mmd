@@ -1,0 +1,80 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Esquema funcionamiento agnóstico"]
+        M2["Objetivo: Funcionamiento transversal del proyecto agnóstico"]
+        M3["Ruta archivo: docs/diagrams/esquema-funcionamiento-agnostico.mmd"]
+    end
+
+    subgraph agnostico ["Proyecto Agnóstico - Funcionamiento transversal"]
+        subgraph codigo ["Código fuente (versionado)"]
+            tests[tests/smoke.spec.js]
+            scripts[scripts/]
+            tools[tools/scripts/]
+            docs[docs/]
+            steering[.kiro/steering/]
+        end
+
+        subgraph config ["Configuración por plataforma"]
+            template[docs/templates/platforms.example.json]
+            platforms[Workspace/config/platforms.json]
+        end
+
+        subgraph workspace ["Workspace - artefactos (.gitignore)"]
+            plans[plans/]
+            reports[reports/]
+            audit[audit/]
+            playwright[playwright/]
+        end
+    end
+
+    subgraph flujos ["Flujos agnósticos"]
+        subgraph onboarding ["Onboarding"]
+            O1["Validar MCPs y CLIs<br/>Objetivo: Comprobar que Atlassian, Datadog, GitHub y CLIs están operativos<br/>Archivos: docs/onboarding/01-flujo-primera-interaccion.md"]
+            O2["Capturar URLs, Jira, Datadog<br/>Objetivo: Identificar plataformas y recoger datos de configuración<br/>Archivos: docs/templates/platforms.example.json"]
+            O3["Crear platforms.json<br/>Objetivo: Generar config reutilizable por scripts y tests<br/>Archivos: docs/templates/platforms.example.json → Workspace/config/platforms.json"]
+            O1 --> O2 --> O3
+        end
+
+        subgraph e2e ["Tests E2E"]
+            E1["get-platform-config.js<br/>Objetivo: Leer baseURL y smokePaths desde config<br/>Archivos: scripts/get-platform-config.js"]
+            E2["baseURL, smokePaths<br/>Objetivo: Inyectar URLs y rutas dinámicamente<br/>Archivos: playwright.config.js"]
+            E3["Playwright smoke tests<br/>Objetivo: Validar que las rutas críticas responden<br/>Archivos: tests/smoke.spec.js, playwright.config.js"]
+            E1 --> E2 --> E3
+        end
+
+        subgraph auditoria ["Auditoría"]
+            A1["audit-console-errors.js<br/>Objetivo: Ejecutar auditoría de consola del navegador<br/>Archivos: scripts/audit-console-errors.js"]
+            A2["auditZones desde config<br/>Objetivo: Definir zonas a auditar por plataforma<br/>Archivos: scripts/get-platform-config.js, platforms.json"]
+            A3["Workspace/audit/<br/>Objetivo: Almacenar JSON y screenshots de errores<br/>Archivos: scripts/audit-console-errors.js, scripts/audit-data.js"]
+            A1 --> A2 --> A3
+        end
+
+        subgraph reportes ["Reportes"]
+            R1["jira-cycle-*.json<br/>Objetivo: Datos de ciclo de desarrollo por sprint<br/>Archivos: docs/data/jira-cycle-*.json"]
+            R2["generate-cycle-report<br/>Objetivo: Generar HTML/MD de análisis de ciclo<br/>Archivos: tools/scripts/generate-cycle-report-html.js, tools/scripts/analyze-cycle-time.js"]
+            R3["deploy-pages → GitHub Pages<br/>Objetivo: Publicar reportes en docs/<br/>Archivos: tools/scripts/deploy-pages.js"]
+            R1 --> R2 --> R3
+        end
+
+        subgraph agentes ["Agentes — Validar: docs/architecture/6-inventario-agentes.md"]
+            AG1["Orquestador: 00-swarm-orchestrator.mdc<br/>Scout Jira | Historian Codebase+gh | Planificación"]
+            AG2["Plan en plans/<br/>01-plans-location.mdc → Workspace/plans/"]
+            AG3["Guardian: agent-tech-guardian.mdc<br/>Skills: prueba | npm test"]
+            AG4["GitHub Repos: agent-github-repos.mdc<br/>MCP user-github | platforms.json"]
+            AG5["PO-Agile: agent-po-agile.md<br/>Historias de Usuario para Jira"]
+            AG6["Doc Updater: agent-doc-updater.mdc<br/>Docs vivos | .githooks/pre-commit"]
+            AG1 --> AG2 --> AG3
+            AG4 -.-> AG2
+            AG5 -.-> AG2
+            AG6 -.-> AG2
+        end
+    end
+
+    template --> platforms
+    platforms --> E1
+    platforms --> A2
+    O3 --> platforms
+    E3 --> playwright
+    A3 --> audit
+    R2 --> reports
+    AG2 --> plans

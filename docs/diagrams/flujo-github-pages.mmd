@@ -1,0 +1,31 @@
+flowchart LR
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Flujo GitHub Pages"]
+        M2["Objetivo: Flujo deploy:pages → GitHub Pages"]
+        M3["Ruta archivo: docs/diagrams/flujo-github-pages.mmd"]
+    end
+
+    subgraph staging ["Área de staging (no versionada)"]
+        W[Workspace/reports/]
+        W2[Workspace/audit/]
+    end
+
+    subgraph scripts ["Scripts"]
+        R[report:cycle]
+        D[deploy:pages]
+    end
+
+    subgraph published ["Publicado (versionado)"]
+        P[docs/*.html]
+        A[docs/Asset/]
+    end
+
+    J[docs/data/jira-cycle-*.json] --> R
+    R --> W
+    W --> D
+    D --> P
+    A -.-> P
+
+    W2 -.-> D
+
+    P --> GH[GitHub Pages]

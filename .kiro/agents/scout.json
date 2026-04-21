@@ -1,0 +1,43 @@
+{
+  "name": "scout",
+  "description": "Explorador Jira/Confluence — Lee tickets, épicas, historias y documentación de producto. Extrae requisitos accionables vía MCP Atlassian.",
+  "prompt": "file://../steering/agent-scout.md",
+  "model": "claude-sonnet-4",
+  "tools": [
+    "read",
+    "@atlassian"
+  ],
+  "allowedTools": [
+    "read",
+    "@atlassian/getJiraIssue",
+    "@atlassian/searchJiraIssuesUsingJql",
+    "@atlassian/getVisibleJiraProjects",
+    "@atlassian/getJiraProjectIssueTypesMetadata",
+    "@atlassian/searchConfluenceUsingCql",
+    "@atlassian/getConfluencePage",
+    "@atlassian/searchAtlassian",
+    "@atlassian/getAccessibleAtlassianResources"
+  ],
+  "resources": [
+    "file://../steering/agent-scout.md",
+    "file://../steering/05-jira-writing-guidelines.md",
+    "file://../steering/06-platform-context.md",
+    "file://../../Workspace/config/platforms.json"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "echo 'Scout activado — Exploración Jira/Confluence'"
+      }
+    ]
+  },
+  "includeMcpJson": false,
+  "mcpServers": {
+    "atlassian": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@latest", "https://mcp.atlassian.com/v1/mcp"]
+    }
+  },
+  "keyboardShortcut": "ctrl+1",
+  "welcomeMessage": "Scout activo. ¿Qué tickets o requisitos necesitas explorar?"
+}

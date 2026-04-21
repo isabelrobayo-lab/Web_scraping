@@ -1,0 +1,81 @@
+{
+  "name": "datadog-alert",
+  "description": "Cloud Agent Datadog Alert — Respuesta a alertas de Datadog. Investiga monitores, correlaciona con repos y Jira, genera planes de acción y crea HUs.",
+  "prompt": "file://../steering/agent-datadog-alert.md",
+  "model": "claude-sonnet-4",
+  "tools": [
+    "read",
+    "write",
+    "shell",
+    "@datadog",
+    "@github",
+    "@atlassian"
+  ],
+  "allowedTools": [
+    "read",
+    "@datadog",
+    "@github/get_file_contents",
+    "@github/search_code",
+    "@github/list_pull_requests",
+    "@github/list_commits",
+    "@atlassian/getJiraIssue",
+    "@atlassian/searchJiraIssuesUsingJql",
+    "@atlassian/getAccessibleAtlassianResources",
+    "@atlassian/getJiraProjectIssueTypesMetadata",
+    "@atlassian/getJiraIssueTypeMetaWithFields"
+  ],
+  "toolsSettings": {
+    "write": {
+      "allowedPaths": [
+        "Workspace/plans/**",
+        "Workspace/**/reports/**",
+        "Workspace/**/reports/evidencias/**"
+      ]
+    }
+  },
+  "resources": [
+    "file://../steering/agent-datadog-alert.md",
+    "file://../steering/05-jira-writing-guidelines.md",
+    "file://../steering/06-platform-context.md",
+    "file://../../Workspace/config/platforms.json",
+    "file://../../docs/templates/automation-datadog-alert-prompt.md",
+    "file://../../docs/runbook/automation-datadog-alert.md"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "echo 'Cloud Agent Datadog Alert activado — Respuesta a alertas'"
+      }
+    ],
+    "preToolUse": [
+      {
+        "matcher": "@atlassian/createJiraIssue",
+        "command": "echo 'Escritura en Jira — Verificar metadata de campos y que Creado con IA va en descripción.' >&2; exit 0"
+      }
+    ]
+  },
+  "includeMcpJson": false,
+  "mcpServers": {
+    "datadog": {
+      "command": "npx",
+      "args": ["-y", "@datadog/datadog-mcp-server@latest"],
+      "env": {
+        "DATADOG_API_KEY": "${DATADOG_API_KEY}",
+        "DATADOG_APP_KEY": "${DATADOG_APP_KEY}"
+      }
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.github.com/mcp",
+      "oauth": {
+        "oauthScopes": []
+      }
+    },
+    "atlassian": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote@latest", "https://mcp.atlassian.com/v1/mcp"]
+    }
+  },
+  "keyboardShortcut": "ctrl+5",
+  "welcomeMessage": "Cloud Agent Datadog Alert activo. ¿Qué alertas o monitores necesitas investigar?"
+}

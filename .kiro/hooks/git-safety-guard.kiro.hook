@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Git Safety Guard",
+  "description": "Intercepta comandos shell para detectar operaciones git destructivas (clean -fd, reset --hard, checkout -- .) y exigir confirmación o dry-run previo. Nace de un incidente real documentado en agent-tech-guardian.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      "shell"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE SEGURIDAD — Git Safety Guard.\n\nAntes de ejecutar este comando shell, verifica si es una operación git destructiva:\n\n1. git clean -fd (sin dry-run): DENEGADO. Usa primero git clean -fdn (dry-run) y muestra al usuario qué se eliminará. Solo procede con -fd tras confirmación explícita.\n2. git reset --hard: DENEGADO sin git stash previo. Ejecuta git stash primero como punto de recuperación.\n3. git checkout -- . (descarta todos los cambios): DENEGADO sin git stash previo.\n4. git stash pop en rama diferente a donde se creó: ADVERTIR al usuario del riesgo.\n5. Merge/checkout entre ramas divergentes: Ejecutar git log para mostrar divergencia antes de proceder.\n\nSi el comando NO es una operación git destructiva: ACCESO PERMITIDO. Procede normalmente.\nSi es destructivo y no cumple las condiciones de seguridad: ACCESO DENEGADO. Informa al usuario qué paso de seguridad falta."
+  },
+  "shortName": "git-safety-guard"
+}

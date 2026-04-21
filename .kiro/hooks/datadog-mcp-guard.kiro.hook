@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Datadog MCP Guard",
+  "description": "Restringe el uso del MCP de Datadog exclusivamente al agente Cloud Agent Datadog Alert. Otros agentes del enjambre no deben consultar monitores, métricas ni logs de Datadog directamente. Alineado con 00-swarm-orchestrator.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*datadog.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE ACCESO — Datadog MCP Guard.\n\nEl MCP de Datadog está RESTRINGIDO exclusivamente al agente Cloud Agent Datadog Alert.\n\nEvalúa si la herramienta que se está invocando pertenece al MCP de Datadog (search_monitors, get_monitor, list_logs, get_metric_metadata, list_traces, etc.).\n\n- Si el contexto actual es el agente Cloud Agent Datadog Alert: ACCESO PERMITIDO. Procede con la invocación.\n- Si el contexto es cualquier otro agente (Orquestador, Scout, Historian, Guardian, GitHub Repos, PO-Agile, Doc Updater, Clarity Behavior): ACCESO DENEGADO. No invoques la herramienta. Informa al usuario que las consultas a Datadog deben delegarse al Cloud Agent Datadog Alert.\n\nExcepción: Si el usuario pide EXPLÍCITAMENTE en su mensaje actual consultar Datadog fuera del flujo de alertas, se permite como excepción puntual."
+  },
+  "shortName": "datadog-mcp-guard"
+}

@@ -1,0 +1,62 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Esquema acciones particulares"]
+        M2["Objetivo: Acciones particulares del proyecto (datos en platforms.json)"]
+        M3["Ruta archivo: docs/diagrams/esquema-acciones-particulares.mmd"]
+    end
+
+    subgraph particular ["Acciones particulares del proyecto (configuradas en platforms.json)"]
+        subgraph configParticular ["platforms.json - Config específica"]
+            jira["Jira: projectKey<br/>Objetivo: Proyecto y tableros del producto<br/>Archivos: {WORKSPACE_ROOT}/config/platforms.json jira"]
+            datadog["Datadog: site<br/>Objetivo: Site y dashboards de observabilidad<br/>Archivos: {WORKSPACE_ROOT}/config/platforms.json datadog"]
+            serviceToRepos["serviceToRepos: N servicios<br/>Objetivo: Mapear servicio Datadog → repos GitHub<br/>Archivos: {WORKSPACE_ROOT}/config/platforms.json datadog.serviceToRepos"]
+            githubRepos["github.repos: N repos<br/>Objetivo: Repos para consultar código<br/>Archivos: {WORKSPACE_ROOT}/config/platforms.json github"]
+        end
+
+        subgraph automation ["Automation Datadog Alert"]
+            trigger["Schedule cada 15 min<br/>Objetivo: Ejecutar Cloud Agent en horario<br/>Archivos: docs/runbook/automation-datadog-alert.md"]
+            p0["P0: MCP Datadog search status:alert<br/>Objetivo: Obtener monitores en alerta<br/>Archivos: docs/templates/automation-datadog-alert-prompt.md"]
+            p1["P1: Validar servicios en Datadog<br/>Objetivo: Extraer servicio, host, tags y mensaje de error<br/>Archivos: docs/templates/automation-datadog-alert-prompt.md"]
+            p2["P2: Consultar repos según serviceToRepos<br/>Objetivo: Leer código para entender causa de la alerta<br/>Archivos: docs/templates/automation-datadog-alert-prompt.md, platforms.json"]
+            p3["P3: Generar plan en plans/<br/>Objetivo: Crear plan-alerta-id.md con análisis y pasos<br/>Archivos: docs/templates/automation-datadog-alert-prompt.md → {WORKSPACE_ROOT}/plans/"]
+            p4["P4: Buscar HU en Jira (projectKey)<br/>Objetivo: Evitar duplicados con JQL por título/descripción<br/>Archivos: docs/templates/automation-datadog-alert-prompt.md, MCP Atlassian"]
+            p5["P5: Crear HU si no existe<br/>Objetivo: Crear Story/Task con contexto de alerta y plan<br/>Archivos: docs/templates/automation-datadog-alert-prompt.md, MCP Atlassian"]
+            trigger --> p0 --> p1 --> p2 --> p3 --> p4 --> p5
+        end
+
+        subgraph acciones ["Otras acciones particulares"]
+            dataJira["{WORKSPACE_ROOT}/data/jira-cycle-*.json<br/>Objetivo: Datos de ciclo exportados de Jira<br/>Archivos: {WORKSPACE_ROOT}/data/"]
+            dashboards["Dashboards Datadog (dashboardIds)<br/>Objetivo: Dashboards de métricas del producto<br/>Archivos: platforms.json datadog.dashboardIds"]
+            incidentBoard["Tablero incidentes (incidentBoardId)<br/>Objetivo: Board de incidentes en Jira<br/>Archivos: platforms.json jira.incidentBoardId"]
+        end
+    end
+
+    subgraph crearAutomation ["Crear automation"]
+        createScript["tools/scripts/create-cursor-automation.js<br/>Objetivo: Abrir cursor.com/automations y crear automation<br/>Comando: npm run automation:create-cursor"]
+    end
+
+    subgraph mcps ["MCPs usados"]
+        mcpDatadog[Datadog]
+        mcpAtlassian[Atlassian]
+        mcpGitHub[GitHub]
+    end
+
+    subgraph externos ["Sistemas externos"]
+        dd[Datadog site]
+        jiraCloud[Jira projectKey]
+        gh[GitHub repos]
+    end
+
+    configParticular --> automation
+    configParticular --> acciones
+    createScript -.-> automation
+
+    p0 --> mcpDatadog
+    p1 --> mcpDatadog
+    p2 --> mcpGitHub
+    p4 --> mcpAtlassian
+    p5 --> mcpAtlassian
+
+    mcpDatadog --> dd
+    mcpAtlassian --> jiraCloud
+    mcpGitHub --> gh

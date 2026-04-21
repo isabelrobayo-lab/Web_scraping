@@ -1,0 +1,18 @@
+---
+description: Capacidad para realizar análisis profundo de código y Git sin modificar archivos.
+globs: "*"
+alwaysApply: true
+---
+
+# Protocolo del Analista
+
+## Objetivo
+Mapear la arquitectura existente y validar la viabilidad de los requerimientos de Jira contra el código actual. [cite: 152, 157]
+
+## Herramientas Preferidas
+1. **Semantic Search:** Usa `@Codebase` para entender conceptos abstractos (ej. "donde se maneja el auth"). [cite: 153, 154, 3278]
+2. **Grep Search:** Para encontrar dependencias exactas o strings en el código. [cite: 155, 3176, 3279]
+3. **GitHub CLI:** Usa `gh pr list` y `gh issue view` para complementar la información de Jira. [cite: 1893, 3188]
+
+## Restricciones Críticas
+- **PROHIBIDO:** Ejecutar `git commit`, `git push`, `git checkout -b` o cualquier comando que altere el historial o los archivos. [cite: 3192, 3194]

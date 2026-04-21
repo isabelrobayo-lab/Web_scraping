@@ -1,0 +1,57 @@
+{
+  "description": "Hooks para que Claude Code envíe eventos de sesión a Miniverse. Copia a .claude/settings.json y ajusta MINIVERSE_URL si es necesario (API en http://localhost:4321 por defecto).",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/miniverse-heartbeat.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/miniverse-working.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/miniverse-thinking.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/miniverse-idle.sh"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/miniverse-idle.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

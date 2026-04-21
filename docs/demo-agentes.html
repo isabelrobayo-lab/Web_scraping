@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo — agentes en ejecución</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --ok: #3fb950;
+      --border: #30363d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin: 0 0 8px;
+    }
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 16px;
+      max-width: 640px;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    button {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 14px;
+      font: inherit;
+      cursor: pointer;
+    }
+    button:hover {
+      border-color: var(--accent);
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #log {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 280px;
+      max-width: 900px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    #log .line { display: block; }
+    #log .line.new { animation: fade 0.2s ease; }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(2px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 640px;
+    }
+    footer code {
+      background: var(--panel);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Demo: agentes en ejecución</h1>
+  <p class="hint">
+    Simulación con timestamps ficticios (sin MCPs ni tests). Misma secuencia que
+    <code>npm run demo:agentes</code>.
+  </p>
+  <div class="controls">
+    <button type="button" id="btn-run">Ejecutar demo</button>
+    <button type="button" id="btn-fast">Ejecutar rápido</button>
+    <button type="button" id="btn-clear">Limpiar</button>
+  </div>
+  <div id="log" aria-live="polite"></div>
+  <footer>
+    <strong>Abrir este archivo:</strong> arrastra <code>docs/demo-agentes.html</code> al navegador, o en macOS:
+    <code>open docs/demo-agentes.html</code> desde la raíz del repo.
+  </footer>
+
+  <script>
+    function formatClock(totalMs) {
+      const s = Math.floor(totalMs / 1000);
+      const ms = totalMs % 1000;
+      const h = Math.floor(s / 3600) % 24;
+      const m = Math.floor(s / 60) % 60;
+      const sec = s % 60;
+      const pad = (n, w = 2) => String(n).padStart(w, '0');
+      return `${pad(h)}:${pad(m)}:${pad(sec)}.${String(ms).padStart(3, '0')}`;
+    }
+
+    const STEPS = [
+      { t: 0, line: '[Orquestador] INICIADO (The Architect)' },
+      { t: 100, line: '  └─ Scout … RUNNING → MCP atlassian: leer ticket' },
+      { t: 7800, line: '  └─ Scout … OK → requisitos extraídos' },
+      { t: 9000, line: '  └─ Historian … RUNNING → @Codebase, gh pr list' },
+      { t: 45000, line: '  └─ Historian … OK → impacto resumido' },
+      { t: 46000, line: '  └─ Planificación … RUNNING → Workspace/plans/plan-demo.md' },
+      { t: 62000, line: '  └─ Planificación … OK' },
+      { t: 63000, line: '  └─ Guardian … RUNNING → npx playwright test (simulado)' },
+      { t: 95000, line: '  └─ Guardian … OK → tarea cerrada (demo)' },
+      { t: 96000, line: '[Orquestador] FIN (solo demostración)' },
+    ];
+
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    const logEl = document.getElementById('log');
+    const btnRun = document.getElementById('btn-run');
+    const btnFast = document.getElementById('btn-fast');
+    const btnClear = document.getElementById('btn-clear');
+
+    let running = false;
+
+    function appendLine(text) {
+      const span = document.createElement('span');
+      span.className = 'line new';
+      span.textContent = text;
+      logEl.appendChild(span);
+      logEl.appendChild(document.createTextNode('\n'));
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    function clearLog() {
+      logEl.textContent = '';
+    }
+
+    async function runDemo(fast) {
+      if (running) return;
+      running = true;
+      btnRun.disabled = true;
+      btnFast.disabled = true;
+      clearLog();
+
+      const delay = fast ? 0 : 400;
+      let prevT = 0;
+
+      appendLine('═══ Demo: agentes en ejecución (timestamps simulados, sin red ni tests) ═══');
+      appendLine('');
+
+      for (const step of STEPS) {
+        if (!fast && delay > 0) {
+          await sleep(Math.min(1200, step.t - prevT) || delay);
+        }
+        prevT = step.t;
+        appendLine(`[${formatClock(step.t)}] ${step.line}`);
+      }
+
+      appendLine('');
+      appendLine(
+        'Agentes especializados (ejemplo): Guardian=activo si hay tests; GitHub Repos/Cloud Datadog=idle en este demo.'
+      );
+      appendLine('');
+
+      running = false;
+      btnRun.disabled = false;
+      btnFast.disabled = false;
+    }
+
+    btnRun.addEventListener('click', () => runDemo(false));
+    btnFast.addEventListener('click', () => runDemo(true));
+    btnClear.addEventListener('click', () => {
+      if (!running) clearLog();
+    });
+  </script>
+</body>
+</html>

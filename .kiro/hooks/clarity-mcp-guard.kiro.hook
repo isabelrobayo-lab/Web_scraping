@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Clarity MCP Guard",
+  "description": "Restringe el uso del MCP de Microsoft Clarity exclusivamente al agente Clarity Behavior. Otros agentes del enjambre no deben invocar herramientas de Clarity. Alineado con 00-swarm-orchestrator.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*clarity.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE ACCESO — Clarity MCP Guard.\n\nEl MCP de Microsoft Clarity (clarity-server) está RESTRINGIDO exclusivamente al agente Clarity Behavior.\n\nEvalúa si la herramienta que se está invocando pertenece al MCP clarity-server (query_analytics_dashboard, list_session_recordings, query_documentation_resources).\n\n- Si el contexto actual es el agente Clarity Behavior: ACCESO PERMITIDO. Procede con la invocación.\n- Si el contexto es cualquier otro agente (Orquestador, Scout, Historian, Guardian, GitHub Repos, PO-Agile, Cloud Datadog, Doc Updater): ACCESO DENEGADO. No invoques la herramienta. Informa al usuario que Clarity MCP solo puede ser usado por el agente Clarity Behavior."
+  },
+  "shortName": "clarity-mcp-guard"
+}

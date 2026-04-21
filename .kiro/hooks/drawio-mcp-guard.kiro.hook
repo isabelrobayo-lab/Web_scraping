@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "name": "Draw.io MCP Guard",
+  "description": "Solo el agente Doc Updater (y el skill diagramas-drawio) puede usar el MCP de Draw.io. Si otro agente intenta usar herramientas de drawio-mcp (open_drawio_xml, open_drawio_csv, open_drawio_mermaid), se debe denegar el acceso.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*drawio.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE ACCESO — Draw.io MCP Guard.\n\nEl MCP de Draw.io (drawio-mcp) está RESTRINGIDO exclusivamente al agente Doc Updater y al skill diagramas-drawio.\n\nEvalúa si la herramienta que se está invocando pertenece al MCP drawio-mcp (open_drawio_xml, open_drawio_csv, open_drawio_mermaid, search_shapes, create_diagram).\n\n- Si el contexto actual es el agente Doc Updater o el skill diagramas-drawio: ACCESO PERMITIDO. Procede con la invocación.\n- Si el contexto es cualquier otro agente (Orquestador, Scout, Historian, Guardian, GitHub Repos, PO-Agile, Cloud Datadog, Clarity Behavior): ACCESO DENEGADO. No invoques la herramienta. Informa al usuario que Draw.io MCP solo puede ser usado por Doc Updater."
+  },
+  "workspaceFolderName": "Squad Agentes IA",
+  "shortName": "drawio-mcp-guard"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "datadog-mcp-guard",
+  "version": "1.0.0",
+  "description": "Guardia de acceso a herramientas MCP de Datadog. Solo el agente Cloud_Datadog debe invocarlas.",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [".*datadog.*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CHECKPOINT DE DOMINIO — Datadog MCP.\n\nEstás a punto de invocar una herramienta del MCP de Datadog.\n\nEvalúa lo siguiente:\n1. Revisa los archivos de steering activos en tu contexto. ¿Tu rol actual corresponde al agente Cloud_Datadog (especialista en observabilidad y alertas Datadog)?\n2. Si tu rol NO es Cloud_Datadog: CANCELA esta invocación. Sugiere al usuario delegar la tarea al agente Cloud_Datadog a través del Orquestador.\n3. EXCEPCIÓN: Si el usuario ha solicitado EXPLÍCITAMENTE en este turno una correlación entre Datadog y otro dominio (por ejemplo, Datadog + código del repo), documenta la excepción y procede.\n\nResponde con tu evaluación antes de continuar."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.atlassian.com/v1/mcp"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "getAccessibleAtlassianResources",
+        "searchJiraIssuesUsingJql",
+        "getJiraIssue",
+        "editJiraIssue",
+        "lookupJiraAccountId",
+        "getJiraProjectIssueTypesMetadata",
+        "addCommentToJiraIssue"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "browser_snapshot",
+        "browser_take_screenshot"
+      ]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "clarity-server": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@microsoft/clarity-mcp-server"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "name": "Validación Agnóstico vs Particular",
+  "description": "Al crear archivos en Workspace/ o scripts que referencien proyectos específicos, recuerda validar con el usuario si la acción es transversal o particular. Alineado con 03-validacion-agnostico-particular.md.",
+  "version": "1",
+  "when": {
+    "type": "fileCreated",
+    "patterns": [
+      "Workspace/**",
+      "scripts/**",
+      "tools/**"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "VALIDACIÓN — Agnóstico vs Particular.\n\nSe está creando un archivo nuevo. Según steering 03-validacion-agnostico-particular.md, antes de continuar debes validar con el usuario:\n\n¿Esta acción debe ser transversal (agnóstica) para cualquier plataforma, o es específica del proyecto actual?\n\n- Transversal: Se añade al código versionado, usa config desde platforms.json, no hardcodea URLs/proyectos.\n- Particular: Se documenta en runbooks o config; los datos viven en Workspace/config/platforms.json o docs/data/.\n\nSi el archivo contiene IDs de tablero Jira, URLs de dashboards Datadog, o datos de un producto específico, es PARTICULAR y debe ir en Workspace/. Si es genérico y reutilizable, es TRANSVERSAL y va en código fuente.\n\nNo continúes sin confirmación del usuario."
+  },
+  "shortName": "agnostico-particular-check"
+}

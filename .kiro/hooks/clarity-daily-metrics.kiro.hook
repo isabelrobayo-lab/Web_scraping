@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Clarity Daily Metrics",
+  "description": "Consulta Microsoft Clarity para obtener las métricas diarias de comportamiento de usuarios de Ciencuadras: sesiones totales, bounce rate, dead clicks, quick backs, rage clicks, y distribución por dispositivo. Compara con el baseline (239K sesiones/semana, bounce rate 40.21%, dead clicks 19.6%).",
+  "version": "1",
+  "when": {
+    "type": "userTriggered"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Consulta Microsoft Clarity MCP para obtener las métricas de las últimas 24 horas de Ciencuadras: (1) Total sessions and bounce rate last 24 hours (2) Dead clicks, quick backs, rage clicks, excessive scrolling count last 24 hours (3) Sessions by device type last 24 hours. Compara los resultados con el baseline del Estado Cero: sesiones diarias ~34,152, bounce rate 40.21%, dead clicks ~6,694/día, quick backs ~5,537/día, rage clicks ~178/día, 71.56% mobile. Reporta variaciones significativas."
+  }
+}

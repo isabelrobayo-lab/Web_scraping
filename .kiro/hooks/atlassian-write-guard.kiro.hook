@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "name": "Atlassian Write Guard",
+  "description": "Solo los agentes Scout, PO-Agile y Cloud Agent Datadog Alert pueden escribir en Jira/Confluence (crear issues, transicionar, comentar). Otros agentes pueden leer pero no modificar. Alineado con 00-swarm-orchestrator.md y 6-inventario-agentes.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*createJiraIssue.*",
+      ".*editJiraIssue.*",
+      ".*transitionJiraIssue.*",
+      ".*addCommentToJiraIssue.*",
+      ".*createConfluencePage.*",
+      ".*updateConfluencePage.*",
+      ".*createIssueLink.*",
+      ".*addWorklogToJiraIssue.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE ACCESO — Atlassian Write Guard.\n\nLas operaciones de ESCRITURA en Jira y Confluence están RESTRINGIDAS a los siguientes agentes:\n- Scout (lectura de tickets + escritura cuando el usuario lo pide explícitamente)\n- PO-Agile (crear Historias de Usuario, transicionar issues)\n- Cloud Agent Datadog Alert (crear HUs desde alertas, buscar y crear issues)\n\nEvalúa si la operación de escritura en Atlassian es invocada por uno de estos agentes autorizados.\n\n- Si el contexto actual es Scout, PO-Agile o Cloud Agent Datadog Alert: ACCESO PERMITIDO. Procede.\n- Si el contexto es Guardian, Historian, Doc Updater, GitHub Repos, Clarity Behavior u Orquestador: ACCESO DENEGADO. Estos agentes solo pueden LEER de Atlassian (getJiraIssue, searchJiraIssuesUsingJql, etc.), no escribir. Informa al usuario que la escritura en Jira debe delegarse a Scout o PO-Agile.\n\nNota: Las operaciones de LECTURA (getJiraIssue, searchJiraIssuesUsingJql, getConfluencePage, etc.) están permitidas para todos los agentes."
+  },
+  "shortName": "atlassian-write-guard"
+}

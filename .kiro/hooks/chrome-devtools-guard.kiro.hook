@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Chrome DevTools MCP Guard",
+  "description": "Restringe el uso del MCP Chrome DevTools exclusivamente al agente Guardian y al skill prueba-ui (flujo E2E). Alineado con 00-swarm-orchestrator.md y agent-tech-guardian.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*chrome_devtools.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE ACCESO — Chrome DevTools MCP Guard.\n\nEl MCP Chrome DevTools está RESTRINGIDO exclusivamente al agente Guardian (QA Specialist) y al skill prueba-ui.\n\nEvalúa si la herramienta que se está invocando pertenece al MCP chrome-devtools (navigate_page, take_screenshot, take_snapshot, evaluate_script, click, fill, list_console_messages, list_network_requests, lighthouse_audit, performance_start_trace, etc.).\n\n- Si el contexto actual es el agente Guardian o el skill prueba-ui: ACCESO PERMITIDO. Procede con la invocación.\n- Si el contexto es cualquier otro agente (Orquestador, Scout, Historian, Doc Updater, GitHub Repos, PO-Agile, Cloud Datadog, Clarity Behavior): ACCESO DENEGADO. No invoques la herramienta. Informa al usuario que Chrome DevTools MCP solo puede ser usado por Guardian en el flujo E2E."
+  },
+  "shortName": "chrome-devtools-guard"
+}

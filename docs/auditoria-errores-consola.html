@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoría Errores de Consola | SQUAD-AGENTES-IA</title>
+  <meta name="description" content="Reporte de auditoría de errores de consola. Plan de trabajo priorizado por HUs. URL y zonas desde platforms.json.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0f1419;
+      --bg-secondary: #1a2332;
+      --bg-card: #1e2a3a;
+      --accent: #00d4aa;
+      --accent-muted: #00a884;
+      --text-primary: #e8edf4;
+      --text-secondary: #8b9cb3;
+      --border: #2d3d52;
+      --success: #00d4aa;
+      --warning: #f0b429;
+      --critical: #e85d75;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+    .nav-link:hover { opacity: 0.85; }
+
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .report-title { font-size: 1.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .report-subtitle { font-size: 1rem; color: var(--text-secondary); font-weight: 400; }
+    .report-meta {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--bg-card);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .section { margin-bottom: 2.5rem; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 1.2em;
+      background: linear-gradient(180deg, var(--accent), var(--accent-muted));
+      border-radius: 2px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+    }
+    .metric-value { font-size: 1.75rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+    .metric-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem; }
+
+    .hu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .hu-card.p0 { border-left: 4px solid var(--critical); }
+    .hu-card.p1 { border-left: 4px solid var(--warning); }
+    .hu-card.p2 { border-left: 4px solid var(--accent); }
+    .hu-card.p3 { border-left: 4px solid var(--text-secondary); }
+    .hu-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .hu-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .hu-priority {
+      font-size: 0.72rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .hu-priority.p0 { background: rgba(232, 93, 117, 0.2); color: var(--critical); }
+    .hu-priority.p1 { background: rgba(240, 180, 41, 0.2); color: var(--warning); }
+    .hu-priority.p2 { background: rgba(0, 212, 170, 0.2); color: var(--accent); }
+    .hu-priority.p3 { background: rgba(139, 156, 179, 0.25); color: var(--text-secondary); }
+    .hu-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+    .hu-meta { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+    .hu-meta strong { color: var(--accent-muted); }
+    .hu-desc, .hu-approach { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; margin-top: 0.5rem; }
+    .hu-approach { margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+
+    .phase-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .phase-table th, .phase-table td {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .phase-table th {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--bg-secondary);
+    }
+    .phase-table tr:last-child td { border-bottom: none; }
+
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .screenshot-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .screenshot-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+    .screenshot-item span {
+      display: block;
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    .footer a { color: var(--accent); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .container { padding: 1rem; }
+      .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .screenshots-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="reportes.html" class="nav-link">← Ver todos los reportes</a>
+
+    <header>
+      <h1 class="report-title">Auditoría de Errores de Consola</h1>
+      <p class="report-subtitle">Navegación automatizada con Playwright · Captura de errores y warnings · Plan de trabajo priorizado por HUs</p>
+      <span class="report-meta">16 de marzo de 2026 · Home, Arriendo, Venta, Inmobiliarias, Constructoras, Blog, Auth, Productos, Remates</span>
+    </header>
+
+    <section class="section">
+      <h2 class="section-title">Resumen Ejecutivo</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-value">11</div>
+          <div class="metric-label">Errores</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">81</div>
+          <div class="metric-label">Warnings</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">6</div>
+          <div class="metric-label">Zonas con errores</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value">6</div>
+          <div class="metric-label">Capturas</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Errores Priorizados (HUs)</h2>
+
+      <div class="hu-card p0">
+        <div class="hu-header">
+          <span class="hu-id">HU-01</span>
+          <span class="hu-priority p0">P0 Crítico</span>
+        </div>
+        <h3 class="hu-title">API de recomendados inaccesible (CORS + 404)</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Home · <strong>Error:</strong> Cross-Origin Request Blocked: api-backend.ciencuadras.com/prod/recomendados/api/v1/recientes</p>
+        <p class="hu-desc">Endpoint devuelve 404 y no incluye header Access-Control-Allow-Origin. La sección "inmuebles recientes" no carga; cascada de ERROR Error en main.js.</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Verificar si el endpoint existe; si está deprecado eliminar la llamada; si existe configurar CORS. Añadir try/catch para que un fallo no rompa el render del Home.</p>
+      </div>
+
+      <div class="hu-card p1">
+        <div class="hu-header">
+          <span class="hu-id">HU-02</span>
+          <span class="hu-priority p1">P1 Alto</span>
+        </div>
+        <h3 class="hu-title">Errores genéricos no manejados en resultados de búsqueda</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Arriendo, Venta, Productos, Remates · <strong>Error:</strong> ERROR Error en result/4788.*.js</p>
+        <p class="hu-desc">Excepción no capturada en el módulo de resultados (imágenes, filtros o datos vacíos). Posible degradación de UX.</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Localizar chunk 4788; añadir error boundaries; implementar logging (Datadog/Sentry).</p>
+      </div>
+
+      <div class="hu-card p1">
+        <div class="hu-header">
+          <span class="hu-id">HU-03</span>
+          <span class="hu-priority p1">P1 Alto</span>
+        </div>
+        <h3 class="hu-title">Cookies de terceros rechazadas por dominio inválido</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Inmobiliarias · <strong>Error:</strong> Cookie "_fbp" y "_tt_enable_cookie" rejected for invalid domain</p>
+        <p class="hu-desc">Scripts de Facebook Pixel y TikTok intentan setear cookies con dominio incorrecto. Tracking de conversiones afectado.</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Revisar GTM/scripts; asegurar dominio coincida con ciencuadras.com.</p>
+      </div>
+
+      <div class="hu-card p1">
+        <div class="hu-header">
+          <span class="hu-id">HU-04</span>
+          <span class="hu-priority p1">P1 Alto</span>
+        </div>
+        <h3 class="hu-title">CORS fallido en Taboola (publicidad)</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Inmobiliarias, Constructoras, Productos · <strong>Error:</strong> Cross-Origin Request Blocked: cds.taboola.com</p>
+        <p class="hu-desc">Widget de contenido patrocinado puede no cargar correctamente.</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Contactar soporte Taboola; cargar script async/defer; envolver en try/catch.</p>
+      </div>
+
+      <div class="hu-card p2">
+        <div class="hu-header">
+          <span class="hu-id">HU-05</span>
+          <span class="hu-priority p2">P2 Medio</span>
+        </div>
+        <h3 class="hu-title">Preload de imágenes ignorado</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Arriendo, Venta, Productos · Falta as="image" o type en &lt;link rel="preload"&gt;</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Añadir as="image" y type="image/jpeg"; validar con Lighthouse.</p>
+      </div>
+
+      <div class="hu-card p2">
+        <div class="hu-header">
+          <span class="hu-id">HU-06</span>
+          <span class="hu-priority p2">P2 Medio</span>
+        </div>
+        <h3 class="hu-title">Fuente con glyph bbox incorrecto</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Home · font-family: "ciencuadras"</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Regenerar fuente o reemplazar por SVG.</p>
+      </div>
+
+      <div class="hu-card p2">
+        <div class="hu-header">
+          <span class="hu-id">HU-07</span>
+          <span class="hu-priority p2">P2 Medio</span>
+        </div>
+        <h3 class="hu-title">PerformanceObserver con entryTypes no soportados</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Home · layout-shift, longtask en Firefox</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Verificar PerformanceObserver.supportedEntryTypes antes de observar.</p>
+      </div>
+
+      <div class="hu-card p2">
+        <div class="hu-header">
+          <span class="hu-id">HU-08</span>
+          <span class="hu-priority p2">P2 Medio</span>
+        </div>
+        <h3 class="hu-title">Error no capturado en Host Listener (menú privado)</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Home · UNCAUGTHER ERROR HOST LISTENER PRIVATE MENU</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Buscar en código; añadir validaciones null/undefined; try/catch con logging.</p>
+      </div>
+
+      <div class="hu-card p3">
+        <div class="hu-header">
+          <span class="hu-id">HU-09</span>
+          <span class="hu-priority p3">P3 Bajo</span>
+        </div>
+        <h3 class="hu-title">Timeouts en carga de páginas</h3>
+        <p class="hu-meta"><strong>Zona:</strong> Inmobiliarias, Blog, Auth · networkidle timeout 30s</p>
+        <p class="hu-approach"><strong>Abordaje:</strong> Revisar polling/websockets; optimizar APIs; lazy loading de scripts terceros.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Plan de Ejecución</h2>
+      <table class="phase-table">
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>HUs</th>
+            <th>Esfuerzo estimado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fase 1 - Críticos</td>
+            <td>HU-01</td>
+            <td>2-3 días</td>
+          </tr>
+          <tr>
+            <td>Fase 2 - Altos</td>
+            <td>HU-02, HU-03, HU-04</td>
+            <td>3-5 días</td>
+          </tr>
+          <tr>
+            <td>Fase 3 - Medios</td>
+            <td>HU-05, HU-06, HU-07, HU-08</td>
+            <td>2-4 días</td>
+          </tr>
+          <tr>
+            <td>Fase 4 - Bajos</td>
+            <td>HU-09</td>
+            <td>1-2 días</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Capturas de Pantalla</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">Zonas con errores/warnings durante la auditoría</p>
+      <div class="screenshots-grid">
+        <div class="screenshot-item">
+          <img src="screenshots-auditoria/home-1773696763159.png" alt="Home" loading="lazy">
+          <span>Home</span>
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots-auditoria/arriendo-1773696769789.png" alt="Arriendo" loading="lazy">
+          <span>Arriendo</span>
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots-auditoria/venta-1773696775573.png" alt="Venta" loading="lazy">
+          <span>Venta</span>
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots-auditoria/constructoras-1773696811126.png" alt="Constructoras" loading="lazy">
+          <span>Constructoras</span>
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots-auditoria/productos-1773696876802.png" alt="Productos" loading="lazy">
+          <span>Productos</span>
+        </div>
+        <div class="screenshot-item">
+          <img src="screenshots-auditoria/remates-1773696881487.png" alt="Remates" loading="lazy">
+          <span>Remates</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Reporte generado el 16 de marzo de 2026 • Proyecto SQUAD-AGENTES-IA</p>
+      <p style="margin-top: 0.5rem;">Para reproducir: <code style="color: var(--accent);">node scripts/audit-console-errors.js</code></p>
+      <p style="margin-top: 1rem;"><a href="reportes.html">Ver todos los reportes</a></p>
+    </footer>
+  </div>
+</body>
+</html>

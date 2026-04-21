@@ -1,0 +1,39 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Flujo Automation Datadog Alert"]
+        M2["Objetivo: Cloud Agent Datadog (6 pasos)"]
+        M3["Ruta archivo: docs/diagrams/flujo-automation-datadog-alert.mmd"]
+    end
+
+    subgraph trigger ["Trigger"]
+        CRON[Schedule: cada 15 min]
+        CRON --> CA[Cursor Automation]
+    end
+
+    subgraph agent ["Cloud Agent — Validar: 6-inventario-agentes.md | Prompt: automation-datadog-alert-prompt.md"]
+        P0["P0: MCP Datadog search status:alert<br/>Objetivo: Obtener monitores en alerta"]
+        P1["P1: Validar servicios en Datadog<br/>Objetivo: Extraer servicio, host, tags, mensaje"]
+        P2["P2: Consultar repos GitHub<br/>Objetivo: Leer código para entender causa<br/>Config: serviceToRepos | github.repos"]
+        P3["P3: Generar plan en plans/<br/>Objetivo: plan-alerta-{id}.md"]
+        P4["P4: Buscar HU en Jira<br/>Objetivo: Evitar duplicados JQL"]
+        P5["P5: Crear HU si no existe<br/>Objetivo: Story/Task con contexto"]
+    end
+
+    subgraph mcps ["MCPs usados"]
+        DD[Datadog]
+        AT[Atlassian]
+        GH[GitHub]
+    end
+
+    CA --> P0
+    P0 --> P1
+    P1 --> P2
+    P2 --> P3
+    P3 --> P4
+    P4 --> P5
+
+    P0 --> DD
+    P1 --> DD
+    P2 --> GH
+    P4 --> AT
+    P5 --> AT

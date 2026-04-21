@@ -1,0 +1,127 @@
+{
+  "platforms": [
+    {
+      "id": "ciencuadras",
+      "name": "Ciencuadras",
+      "urls": {
+        "app": "https://www.ciencuadras.com/",
+        "pre": "https://pre.ciencuadras.com/",
+        "qa": "https://qa.ciencuadras.com/",
+        "staging": "https://pre.ciencuadras.com/",
+        "docs": ""
+      },
+      "smokePaths": ["/", "/arriendo", "/venta"],
+      "auditZones": [
+        { "name": "Home", "url": "/" },
+        { "name": "Arriendo", "url": "/arriendo" },
+        { "name": "Venta", "url": "/venta" },
+        { "name": "Inmobiliarias", "url": "/inmobiliarias" },
+        { "name": "Constructoras", "url": "/constructoras" },
+        { "name": "Blog", "url": "/blog" },
+        { "name": "Auth/Login", "url": "/auth" },
+        { "name": "Productos", "url": "/productos" },
+        { "name": "Remates", "url": "/inmuebles-en-remate" }
+      ],
+      "jira": {
+        "cloudId": "",
+        "projectKey": "GD768",
+        "projectUrl": "https://jirasegurosbolivar.atlassian.net/browse/GD768-10984",
+        "boardId": "",
+        "incidentBoardId": "35754",
+        "incidentBoardUrl": "https://jirasegurosbolivar.atlassian.net/jira/dashboards/35754",
+        "securityIncidentBoardId": "32394",
+        "securityIncidentBoardUrl": "https://jirasegurosbolivar.atlassian.net/jira/dashboards/32394",
+        "incidentCategories": [
+          { "category": "Aplicaciones Empresariales", "item": "Right Cien cuadras" },
+          { "category": "Data Operativa", "item": "Ecosistema Home" },
+          { "category": "Activos Digitales", "item": "Bitácora Avalúos Ciencuadras" },
+          { "category": "Aplicaciones Empresariales", "item": "Motor Avalúos" },
+          { "category": "Activos Digitales", "item": "Ciencuadras - Home" }
+        ],
+        "securitySquad": "Ciencuadras & Ecosistema Home"
+      },
+      "datadog": {
+        "site": "us1",
+        "dashboardId": "wei-k9v-vkx",
+        "dashboardUrl": "https://app.datadoghq.com/dashboard/wei-k9v-vkx/en-construccin-observabilidad-ciencuadras",
+        "dashboardIds": ["wei-k9v-vkx"],
+        "monitorTags": [],
+        "serviceToRepos": {
+          "ciencuadras-admin-eventos-masivos-ms": ["segurosbolivar/ciencuadras-admin-eventos-masivos-ms"],
+          "ciencuadras-carrito-compras-ms": ["segurosbolivar/ciencuadras-carrito-compras-ms"],
+          "ciencuadras-portal-frontend": ["segurosbolivar/ciencuadras-portal-frontend"],
+          "ciencuadras-admin-ms": ["segurosbolivar/ciencuadras-admin-ms"],
+          "ciencuadras-leads-ms": ["segurosbolivar/ciencuadras-leads-ms"],
+          "ciencuadras-motor-recomendados-ms": ["segurosbolivar/ciencuadras-motor-recomendados-ms"],
+          "ciencuadras-motor-perfilamiento-ms": ["segurosbolivar/ciencuadras-motor-perfilamiento-ms"],
+          "ciencuadras-integracion-marketo-ms": ["segurosbolivar/ciencuadras-integracion-marketo-ms"],
+          "ciencuadras-integracion-facturacion-ms": ["segurosbolivar/ciencuadras-integracion-facturacion-ms"],
+          "ciencuadras-sitios-interes-ms": ["segurosbolivar/ciencuadras-sitios-interes-ms"],
+          "ciencuadras-modelos-ia-ms": ["segurosbolivar/ciencuadras-modelos-ia-ms"],
+          "ciencuadras-listing-api-prod": ["segurosbolivar/ciencuadras-listing-api"]
+        }
+      },
+      "github": {
+        "org": "segurosbolivar",
+        "repos": [
+          "ciencuadras-admin-eventos-masivos-ms",
+          "ciencuadras-admin-ms",
+          "ciencuadras-lambdas-infra",
+          "ciencuadras-portal-frontend",
+          "ciencuadras-carrito-compras-ms"
+        ]
+      }
+    },
+    {
+      "id": "jelpit-conjuntos",
+      "name": "Jelpit Conjuntos",
+      "urls": {
+        "app": "https://www.jelpit.com/",
+        "pre": "https://pre.jelpit.com/",
+        "stage": "https://stage.jelpit.com/",
+        "staging": "https://stage.jelpit.com/",
+        "docs": "",
+        "jelpitPagos": {
+          "app": "https://mispagos.jelpit.com/",
+          "pre": "https://pre-mispagos.jelpit.com/",
+          "stage": "https://stage-mispagos.jelpit.com/",
+          "dev": "https://dev-mispagos.jelpit.com/"
+        }
+      },
+      "smokePaths": ["/"],
+      "auditZones": [
+        { "name": "Jelpit — Home", "url": "/" },
+        { "name": "Jelpit Pagos — Home (prod)", "url": "https://mispagos.jelpit.com/" }
+      ],
+      "jira": {
+        "cloudId": "",
+        "projectKey": "JELHRC",
+        "projectKeys": ["JELHRC", "GD911"],
+        "projectUrl": "https://jirasegurosbolivar.atlassian.net/browse/JELHRC-21371",
+        "additionalProjectUrls": [
+          "https://jirasegurosbolivar.atlassian.net/browse/GD911-1574"
+        ],
+        "boardId": "",
+        "incidentBoardId": "20602",
+        "incidentBoardUrl": "https://jirasegurosbolivar.atlassian.net/jira/dashboards/20602",
+        "securityIncidentBoardId": "32394",
+        "securityIncidentBoardUrl": "https://jirasegurosbolivar.atlassian.net/jira/dashboards/32394",
+        "squad": "Jelpit Conjuntos & Jelpit Pagos",
+        "securitySquad": "Jelpit Conjuntos & Jelpit Pagos"
+      },
+      "datadog": {
+        "site": "us1",
+        "dashboardId": "pmd-336-247",
+        "dashboardUrl": "https://app.datadoghq.com/dashboard/pmd-336-247/en-construccin-observabilidad-jelpit-conjuntos",
+        "dashboardIds": ["pmd-336-247"],
+        "monitorTags": [],
+        "serviceToRepos": {}
+      },
+      "github": {
+        "org": "",
+        "repos": []
+      }
+    }
+  ],
+  "defaultPlatformId": "ciencuadras"
+}

@@ -1,0 +1,78 @@
+# Publica la UI de Miniverse (build estático Vite) en GitHub Pages.
+# Configuración en el repo: Settings → Pages → Source: GitHub Actions.
+name: Deploy Miniverse to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'miniverse/**'
+      - '.github/workflows/deploy-miniverse-github-pages.yml'
+      # Reportes y estáticos en docs/ (HTML, CSS, datos, diagramas)
+      - 'docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages-miniverse
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: miniverse/package-lock.json
+
+      - name: Build Miniverse
+        working-directory: miniverse
+        env:
+          VITE_BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_MINIVERSE_API: https://miniverse-public-production.up.railway.app
+          VITE_MINIVERSE_WS: wss://miniverse-public-production.up.railway.app/ws
+        run: npm ci && npm run build
+
+      # GitHub Pages usa solo este artefacto: copiamos reportes y recursos de docs/ junto al SPA.
+      # No se copia docs/index.html para no reemplazar el index.html generado por Vite (Miniverse).
+      - name: Incluir páginas estáticas (docs/) en el sitio
+        run: |
+          DIST=miniverse/dist
+          mkdir -p "$DIST/diagrams" "$DIST/Asset" "$DIST/data" "$DIST/screenshots-auditoria"
+          for f in docs/*.html; do
+            [ -f "$f" ] || continue
+            b=$(basename "$f")
+            if [ "$b" = "index.html" ]; then
+              continue
+            fi
+            cp "$f" "$DIST/"
+          done
+          if [ -d docs/Asset ]; then cp -r docs/Asset/. "$DIST/Asset/"; fi
+          if [ -d docs/data ]; then cp -r docs/data/. "$DIST/data/"; fi
+          for hf in docs/diagrams/*.html; do
+            [ -f "$hf" ] && cp "$hf" "$DIST/diagrams/"
+          done
+          if [ -d docs/screenshots-auditoria ]; then cp -r docs/screenshots-auditoria/. "$DIST/screenshots-auditoria/"; fi
+          echo "Estáticos de docs/ copiados (index del SPA intacto)."
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: miniverse/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

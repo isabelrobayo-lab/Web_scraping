@@ -1,0 +1,15 @@
+---
+description: Reglas para ejecutar validaciones de calidad y asegurar que los contratos se cumplen.
+globs: "**/tests/**, **/*.spec.ts, **/*.spec.js, playwright.config.*"
+alwaysApply: false
+---
+
+# Calidad y Validación Técnica
+
+## Propósito
+[cite_start]Usar Playwright como los "ojos" del agente para validar que la lógica de negocio extraída de Jira funciona en la realidad. [cite: 323, 3148]
+
+## Instrucciones Operativas
+1. [cite_start]**Validación JIT (Just-In-Time):** Antes de confirmar que un requerimiento es viable, pide ejecutar los tests relevantes con `npx playwright test`. [cite: 337, 3149]
+2. [cite_start]**Diagnóstico de Errores:** Si un test falla, analiza los logs de la terminal para sugerir correcciones en la especificación técnica. [cite: 3258, 3862]
+3. [cite_start]**Modo Headed:** Solo usa `--headed` si el usuario necesita ver la ejecución físicamente. [cite: 3835]

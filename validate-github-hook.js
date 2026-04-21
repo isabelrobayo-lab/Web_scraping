@@ -1,0 +1,12 @@
+const fs = require('fs');
+const data = JSON.parse(fs.readFileSync('.kiro/hooks/github-mcp-guard.json', 'utf8'));
+console.log('Valid JSON: true');
+console.log('name:', data.name);
+console.log('version:', data.version);
+console.log('when.type:', data.when.type);
+console.log('toolTypes:', JSON.stringify(data.when.toolTypes));
+console.log('then.type:', data.then.type);
+console.log('has prompt:', !!data.then.prompt);
+console.log('has CANCELA:', data.then.prompt.includes('CANCELA'));
+console.log('has EXCEPCION:', data.then.prompt.includes('EXCEPCIÓN'));
+console.log('has GitHub_Repos:', data.then.prompt.includes('GitHub_Repos'));

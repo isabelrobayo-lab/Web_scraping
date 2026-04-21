@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "name": "Swarm Delegation Enforcer",
+  "description": "Obliga al Orquestador a evaluar si debe delegar la tarea a un agente especialista antes de responder directamente. Previene que el Orquestador absorba trabajo de dominio. Alineado con la Regla de Oro de 00-swarm-orchestrator.md.",
+  "version": "1",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "DELEGACIÓN — Swarm Delegation Enforcer.\n\nAntes de responder al usuario, evalúa si la tarea debe delegarse a un agente especialista según el mapa del Orquestador (00-swarm-orchestrator.md):\n\n| Dominio | Agente |\n|---------|--------|\n| Tickets Jira, Confluence, backlog | Scout |\n| Exploración amplia del repo, localizar patrones | Historian |\n| Comandos shell, git, tests CLI, pipelines | Guardian |\n| Repos externos de plataforma (platforms.json) | GitHub Repos |\n| Historias de usuario, INVEST, Gherkin | PO-Agile |\n| Alertas Datadog, correlación con repos y Jira | Cloud Agent Datadog Alert |\n| Comportamiento de usuarios, Microsoft Clarity | Clarity Behavior |\n| Actualizar docs/ tras cambio de código | Doc Updater |\n\nRegla de Oro: Toda petición de trabajo debe comenzar con una Decisión de orquestación explícita (intención del usuario + agente activado + por qué). Prohibido asumir que la tarea es tan simple que no merece especialista.\n\nExcepciones: Saludo o tema meta sin entregable (solo texto). El usuario ordena explícitamente 'sin subagentes'.\n\nSi el dominio encaja con un agente del inventario, DEBES activarlo vía subagente. No absorber el trabajo directamente."
+  },
+  "shortName": "swarm-delegation-enforcer"
+}

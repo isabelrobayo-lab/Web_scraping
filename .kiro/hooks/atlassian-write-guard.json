@@ -1,0 +1,13 @@
+{
+  "name": "atlassian-write-guard",
+  "version": "1.0.0",
+  "description": "Guardia de operaciones de escritura en Atlassian MCP. Solo los agentes Scout y PO_Agile pueden crear, actualizar o eliminar en Jira/Confluence.",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [".*atlassian.*(create|update|edit|delete).*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CHECKPOINT DE DOMINIO — Atlassian Escritura.\n\nEstás a punto de invocar una operación de escritura en el MCP de Atlassian (crear, actualizar, editar o eliminar issues, páginas o comentarios en Jira/Confluence).\n\nEvalúa lo siguiente:\n1. Revisa los archivos de steering activos en tu contexto. ¿Tu rol actual corresponde al agente Scout (análisis Jira/Confluence) o PO_Agile (Product Owner / Agile Master)?\n2. Si tu rol NO es Scout ni PO_Agile: CANCELA esta operación de escritura. Sugiere al usuario delegar al agente Scout (para operaciones de análisis/tickets) o PO_Agile (para historias de usuario/backlog) según el tipo de operación.\n3. Si tu rol ES Scout o PO_Agile: procede sin restricción adicional.\n\nResponde con tu evaluación antes de continuar."
+  }
+}

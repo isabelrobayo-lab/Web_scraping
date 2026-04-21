@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITULO}} | SQUAD-AGENTES-IA | Vicepresidencia Negocio y Tecnología</title>
+  <meta name="description" content="{{DESCRIPCION}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Asset/report-base.css">
+  <link rel="stylesheet" href="Asset/report-components.css">
+</head>
+<body>
+  <div class="container">
+    <a href="reportes.html" class="nav-link">← Ver todos los reportes</a>
+    <a href="index.html" class="nav-link" style="margin-left: 1rem;">Inicio →</a>
+
+    <header>
+      <h1 class="report-title">{{TITULO_REPORTE}}</h1>
+      <p class="report-subtitle">{{SUBTITULO}}</p>
+      <span class="report-meta">{{META}}</span>
+    </header>
+
+    <section class="section">
+      <div class="summary-box">
+        <h3>Resumen ejecutivo</h3>
+        <p>{{RESUMEN_EJECUTIVO}}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">{{SECCION_1_TITULO}}</h2>
+      <!-- Contenido dinámico -->
+    </section>
+
+    <footer class="footer">
+      <p>Reporte generado el {{FECHA}}</p>
+      <p style="margin-top: 0.5rem;">Proyecto SQUAD-AGENTES-IA</p>
+      <p style="margin-top: 1rem;"><a href="reportes.html">Ver todos los reportes</a></p>
+    </footer>
+  </div>
+</body>
+</html>

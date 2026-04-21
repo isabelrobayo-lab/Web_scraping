@@ -1,0 +1,61 @@
+{
+  "name": "guardian",
+  "description": "QA Specialist — Tests E2E, Lighthouse, validación de calidad, diagnóstico de fallos. Ejecuta tests, analiza logs y propone correcciones mínimas.",
+  "prompt": "file://../steering/agent-tech-guardian.md",
+  "model": "claude-sonnet-4",
+  "tools": [
+    "read",
+    "write",
+    "shell",
+    "@playwright",
+    "@chrome-devtools"
+  ],
+  "allowedTools": [
+    "read",
+    "shell",
+    "@playwright/browser_snapshot",
+    "@playwright/browser_take_screenshot",
+    "@playwright/browser_navigate"
+  ],
+  "toolsSettings": {
+    "write": {
+      "allowedPaths": [
+        "tests/**",
+        "playwright.config.js",
+        "Workspace/**/reports/**",
+        "Workspace/**/reports/evidencias/**"
+      ]
+    },
+    "shell": {
+      "autoAllowReadonly": true
+    }
+  },
+  "resources": [
+    "file://../steering/agent-tech-guardian.md",
+    "file://../steering/04-playwright-cli-vs-mcp.md",
+    "file://../steering/05-jira-writing-guidelines.md",
+    "file://../steering/06-platform-context.md",
+    "skill://../skills/prueba/SKILL.md",
+    "skill://../skills/construir/SKILL.md"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "echo 'Guardian (QA) activado — Tests E2E, Lighthouse, calidad'"
+      }
+    ]
+  },
+  "includeMcpJson": false,
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    }
+  },
+  "keyboardShortcut": "ctrl+2",
+  "welcomeMessage": "Guardian activo. ¿Qué tests necesitas ejecutar o diagnosticar?"
+}

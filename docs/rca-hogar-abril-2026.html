@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe RCA — Hogar — Abril 2026 | Seguros Bolívar</title>
+<meta name="description" content="Análisis de Causa Raíz (RCA) para el producto Hogar de Seguros Bolívar — Abril 2026. 4 incidentes, 4 clústeres de solución.">
+<style>
+/* ── Variables ── */
+:root {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --accent: #1a365d;
+  --accent-light: #2b6cb0;
+  --accent-bg: #ebf4ff;
+  --green: #16a34a;
+  --green-bg: rgba(22,163,74,.1);
+  --yellow: #ca8a04;
+  --yellow-bg: rgba(202,138,4,.1);
+  --red: #dc2626;
+  --red-bg: rgba(220,38,38,.1);
+  --orange: #ea580c;
+  --orange-bg: rgba(234,88,12,.1);
+  --teal: #0d9488;
+  --teal-bg: rgba(13,148,136,.08);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+a { color: var(--accent-light); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+/* ── Header ── */
+.report-header {
+  background: linear-gradient(135deg, var(--accent) 0%, #2c5282 100%);
+  color: #fff;
+  padding: 2.5rem 2rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.report-header::after {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: rgba(255,255,255,.05);
+  border-radius: 50%;
+}
+.report-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: .35rem;
+  position: relative;
+}
+.report-header .subtitle {
+  font-size: .95rem;
+  opacity: .85;
+  margin-bottom: 1rem;
+}
+.report-header .meta-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: .8rem;
+  opacity: .75;
+}
+.report-header .meta-row span { display: inline-flex; align-items: center; gap: .3rem; }
+
+/* ── Stats Row ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.stat-card .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.stat-card .stat-label {
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: .25rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+/* ── Section ── */
+.section { margin-bottom: 2.5rem; }
+.section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--accent-bg);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.section-title .icon { font-size: 1.1rem; }
+
+/* ── Summary Box ── */
+.summary-box {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.summary-box h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: .75rem;
+}
+.summary-box p {
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ── Tables ── */
+.table-wrapper {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  margin-bottom: 1.5rem;
+}
+table { width: 100%; border-collapse: collapse; min-width: 700px; }
+th {
+  text-align: left;
+  padding: .85rem 1.25rem;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: .85rem 1.25rem;
+  font-size: .88rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(26,54,93,.02); }
+
+/* ── Badges ── */
+.badge {
+  display: inline-block;
+  padding: .2rem .65rem;
+  border-radius: 9999px;
+  font-size: .7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge-baja { background: var(--green-bg); color: var(--green); }
+.badge-media { background: var(--yellow-bg); color: var(--yellow); }
+.badge-alta { background: var(--red-bg); color: var(--red); }
+.badge-resuelto { background: var(--green-bg); color: var(--green); }
+.badge-abierto { background: var(--red-bg); color: var(--red); border: 1px dashed var(--red); }
+.badge-cerrado { background: var(--green-bg); color: var(--green); }
+.badge-prioridad-alta { background: var(--red-bg); color: var(--red); }
+.badge-prioridad-media { background: var(--orange-bg); color: var(--orange); }
+
+/* ── Status indicators ── */
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: .4rem;
+  vertical-align: middle;
+}
+.status-dot.closed { background: var(--green); box-shadow: 0 0 0 3px var(--green-bg); }
+.status-dot.open { background: var(--red); box-shadow: 0 0 0 3px var(--red-bg); animation: pulse-red 2s infinite; }
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 3px var(--red-bg); }
+  50% { box-shadow: 0 0 0 6px rgba(220,38,38,.08); }
+}
+.row-closed { border-left: 3px solid var(--green); }
+.row-open { border-left: 3px solid var(--red); background: rgba(220,38,38,.02); }
+
+/* ── Cluster Cards ── */
+.cluster-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 1.75rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.cluster-header {
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border);
+}
+.cluster-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.cluster-header .cluster-meta {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.cluster-body { padding: 1.5rem 1.75rem; }
+.cluster-body h4 {
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .5rem;
+  margin-top: 1.25rem;
+}
+.cluster-body h4:first-child { margin-top: 0; }
+.cluster-body p {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.cluster-body ul {
+  margin: .5rem 0 0 1.25rem;
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.cluster-body ul li { margin-bottom: .25rem; }
+.cluster-incidents {
+  background: #f8fafc;
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.75rem;
+}
+.cluster-incidents .incident-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: var(--accent-bg);
+  color: var(--accent-light);
+  padding: .25rem .7rem;
+  border-radius: 6px;
+  font-size: .78rem;
+  font-weight: 600;
+  margin-right: .5rem;
+  margin-bottom: .35rem;
+}
+.effort-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .75rem;
+  font-weight: 600;
+  padding: .2rem .6rem;
+  border-radius: 6px;
+}
+.effort-baja { background: var(--green-bg); color: var(--green); }
+.effort-media { background: var(--yellow-bg); color: var(--yellow); }
+.effort-alta { background: var(--red-bg); color: var(--red); }
+
+/* ── Timeline ── */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: .6rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.45rem;
+  top: .45rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-light);
+  background: var(--card);
+}
+.timeline-item.resolved::before {
+  background: var(--green);
+  border-color: var(--green);
+}
+.timeline-date {
+  font-size: .75rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: .2rem;
+}
+.timeline-title {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .15rem;
+}
+.timeline-desc {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Info Note ── */
+.info-note {
+  background: var(--teal-bg);
+  border: 1px solid rgba(13,148,136,.2);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+.info-note strong { color: var(--teal); }
+
+/* ── Footer ── */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.footer p { margin-bottom: .35rem; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .container { padding: 1rem; }
+  .report-header { padding: 1.5rem 1.25rem; }
+  .report-header h1 { font-size: 1.25rem; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .cluster-header { flex-direction: column; align-items: flex-start; }
+  table { min-width: 500px; }
+}
+@media print {
+  body { background: #fff; }
+  .report-header { background: var(--accent) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .cluster-card, .table-wrapper { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ════════════════════════════════════════════════════════════════════
+     HEADER
+     ════════════════════════════════════════════════════════════════════ -->
+<div class="report-header">
+  <h1>📊 Informe de Análisis de Causa Raíz — Hogar — Abril 2026</h1>
+  <p class="subtitle">Producto Hogar · Seguros Bolívar · Vicepresidencia Negocio y Tecnología</p>
+  <div class="meta-row">
+    <span>📅 Período analizado: Ene 2026 – Abr 2026</span>
+    <span>🔍 Incidentes analizados: 4</span>
+    <span>🧩 Clústeres identificados: 4</span>
+    <span>📋 Fuente: Jira MDSB</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     STATS
+     ════════════════════════════════════════════════════════════════════ -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--accent)">4</div>
+    <div class="stat-label">Incidentes</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--accent-light)">4</div>
+    <div class="stat-label">Clústeres RCA</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--red)">3</div>
+    <div class="stat-label">Prioridad Alta</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--green)">3</div>
+    <div class="stat-label">Resueltos</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value" style="color:var(--yellow)">~20 d</div>
+    <div class="stat-label">Tiempo Medio Resolución</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     RESUMEN EJECUTIVO
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="section-title"><span class="icon">📋</span> Resumen Ejecutivo</h2>
+
+  <div class="summary-box">
+    <h3>Contexto</h3>
+    <p>
+      Durante el período enero–abril 2026 se registraron <strong>4 incidentes</strong> en el producto Hogar de Seguros Bolívar,
+      afectando los productos 923 (Vivienda/Hogar Digital) y 109 (Vivienda/Hogar), así como el cotizador Simón Cotizadores Hogar.
+      Los incidentes impactaron procesos críticos de negocio: renovación de pólizas, parametrización de tasas, generación de cotizaciones
+      y disponibilidad del cotizador web. Todos los incidentes fueron resueltos, pero el análisis revela <strong>4 causas raíz sistémicas</strong>
+      que requieren soluciones definitivas para prevenir recurrencia.
+    </p>
+  </div>
+
+  <div class="info-note">
+    <strong>Hallazgo principal:</strong> El 50% de los incidentes (2 de 4) están relacionados con errores de lógica y parametrización
+    en los procesos core de Simón Web Ventas (renovación y tasas). El otro 50% corresponde a limitaciones operativas (numeración de cotizaciones)
+    y problemas de compatibilidad en migración de infraestructura (WLS 12c → 14c).
+  </div>
+
+  <!-- Tabla comparativa de soluciones -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Clúster de Solución</th>
+          <th>Complejidad</th>
+          <th>Esfuerzo</th>
+          <th>Impacto</th>
+          <th>Incidentes</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Validación de Coberturas en Renovación</strong></td>
+          <td><span class="badge badge-media">Media</span></td>
+          <td>2–3 sprints</td>
+          <td>Previene pérdida de coberturas en renovación automática</td>
+          <td>MDSB-988188</td>
+          <td><span class="status-dot open"></span><span class="badge badge-abierto">🔴 En Curso</span></td>
+        </tr>
+        <tr>
+          <td><strong>2. Parametrización de Tasas por Ciudad/Producto</strong></td>
+          <td><span class="badge badge-baja">Baja</span></td>
+          <td>1 sprint</td>
+          <td>Corrige inclusión de coberturas con tasas vigentes</td>
+          <td>MDSB-964781</td>
+          <td><span class="status-dot closed"></span><span class="badge badge-cerrado">✅ Cerrado</span></td>
+        </tr>
+        <tr>
+          <td><strong>3. Gestión de Numeración de Cotizaciones</strong></td>
+          <td><span class="badge badge-baja">Baja</span></td>
+          <td>1 sprint</td>
+          <td>Elimina bloqueo de cotizaciones por agotamiento de rango</td>
+          <td>MDSB-962208</td>
+          <td><span class="status-dot closed"></span><span class="badge badge-cerrado">✅ Cerrado</span></td>
+        </tr>
+        <tr>
+          <td><strong>4. Compatibilidad Encoding WLS 12c → 14c</strong></td>
+          <td><span class="badge badge-alta">Alta</span></td>
+          <td>3–4 sprints</td>
+          <td>Habilita migración completa a WLS 14c sin indisponibilidad</td>
+          <td>MDSB-959058</td>
+          <td><span class="status-dot closed"></span><span class="badge badge-cerrado">✅ Cerrado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     DETALLE POR CLÚSTER
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="section-title"><span class="icon">🔬</span> Detalle por Clúster de Solución</h2>
+
+  <!-- ── Clúster 1 ── -->
+  <div class="cluster-card">
+    <div class="cluster-header">
+      <h3>🔴 Clúster 1: Validación de Coberturas en Proceso de Renovación</h3>
+      <div class="cluster-meta">
+        <span class="effort-tag effort-media">⏱ Media · 2–3 sprints</span>
+        <span class="badge badge-prioridad-alta">Prioridad Alta</span>
+      </div>
+    </div>
+    <div class="cluster-body">
+      <h4>🎯 Causa Raíz</h4>
+      <p>
+        El proceso de renovación de pólizas Hogar (Producto 923) no preserva correctamente las marcas de selección de coberturas
+        (ej. TERREMOTO). La tabla 2020 almacena "N" en lugar de "S" para coberturas que deberían estar activas post-renovación.
+      </p>
+
+      <h4>❓ ¿Por qué se presenta?</h4>
+      <p>
+        Falta de validación en el script de renovación que no verifica la consistencia entre coberturas contratadas originalmente
+        y las marcas de selección post-renovación. Posible condición de carrera o lógica incompleta en el stored procedure de renovación.
+        Al renovar la póliza 923, la marca de selección de TERREMOTO quedó sin selección, y cuando se hace una modificación posterior,
+        el proceso detecta que ya no contrató la cobertura. Además, excluye cobertura TERREMOTO INM sin que el usuario lo solicite
+        y no toma asistencia.
+      </p>
+
+      <h4>✅ Solución Aplicada (Temporal)</h4>
+      <p>
+        Se ejecutó script de renovación manual. Se validó en tablas 2040 y 2020 que las coberturas (303 y 502) que tenían valor "N"
+        fueron renovadas con estado correcto "S". Paso a producción el 6-abr-2026.
+        <br><strong style="color:var(--red)">⚠️ Estado actual: EN CURSO — Pendiente validación definitiva por parte de operaciones.
+        La solución aplicada es un workaround puntual; la causa raíz sistémica no ha sido corregida.</strong>
+      </p>
+
+      <h4>🛠 Solución Definitiva Propuesta</h4>
+      <ul>
+        <li>Refactorizar el proceso de renovación para incluir validación cruzada entre tablas 2040 (coberturas) y 2020 (estado).</li>
+        <li>Implementar test automatizado de regresión que verifique que todas las coberturas activas pre-renovación se mantienen post-renovación.</li>
+        <li>Requiere análisis de stored procedures + pruebas QA + UAT.</li>
+      </ul>
+    </div>
+    <div class="cluster-incidents">
+      <strong style="font-size:.8rem;color:var(--muted);margin-right:.5rem;">Incidentes vinculados:</strong>
+      <span class="incident-tag" style="background:var(--red-bg);color:var(--red)"><span class="status-dot open" style="width:8px;height:8px"></span> MDSB-988188 🔴 En Curso</span>
+      <span class="incident-tag" style="opacity:.7">📎 GD944-2054</span>
+    </div>
+  </div>
+
+  <!-- ── Clúster 2 ── -->
+  <div class="cluster-card">
+    <div class="cluster-header">
+      <h3>🟡 Clúster 2: Parametrización de Tasas y Coberturas por Ciudad/Producto</h3>
+      <div class="cluster-meta">
+        <span class="effort-tag effort-baja">⏱ Baja · 1 sprint</span>
+        <span class="badge badge-prioridad-alta">Prioridad Alta</span>
+      </div>
+    </div>
+    <div class="cluster-body">
+      <h4>🎯 Causa Raíz</h4>
+      <p>
+        Las tablas de parametrización de tasas por ciudad y producto no se validan correctamente contra las fechas de vigencia de la póliza.
+        El sistema no toma la parametrización de tasa de edificio aunque los parámetros de la ciudad están vigentes.
+      </p>
+
+      <h4>❓ ¿Por qué se presenta?</h4>
+      <p>
+        La lógica de consulta de tasas no considera correctamente el rango de fechas de vigencia vs. la fecha de inicio de la inclusión del riesgo.
+        Al incluir riesgo 123 en póliza 1563100260310 con inicio vigencia 20-ene-2025, no toma la inclusión de cobertura edificio.
+        Los parámetros de la ciudad están con fecha 20.12.2025, por lo que debería permitir la inclusión. Existe una desalineación entre
+        la fecha de vigencia del riesgo y la fecha de consulta de parámetros.
+      </p>
+
+      <h4>✅ Solución Aplicada</h4>
+      <p>Ajuste manual de parametrización. Resuelto en 7 días.</p>
+
+      <h4>🛠 Solución Definitiva Propuesta</h4>
+      <ul>
+        <li>Auditar y corregir la lógica de consulta de tasas parametrizadas para que considere correctamente la fecha de inicio de vigencia del endoso/inclusión.</li>
+        <li>Implementar validación preventiva que alerte cuando no se encuentre parametrización válida para la combinación ciudad/producto/fecha.</li>
+        <li>Ajuste en lógica de consulta SQL + validación en frontend.</li>
+      </ul>
+    </div>
+    <div class="cluster-incidents">
+      <strong style="font-size:.8rem;color:var(--muted);margin-right:.5rem;">Incidentes cerrados:</strong>
+      <span class="incident-tag"><span class="status-dot closed" style="width:8px;height:8px"></span> MDSB-964781 ✅</span>
+      <span class="incident-tag" style="opacity:.7">📎 MDSB-967359</span>
+      <span class="incident-tag" style="opacity:.7">📎 MDSB-969943</span>
+    </div>
+  </div>
+
+  <!-- ── Clúster 3 ── -->
+  <div class="cluster-card">
+    <div class="cluster-header">
+      <h3>🟡 Clúster 3: Gestión de Numeración de Cotizaciones (Límite GR)</h3>
+      <div class="cluster-meta">
+        <span class="effort-tag effort-baja">⏱ Baja · 1 sprint</span>
+        <span class="badge badge-prioridad-media">Prioridad Media</span>
+      </div>
+    </div>
+    <div class="cluster-body">
+      <h4>🎯 Causa Raíz</h4>
+      <p>
+        El rango de numeración asignado a las pólizas GR (grupales/principales) tiene un límite finito que no se monitorea proactivamente.
+        Cuando se agota, el sistema lanza <code style="background:#f1f5f9;padding:.15rem .4rem;border-radius:4px;font-size:.82rem;">ORA-20002: ERROR AL RESCATAR NUMERO DE COTIZACION</code>.
+      </p>
+
+      <h4>❓ ¿Por qué se presenta?</h4>
+      <p>
+        No existe un mecanismo de alerta temprana que notifique cuando la numeración de un GR está próxima a agotarse.
+        El proceso de ampliación es manual y reactivo: el director debe comunicarse con línea de operaciones para solicitar ampliación de numeración.
+        Caso similar previo registrado en MDSB-423266.
+      </p>
+
+      <h4>✅ Solución Aplicada</h4>
+      <p>
+        Se indicó al director que debe comunicarse con línea de operaciones para solicitar ampliación de numeración del GR.
+        Resuelto en ~24 días.
+      </p>
+
+      <h4>🛠 Solución Definitiva Propuesta</h4>
+      <ul>
+        <li>Implementar monitor automático (job Oracle o alerta Datadog) que detecte cuando la ocupación de numeración de un GR supere el 80%.</li>
+        <li>Notificar al equipo de operaciones de forma proactiva.</li>
+        <li>Considerar ampliación automática o rangos dinámicos.</li>
+        <li>Crear runbook de ampliación para estandarizar el proceso.</li>
+      </ul>
+    </div>
+    <div class="cluster-incidents">
+      <strong style="font-size:.8rem;color:var(--muted);margin-right:.5rem;">Incidentes cerrados:</strong>
+      <span class="incident-tag"><span class="status-dot closed" style="width:8px;height:8px"></span> MDSB-962208 ✅</span>
+    </div>
+  </div>
+
+  <!-- ── Clúster 4 ── -->
+  <div class="cluster-card">
+    <div class="cluster-header">
+      <h3>🔴 Clúster 4: Compatibilidad de Codificación en Migración WLS 12c → 14c</h3>
+      <div class="cluster-meta">
+        <span class="effort-tag effort-alta">⏱ Alta · 3–4 sprints</span>
+        <span class="badge badge-prioridad-alta">Prioridad Alta</span>
+      </div>
+    </div>
+    <div class="cluster-body">
+      <h4>🎯 Causa Raíz</h4>
+      <p>
+        La migración de Simón Cotizadores de WebLogic Server 12c a 14c introdujo problemas de codificación de caracteres en archivos JSP
+        y <code style="background:#f1f5f9;padding:.15rem .4rem;border-radius:4px;font-size:.82rem;">application-config.properties</code>.
+        WLS 14c maneja el encoding de forma diferente, causando que caracteres especiales (tildes, eñes) corrompan el renderizado de páginas.
+      </p>
+
+      <h4>❓ ¿Por qué se presenta?</h4>
+      <p>
+        No se realizaron pruebas de compatibilidad de encoding entre WLS 12c y 14c antes del paso a producción.
+        Los archivos JSP y properties no fueron migrados con la codificación correcta (UTF-8 vs ISO-8859-1).
+        El archivo <code style="background:#f1f5f9;padding:.15rem .4rem;border-radius:4px;font-size:.82rem;">application-config.properties</code>
+        presenta daños asociados a caracteres especiales, impidiendo la correcta visualización de la cobertura en el front.
+      </p>
+
+      <h4>✅ Solución Aplicada (Temporal)</h4>
+      <p>
+        Rollback del apuntamiento en Access Manager de WLS 14c a WLS 12c. Ejecutado a las 23:00 hrs del 09-ene-2026.
+        Duración del incidente: 6h 56min. Grupo resolutor: Tribu de Desarrollo (Corex — Sandro Preciado),
+        Infraestructura On-Premise (Rosa Ruiz), Access Manager (Yonny Gaitán).
+      </p>
+
+      <h4>🛠 Solución Definitiva Propuesta</h4>
+      <ul>
+        <li>Auditar todos los archivos JSP y properties para asegurar encoding UTF-8 consistente.</li>
+        <li>Configurar WLS 14c con los parámetros de encoding correctos (<code style="background:#f1f5f9;padding:.15rem .4rem;border-radius:4px;font-size:.82rem;">-Dfile.encoding=UTF-8</code>).</li>
+        <li>Implementar smoke tests de rendering post-deploy que validen caracteres especiales.</li>
+        <li>Completar la migración a WLS 14c con los ajustes de encoding.</li>
+        <li>Requiere auditoría de archivos, ajuste de configuración WLS, pruebas de regresión completas, y re-migración controlada.</li>
+      </ul>
+    </div>
+    <div class="cluster-incidents">
+      <strong style="font-size:.8rem;color:var(--muted);margin-right:.5rem;">Incidentes cerrados:</strong>
+      <span class="incident-tag"><span class="status-dot closed" style="width:8px;height:8px"></span> MDSB-959058 ✅</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     DETALLE DE INCIDENTES
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="section-title"><span class="icon">🎫</span> Detalle de Incidentes Analizados</h2>
+
+  <div class="info-note">
+    <strong>Leyenda de estado:</strong>
+    <span style="margin-left:.75rem"><span class="status-dot closed"></span> <strong style="color:var(--green)">Cerrado</strong> — Incidente resuelto y validado</span>
+    <span style="margin-left:1.25rem"><span class="status-dot open"></span> <strong style="color:var(--red)">Abierto</strong> — Pendiente de solución definitiva o validación</span>
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Estado</th>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Prioridad</th>
+          <th>Aplicación</th>
+          <th>Creado</th>
+          <th>Resuelto</th>
+          <th>Días</th>
+          <th>Clúster</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-open">
+          <td><span class="status-dot open"></span><span class="badge badge-abierto">🔴 En Curso</span></td>
+          <td><strong>MDSB-988188</strong></td>
+          <td>Error en Renovación Producto 923</td>
+          <td><span class="badge badge-prioridad-alta">Alta</span></td>
+          <td>SIMON WEB VENTAS CIA 3</td>
+          <td>24-feb-2026</td>
+          <td>—</td>
+          <td style="font-weight:600;color:var(--red)">49+</td>
+          <td><span class="badge badge-media">C1</span></td>
+        </tr>
+        <tr class="row-closed">
+          <td><span class="status-dot closed"></span><span class="badge badge-cerrado">✅ Cerrado</span></td>
+          <td><strong>MDSB-964781</strong></td>
+          <td>Error Parametrización Tasa Edificio Producto 109</td>
+          <td><span class="badge badge-prioridad-alta">Alta</span></td>
+          <td>SIMON WEB VENTAS CIA 3</td>
+          <td>21-ene-2026</td>
+          <td>28-ene-2026</td>
+          <td style="font-weight:600;color:var(--green)">7</td>
+          <td><span class="badge badge-baja">C2</span></td>
+        </tr>
+        <tr class="row-closed">
+          <td><span class="status-dot closed"></span><span class="badge badge-cerrado">✅ Cerrado</span></td>
+          <td><strong>MDSB-962208</strong></td>
+          <td>Error Cotizador Hogar (ORA-20002)</td>
+          <td><span class="badge badge-prioridad-media">Media</span></td>
+          <td>SIMON Cotizadores Hogar</td>
+          <td>16-ene-2026</td>
+          <td>09-feb-2026</td>
+          <td style="font-weight:600;color:var(--yellow)">24</td>
+          <td><span class="badge badge-baja">C3</span></td>
+        </tr>
+        <tr class="row-closed">
+          <td><span class="status-dot closed"></span><span class="badge badge-cerrado">✅ Cerrado</span></td>
+          <td><strong>MDSB-959058</strong></td>
+          <td>Indisponibilidad Simón Cotizadores Hogar (MASTER)</td>
+          <td><span class="badge badge-prioridad-alta">Alta</span></td>
+          <td>SIMON Cotizadores Hogar</td>
+          <td>09-ene-2026</td>
+          <td>09-ene-2026</td>
+          <td style="font-weight:600;color:var(--green)">&lt;1</td>
+          <td><span class="badge badge-alta">C4</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     TIMELINE
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="section-title"><span class="icon">📅</span> Timeline de Incidentes</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item resolved">
+      <div class="timeline-date">09 enero 2026</div>
+      <div class="timeline-title">MDSB-959058 — Indisponibilidad Simón Cotizadores Hogar</div>
+      <div class="timeline-desc">
+        Cotizador Hogar no disponible tras migración WLS 12c → 14c. Problema de encoding en archivos JSP y properties.
+        <strong>Rollback a WLS 12c a las 23:00 hrs.</strong> Duración del incidente: 6h 56min.
+        <br><span class="badge badge-prioridad-alta" style="margin-top:.35rem">Alta</span>
+        <span class="badge badge-resuelto" style="margin-top:.35rem">Resuelto mismo día</span>
+      </div>
+    </div>
+
+    <div class="timeline-item resolved">
+      <div class="timeline-date">16 enero 2026</div>
+      <div class="timeline-title">MDSB-962208 — Error Cotizador Hogar (ORA-20002)</div>
+      <div class="timeline-desc">
+        Usuario no puede generar cotizaciones. Error <code>ORA-20002</code> por agotamiento de rango de numeración del GR.
+        <br><span class="badge badge-prioridad-media" style="margin-top:.35rem">Media</span>
+      </div>
+    </div>
+
+    <div class="timeline-item resolved">
+      <div class="timeline-date">21 enero 2026</div>
+      <div class="timeline-title">MDSB-964781 — Error Parametrización Tasa Edificio Producto 109</div>
+      <div class="timeline-desc">
+        No toma inclusión de cobertura edificio por desalineación de fechas en parametrización de tasas.
+        <br><span class="badge badge-prioridad-alta" style="margin-top:.35rem">Alta</span>
+      </div>
+    </div>
+
+    <div class="timeline-item resolved">
+      <div class="timeline-date">28 enero 2026</div>
+      <div class="timeline-title">✅ MDSB-964781 — Resuelto</div>
+      <div class="timeline-desc">
+        Ajuste manual de parametrización completado. Tiempo de resolución: 7 días.
+      </div>
+    </div>
+
+    <div class="timeline-item resolved">
+      <div class="timeline-date">09 febrero 2026</div>
+      <div class="timeline-title">✅ MDSB-962208 — Resuelto</div>
+      <div class="timeline-desc">
+        Ampliación de numeración del GR solicitada y aplicada. Tiempo de resolución: 24 días.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">24 febrero 2026</div>
+      <div class="timeline-title">MDSB-988188 — Error en Renovación Producto 923</div>
+      <div class="timeline-desc">
+        Renovación de póliza 923 pierde marca de selección de TERREMOTO. Coberturas 303 y 502 quedan con estado "N" en tabla 2020.
+        <br><span class="badge badge-prioridad-alta" style="margin-top:.35rem">Alta</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">13 marzo 2026</div>
+      <div class="timeline-title">📝 Comentario clave — Aurelio Enriquez</div>
+      <div class="timeline-desc">
+        "Es un error en la Renovación, la marca de Selección de TERREMOTO quedó sin selección y por esto cuando se hace una modificación
+        el proceso detecta que ya no contrató la Cobertura."
+      </div>
+    </div>
+
+    <div class="timeline-item resolved">
+      <div class="timeline-date">06 abril 2026</div>
+      <div class="timeline-title">🚀 Paso a producción — Script de renovación MDSB-988188</div>
+      <div class="timeline-desc">
+        Script de corrección desplegado. Coberturas 303 y 502 corregidas de "N" a "S" en tablas 2040 y 2020.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">14 abril 2026</div>
+      <div class="timeline-title">🔴 MDSB-988188 — En Curso</div>
+      <div class="timeline-desc">
+        Incidente sigue abierto. Se aplicó workaround puntual (script), pero la causa raíz sistémica en el proceso de renovación
+        no ha sido corregida. Pendiente solución definitiva. <strong style="color:var(--red)">49+ días abierto.</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     MATRIZ DE RIESGO / PRIORIZACIÓN
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <h2 class="section-title"><span class="icon">⚡</span> Priorización de Soluciones Definitivas</h2>
+
+  <div class="info-note">
+    <strong>Criterio de priorización:</strong> Se recomienda abordar primero las soluciones de baja complejidad con alto impacto operativo
+    (Clústeres 2 y 3), seguidas por la solución de complejidad media (Clúster 1), y finalmente la migración WLS (Clúster 4) que requiere
+    coordinación entre múltiples equipos.
+  </div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Clúster</th>
+          <th>Complejidad</th>
+          <th>Riesgo de Recurrencia</th>
+          <th>Equipos Involucrados</th>
+          <th>Orden Sugerido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>C2</td>
+          <td>Parametrización de Tasas</td>
+          <td><span class="badge badge-baja">Baja</span></td>
+          <td><span class="badge badge-alta">Alto</span></td>
+          <td>Desarrollo Core (PL/SQL)</td>
+          <td style="font-weight:700;color:var(--green)">1º — Quick Win</td>
+        </tr>
+        <tr>
+          <td>C3</td>
+          <td>Numeración de Cotizaciones</td>
+          <td><span class="badge badge-baja">Baja</span></td>
+          <td><span class="badge badge-media">Medio</span></td>
+          <td>DBA + Operaciones</td>
+          <td style="font-weight:700;color:var(--green)">2º — Quick Win</td>
+        </tr>
+        <tr>
+          <td>C1</td>
+          <td>Validación Coberturas Renovación</td>
+          <td><span class="badge badge-media">Media</span></td>
+          <td><span class="badge badge-alta">Alto</span></td>
+          <td>Desarrollo Core + QA + UAT</td>
+          <td style="font-weight:700;color:var(--yellow)">3º — Mediano plazo</td>
+        </tr>
+        <tr>
+          <td>C4</td>
+          <td>Migración WLS 12c → 14c</td>
+          <td><span class="badge badge-alta">Alta</span></td>
+          <td><span class="badge badge-media">Medio</span></td>
+          <td>Desarrollo + Infraestructura + Access Manager</td>
+          <td style="font-weight:700;color:var(--red)">4º — Largo plazo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <p>Reporte generado el <strong>14 de abril de 2026</strong></p>
+  <p>Producto Hogar · Seguros Bolívar · Vicepresidencia Negocio y Tecnología</p>
+  <p style="margin-top:.75rem;font-size:.75rem;opacity:.7">
+    Fuente de datos: Jira MDSB · Análisis de Causa Raíz automatizado · SQUAD-AGENTES-IA
+  </p>
+</footer>
+
+</div><!-- /.container -->
+</body>
+</html>

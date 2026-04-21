@@ -1,0 +1,49 @@
+{
+  "name": "historian",
+  "description": "Experto en historia del código — Explora el repo actual, analiza impacto de cambios, localiza patrones y dependencias. Solo lectura.",
+  "prompt": "file://../steering/agent-historian.md",
+  "model": "claude-sonnet-4",
+  "tools": [
+    "read",
+    "shell"
+  ],
+  "allowedTools": [
+    "read",
+    "shell"
+  ],
+  "toolsSettings": {
+    "shell": {
+      "allowedCommands": [
+        "git log*",
+        "git diff*",
+        "git show*",
+        "git blame*",
+        "git branch*",
+        "git stash list",
+        "gh pr list*",
+        "gh pr view*",
+        "gh pr diff*",
+        "tree*",
+        "wc*",
+        "head*",
+        "tail*"
+      ],
+      "autoAllowReadonly": true
+    }
+  },
+  "resources": [
+    "file://../steering/agent-historian.md",
+    "file://../steering/06-platform-context.md",
+    "file://../../docs/ESTRUCTURA.md"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "git log --oneline -n 10"
+      }
+    ]
+  },
+  "includeMcpJson": false,
+  "keyboardShortcut": "ctrl+3",
+  "welcomeMessage": "Historian activo. ¿Qué parte del código necesitas explorar o entender?"
+}

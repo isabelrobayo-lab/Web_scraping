@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análisis Ciclo de Desarrollo | Reporte Gerencial | SQUAD-AGENTES-IA</title>
+  <meta name="description" content="Análisis de tiempo por fase del ciclo de desarrollo. 100 HUs cerradas (1 ene - 30 mar 2025). Seguros Bolívar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Asset/report-base.css">
+  <link rel="stylesheet" href="Asset/report-components.css">
+</head>
+<body>
+  <div class="container container--wide">
+    <a href="reportes.html" class="nav-link">← Ver todos los reportes</a>
+    <a href="index.html" class="nav-link" style="margin-left: 1rem;">Inicio →</a>
+
+    <header>
+      <h1 class="report-title">Análisis de Tiempo por Fase del Ciclo de Desarrollo</h1>
+      <p class="report-subtitle">Reporte gerencial · 100 Historias de Usuario cerradas · 7 proyectos</p>
+      <span class="report-meta">1 enero – 30 marzo 2025 · Jira Seguros Bolívar</span>
+    </header>
+
+    <section class="section">
+      <div class="summary-box">
+        <h3>Resumen ejecutivo</h3>
+        <p>
+          Análisis de <strong>100 HUs cerradas</strong> en el rango 1 de enero a 30 de marzo de 2025,
+          de <strong>7 proyectos distintos</strong>. Los datos provienen de los campos de tiempo del workflow de Jira.
+          El <strong>ciclo total promedio</strong> (Por hacer → Producción) es de <strong>20.9 h</strong>.
+          La fase con mayor tiempo promedio es <strong>En Progreso (Desarrollo)</strong> con 7d 9.4h.
+        </p>
+      </div>
+      <div class="info-note">
+        <strong>Importante:</strong> Los tiempos de cada fase y el ciclo total no se pueden sumar porque usan <strong>unidades distintas</strong> en Jira.
+        • <em>Tiempo en X</em> (por fase): suele estar en horas de calendario (24/7).
+        • <em>Ciclo total</em>: suele estar en horas de trabajo u otra métrica end-to-end.
+        El Ciclo total es una métrica independiente, no la suma de las fases.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Promedio de horas por fase</h2>
+      <div class="phases-grid">
+        
+    <div class="phase-card">
+      <div class="phase-label">Por Hacer (Backlog)</div>
+      <div class="phase-value">2d 14.8h</div>
+      <div class="phase-meta">promedio · 100 HUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-label">En Progreso (Desarrollo)</div>
+      <div class="phase-value">7d 9.4h</div>
+      <div class="phase-meta">promedio · 100 HUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-label">Pruebas QA</div>
+      <div class="phase-value">22.7 h</div>
+      <div class="phase-meta">promedio · 100 HUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-label">Pruebas UAT</div>
+      <div class="phase-value">5.0 h</div>
+      <div class="phase-meta">promedio · 100 HUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-label">Pendiente PAP (esperando deploy)</div>
+      <div class="phase-value">2d 14.8h</div>
+      <div class="phase-meta">promedio · 100 HUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-label">Producción</div>
+      <div class="phase-value">12.5 h</div>
+      <div class="phase-meta">promedio · 100 HUs</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-label">Ciclo total (Por hacer → Producción)</div>
+      <div class="phase-value">20.9 h</div>
+      <div class="phase-meta">promedio · 93 HUs</div>
+    </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Detalle por incidencia</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">
+        Haz clic en la clave de la incidencia para abrirla en Jira.
+      </p>
+      <div class="table-wrapper table-wrapper--wide">
+        <table id="issues-table">
+          <thead>
+            <tr>
+              <th class="sortable" data-col="0" data-type="text" title="Clic para ordenar">Incidencia</th><th class="sortable" data-col="1" data-type="text" title="Clic para ordenar">Resumen</th><th class="sortable" data-col="2" data-type="text" title="Clic para ordenar">Tipo</th><th class="sortable" data-col="3" data-type="text" title="Clic para ordenar">Proyecto</th>
+              <th class="sortable" data-col="4" data-type="num" title="Clic para ordenar">Por Hacer (Backlog)</th><th class="sortable" data-col="5" data-type="num" title="Clic para ordenar">En Progreso (Desarrollo)</th><th class="sortable" data-col="6" data-type="num" title="Clic para ordenar">Pruebas QA</th><th class="sortable" data-col="7" data-type="num" title="Clic para ordenar">Pruebas UAT</th><th class="sortable" data-col="8" data-type="num" title="Clic para ordenar">Pendiente PAP (esperando deploy)</th><th class="sortable" data-col="9" data-type="num" title="Clic para ordenar">Producción</th><th class="sortable" data-col="10" data-type="num" title="Clic para ordenar">Ciclo total (Por hacer → Producción)</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr>
+        <td data-col="0" data-sort="AC-4899"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-4899" target="_blank" rel="noopener">AC-4899</a></td>
+        <td data-col="1" data-sort="front - aceptación de políticas de tratamiento de datos personales  (27 dic)">Front - Aceptación de políticas de tratamiento de datos personales  (27 dic)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.033">0.0 h</td><td class="num" data-col="5" data-sort="704.166">29d 8.2h</td><td class="num" data-col="6" data-sort="88.133">3d 16.1h</td><td class="num" data-col="7" data-sort="67.067">2d 19.1h</td><td class="num" data-col="8" data-sort="78.75">3d 6.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="104.714">4d 8.7h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5110"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5110" target="_blank" rel="noopener">AC-5110</a></td>
+        <td data-col="1" data-sort="instalar la utm para entender trafico a portal autogestión citas medicas  (desarrollo: 2 dias )">Instalar la UTM para entender trafico a portal autogestión citas medicas  (Desarrollo: 2 dias )</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="41.283">1d 17.3h</td><td class="num" data-col="6" data-sort="226.867">9d 10.9h</td><td class="num" data-col="7" data-sort="1.61">1.6 h</td><td class="num" data-col="8" data-sort="45.15">1d 21.2h</td><td class="num" data-col="9" data-sort="82.267">3d 10.3h</td><td class="num" data-col="10" data-sort="35.943">1d 11.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5133"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5133" target="_blank" rel="noopener">AC-5133</a></td>
+        <td data-col="1" data-sort="habilitar opción para solicitar certificaciones no habilitadas bra: 27 de nov">Habilitar opción para solicitar certificaciones no habilitadas bra: 27 de nov</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="268">11d 4.0h</td><td class="num" data-col="6" data-sort="184.117">7d 16.1h</td><td class="num" data-col="7" data-sort="0.002">0.0 h</td><td class="num" data-col="8" data-sort="75.2">3d 3.2h</td><td class="num" data-col="9" data-sort="0.017">0.0 h</td><td class="num" data-col="10" data-sort="58.849">2d 10.8h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5155"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5155" target="_blank" rel="noopener">AC-5155</a></td>
+        <td data-col="1" data-sort="personalización de sección tramites/indemnización darío: 30h (26 de noviembre)">Personalización de sección tramites/indemnización Darío: 30h (26 de noviembre)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="167.516">6d 23.5h</td><td class="num" data-col="6" data-sort="34.45">1d 10.5h</td><td class="num" data-col="7" data-sort="18.178">18.2 h</td><td class="num" data-col="8" data-sort="128.217">5d 8.2h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="96.022">4d</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5171"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5171" target="_blank" rel="noopener">AC-5171</a></td>
+        <td data-col="1" data-sort="servicio de política de tratamiento de datos">Servicio de política de tratamiento de datos</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="408.15">17d 0.1h</td><td class="num" data-col="6" data-sort="52.083">2d 4.1h</td><td class="num" data-col="7" data-sort="67.033">2d 19.0h</td><td class="num" data-col="8" data-sort="78.783">3d 6.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="67.752">2d 19.8h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5183"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5183" target="_blank" rel="noopener">AC-5183</a></td>
+        <td data-col="1" data-sort="incluir hostname de política de seguridad de contenidos (csp)">Incluir Hostname de Política de Seguridad de Contenidos (CSP)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="96.333">4d 0.3h</td><td class="num" data-col="6" data-sort="0.05">0.1 h</td><td class="num" data-col="7" data-sort="0.987">1.0 h</td><td class="num" data-col="8" data-sort="324.483">13d 12.5h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="61.068">2d 13.1h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5227"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5227" target="_blank" rel="noopener">AC-5227</a></td>
+        <td data-col="1" data-sort="borrado automático de token para citas medicas para beneficiarios">Borrado automático de token para citas medicas para beneficiarios</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5232"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5232" target="_blank" rel="noopener">AC-5232</a></td>
+        <td data-col="1" data-sort="colocar tags en ac  jilb: 3h  ; juan: 6h">Colocar tags en AC  Jilb: 3h  ; Juan: 6h</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="244.4">10d 4.4h</td><td class="num" data-col="6" data-sort="0.083">0.1 h</td><td class="num" data-col="7" data-sort="5.826">5.8 h</td><td class="num" data-col="8" data-sort="45.167">1d 21.2h</td><td class="num" data-col="9" data-sort="82.283">3d 10.3h</td><td class="num" data-col="10" data-sort="35.894">1d 11.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5237"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5237" target="_blank" rel="noopener">AC-5237</a></td>
+        <td data-col="1" data-sort="tags de tratamiento de datos personales  juan:14h ">tags de tratamiento de datos personales  Juan:14h </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="335.65">13d 23.6h</td><td class="num" data-col="6" data-sort="90.8">3d 18.8h</td><td class="num" data-col="7" data-sort="14.3">14.3 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="48.569">2d 0.6h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5245"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5245" target="_blank" rel="noopener">AC-5245</a></td>
+        <td data-col="1" data-sort="ingreso a beneficiarios para polizas de salud  ">Ingreso a beneficiarios para polizas de salud  </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="10.05">10.1 h</td><td class="num" data-col="5" data-sort="82.25">3d 10.3h</td><td class="num" data-col="6" data-sort="347.85">14d 11.9h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5255"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5255" target="_blank" rel="noopener">AC-5255</a></td>
+        <td data-col="1" data-sort="conexión a nuevo servicios de callback  bra: 15h  (16 de dic).">Conexión a nuevo servicios de callback  bra: 15h  (16 de dic).</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="260.15">10d 20.1h</td><td class="num" data-col="6" data-sort="12.217">12.2 h</td><td class="num" data-col="7" data-sort="14.183">14.2 h</td><td class="num" data-col="8" data-sort="83.85">3d 11.8h</td><td class="num" data-col="9" data-sort="88.467">3d 16.5h</td><td class="num" data-col="10" data-sort="41.065">1d 17.1h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5264"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5264" target="_blank" rel="noopener">AC-5264</a></td>
+        <td data-col="1" data-sort="citas medicas para tomadores - no beneficiarios  juan: 8h">Citas medicas para tomadores - no beneficiarios  juan: 8h</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="292.1">12d 4.1h</td><td class="num" data-col="6" data-sort="154.75">6d 10.8h</td><td class="num" data-col="7" data-sort="9.483">9.5 h</td><td class="num" data-col="8" data-sort="181.1">7d 13.1h</td><td class="num" data-col="9" data-sort="253.45">10d 13.4h</td><td class="num" data-col="10" data-sort="70.937">2d 22.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5277"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5277" target="_blank" rel="noopener">AC-5277</a></td>
+        <td data-col="1" data-sort="certificaciones no habilitadas - desarrollo webservice creacion casos siebel">Certificaciones no habilitadas - Desarrollo WebService Creacion Casos Siebel</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5297"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5297" target="_blank" rel="noopener">AC-5297</a></td>
+        <td data-col="1" data-sort="re-factor modulo de indemnizaciones - zona de tramites brayan: 26h  dar: 6h - 20 de enero. ">Re-factor modulo de indemnizaciones - zona de tramites Brayan: 26h  Dar: 6h - 20 de enero. </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="299.033">12d 11.0h</td><td class="num" data-col="6" data-sort="37.15">1d 13.2h</td><td class="num" data-col="7" data-sort="18.21">18.2 h</td><td class="num" data-col="8" data-sort="128.2">5d 8.2h</td><td class="num" data-col="9" data-sort="0.15">0.2 h</td><td class="num" data-col="10" data-sort="64.494">2d 16.5h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5302"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5302" target="_blank" rel="noopener">AC-5302</a></td>
+        <td data-col="1" data-sort="carnet médicos para mayores de edad  20h - juanca: 25h">Carnet médicos para mayores de edad  20h - JuanCa: 25h</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5324"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5324" target="_blank" rel="noopener">AC-5324</a></td>
+        <td data-col="1" data-sort="categorización errores en la descarga de póliza - datadog  (bra: 15h ; juli:  6h)">Categorización errores en la descarga de póliza - Datadog  (Bra: 15h ; Juli:  6h)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="233.766">9d 17.8h</td><td class="num" data-col="6" data-sort="20.367">20.4 h</td><td class="num" data-col="7" data-sort="7">7.0 h</td><td class="num" data-col="8" data-sort="51.083">2d 3.1h</td><td class="num" data-col="9" data-sort="473.7">19d 17.7h</td><td class="num" data-col="10" data-sort="38.271">1d 14.3h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5333"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5333" target="_blank" rel="noopener">AC-5333</a></td>
+        <td data-col="1" data-sort="re-intento descarga de pdfs  (24h)">Re-intento descarga de PDFS  (24h)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5358"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5358" target="_blank" rel="noopener">AC-5358</a></td>
+        <td data-col="1" data-sort="ajustes olivia  brayan: 5h">Ajustes OLIVIA  Brayan: 5h</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5362"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5362" target="_blank" rel="noopener">AC-5362</a></td>
+        <td data-col="1" data-sort="cambio horario callback brayan: 10 h">Cambio horario callback Brayan: 10 h</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="34.6">1d 10.6h</td><td class="num" data-col="6" data-sort="21.417">21.4 h</td><td class="num" data-col="7" data-sort="0.451">0.5 h</td><td class="num" data-col="8" data-sort="51.067">2d 3.1h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="31.871">1d 7.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5368"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5368" target="_blank" rel="noopener">AC-5368</a></td>
+        <td data-col="1" data-sort="casos duplicados en  certificaciones manuales bra:5h">Casos duplicados en  certificaciones manuales Bra:5h</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="9">9.0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="1.617">1.6 h</td><td class="num" data-col="8" data-sort="33.083">1d 9.1h</td><td class="num" data-col="9" data-sort="94.4">3d 22.4h</td><td class="num" data-col="10" data-sort="5.862">5.9 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5372"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5372" target="_blank" rel="noopener">AC-5372</a></td>
+        <td data-col="1" data-sort="instalar tags manager">Instalar Tags Manager</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="54.733">2d 6.7h</td><td class="num" data-col="6" data-sort="42.317">1d 18.3h</td><td class="num" data-col="7" data-sort="39.517">1d 15.5h</td><td class="num" data-col="8" data-sort="121.567">5d 1.6h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="28.881">1d 4.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5380"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5380" target="_blank" rel="noopener">AC-5380</a></td>
+        <td data-col="1" data-sort="error visualización de beneficiario  ger: 16">Error visualización de beneficiario  Ger: 16</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="22.017">22.0 h</td><td class="num" data-col="6" data-sort="14.983">15.0 h</td><td class="num" data-col="7" data-sort="3.8">3.8 h</td><td class="num" data-col="8" data-sort="26.583">1d 2.6h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="7.808">7.8 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5387"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5387" target="_blank" rel="noopener">AC-5387</a></td>
+        <td data-col="1" data-sort="ajustar monto de cobertura de salud">Ajustar monto de cobertura de salud</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5398"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5398" target="_blank" rel="noopener">AC-5398</a></td>
+        <td data-col="1" data-sort="ajustar regla para certificado en el exterior (ger: 3h bra-jil: 1h explicación ces: 1h  ) ">Ajustar regla para certificado en el exterior (Ger: 3h bra-Jil: 1h explicación Ces: 1h  ) </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="40.6">1d 16.6h</td><td class="num" data-col="6" data-sort="0.467">0.5 h</td><td class="num" data-col="7" data-sort="0.652">0.7 h</td><td class="num" data-col="8" data-sort="81.483">3d 9.5h</td><td class="num" data-col="9" data-sort="0.067">0.1 h</td><td class="num" data-col="10" data-sort="13.905">13.9 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5413"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5413" target="_blank" rel="noopener">AC-5413</a></td>
+        <td data-col="1" data-sort="deshabilitar productos de pensiones">Deshabilitar productos de pensiones</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="7.567">7.6 h</td><td class="num" data-col="6" data-sort="10.133">10.1 h</td><td class="num" data-col="7" data-sort="10.917">10.9 h</td><td class="num" data-col="8" data-sort="65.217">2d 17.2h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="10.16">10.2 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5427"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5427" target="_blank" rel="noopener">AC-5427</a></td>
+        <td data-col="1" data-sort="ajuste de errores de servicios v2 (ger: 10 de abril)">Ajuste de errores de servicios V2 (Ger: 10 de abril)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="15.95">16.0 h</td><td class="num" data-col="6" data-sort="0.033">0.0 h</td><td class="num" data-col="7" data-sort="1.031">1.0 h</td><td class="num" data-col="8" data-sort="169.4">7d 1.4h</td><td class="num" data-col="9" data-sort="173.9">7d 5.9h</td><td class="num" data-col="10" data-sort="21.88">21.9 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AC-5472"><a href="https://jirasegurosbolivar.atlassian.net/browse/AC-5472" target="_blank" rel="noopener">AC-5472</a></td>
+        <td data-col="1" data-sort="se requiere actualizar apigateway  (no terminado)">Se requiere actualizar apigateway  (No terminado)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AC">AC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="0.317">0.3 h</td><td class="num" data-col="6" data-sort="0.067">0.1 h</td><td class="num" data-col="7" data-sort="0.067">0.1 h</td><td class="num" data-col="8" data-sort="895.933">37d 7.9h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="99.851">4d 3.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AKIMEJORA-8166"><a href="https://jirasegurosbolivar.atlassian.net/browse/AKIMEJORA-8166" target="_blank" rel="noopener">AKIMEJORA-8166</a></td>
+        <td data-col="1" data-sort="migración notificaciones campanita de doctorakí a la versión 3.0 del notificador">Migración notificaciones Campanita de DoctorAkí a la versión 3.0 del notificador</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AKIMEJORA">AKIMEJORA</td>
+        <td class="num" data-col="4" data-sort="161.083">6d 17.1h</td><td class="num" data-col="5" data-sort="152.633">6d 8.6h</td><td class="num" data-col="6" data-sort="18.483">18.5 h</td><td class="num" data-col="7" data-sort="29.717">1d 5.7h</td><td class="num" data-col="8" data-sort="130.55">5d 10.6h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="56.235">2d 8.2h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AKIMEJORA-8188"><a href="https://jirasegurosbolivar.atlassian.net/browse/AKIMEJORA-8188" target="_blank" rel="noopener">AKIMEJORA-8188</a></td>
+        <td data-col="1" data-sort="cambio de apuntamiento en la conexión al cluster de índices de elastic doctorakí">Cambio de apuntamiento en la conexión al cluster de índices de elastic DoctorAkí</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AKIMEJORA">AKIMEJORA</td>
+        <td class="num" data-col="4" data-sort="21">21.0 h</td><td class="num" data-col="5" data-sort="16.683">16.7 h</td><td class="num" data-col="6" data-sort="0.75">0.8 h</td><td class="num" data-col="7" data-sort="0.177">0.2 h</td><td class="num" data-col="8" data-sort="30.083">1d 6.1h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="8.031">8.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AKIMEJORA-8195"><a href="https://jirasegurosbolivar.atlassian.net/browse/AKIMEJORA-8195" target="_blank" rel="noopener">AKIMEJORA-8195</a></td>
+        <td data-col="1" data-sort="error http 500">Error HTTP 500</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AKIMEJORA">AKIMEJORA</td>
+        <td class="num" data-col="4" data-sort="6.4">6.4 h</td><td class="num" data-col="5" data-sort="46.7">1d 22.7h</td><td class="num" data-col="6" data-sort="15.783">15.8 h</td><td class="num" data-col="7" data-sort="5.018">5.0 h</td><td class="num" data-col="8" data-sort="63">2d 15.0h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="16.276">16.3 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AKIMEJORA-8199"><a href="https://jirasegurosbolivar.atlassian.net/browse/AKIMEJORA-8199" target="_blank" rel="noopener">AKIMEJORA-8199</a></td>
+        <td data-col="1" data-sort="vulnerabilidad hsts missing from https server (rfc 6797)">Vulnerabilidad HSTS Missing From HTTPS Server (RFC 6797)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AKIMEJORA">AKIMEJORA</td>
+        <td class="num" data-col="4" data-sort="0.95">1.0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-281"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-281" target="_blank" rel="noopener">APC-281</a></td>
+        <td data-col="1" data-sort="hallazgos de seguridad en la aplicación">Hallazgos de seguridad en la aplicación</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="90.5">3d 18.5h</td><td class="num" data-col="6" data-sort="215.283">8d 23.3h</td><td class="num" data-col="7" data-sort="37.817">1d 13.8h</td><td class="num" data-col="8" data-sort="28.267">1d 4.3h</td><td class="num" data-col="9" data-sort="0.05">0.1 h</td><td class="num" data-col="10" data-sort="41.747">1d 17.7h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-577"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-577" target="_blank" rel="noopener">APC-577</a></td>
+        <td data-col="1" data-sort="hallazgos e incidentes noviembre, diciembre">Hallazgos e incidentes Noviembre, Diciembre</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.267">0.3 h</td><td class="num" data-col="5" data-sort="90.267">3d 18.3h</td><td class="num" data-col="6" data-sort="233.1">9d 17.1h</td><td class="num" data-col="7" data-sort="19.65">19.7 h</td><td class="num" data-col="8" data-sort="28.8">1d 4.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="41.754">1d 17.8h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-591"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-591" target="_blank" rel="noopener">APC-591</a></td>
+        <td data-col="1" data-sort="opción de seleccionar aplicación">Opción de seleccionar aplicación</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="90.117">3d 18.1h</td><td class="num" data-col="6" data-sort="225.017">9d 9.0h</td><td class="num" data-col="7" data-sort="27.733">1d 3.7h</td><td class="num" data-col="8" data-sort="28.833">1d 4.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="41.738">1d 17.7h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-600"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-600" target="_blank" rel="noopener">APC-600</a></td>
+        <td data-col="1" data-sort="ajustes front despliegue">Ajustes Front despliegue</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="513">21d 9.0h</td><td class="num" data-col="6" data-sort="7.367">7.4 h</td><td class="num" data-col="7" data-sort="0.024">0.0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-607"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-607" target="_blank" rel="noopener">APC-607</a></td>
+        <td data-col="1" data-sort="actualizar versión de nodejs en las lambdas">Actualizar versión de NodeJS en las lambdas</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="144">6d</td><td class="num" data-col="6" data-sort="16.15">16.2 h</td><td class="num" data-col="7" data-sort="6.074">6.1 h</td><td class="num" data-col="8" data-sort="28.283">1d 4.3h</td><td class="num" data-col="9" data-sort="0.2">0.2 h</td><td class="num" data-col="10" data-sort="25.671">1d 1.7h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-613"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-613" target="_blank" rel="noopener">APC-613</a></td>
+        <td data-col="1" data-sort="cargar hoja de estilos por defecto de seguros bolívar">Cargar Hoja de estilos por defecto de Seguros Bolívar</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.05">0.1 h</td><td class="num" data-col="5" data-sort="457.533">19d 1.5h</td><td class="num" data-col="6" data-sort="7.683">7.7 h</td><td class="num" data-col="7" data-sort="0.01">0.0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-617"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-617" target="_blank" rel="noopener">APC-617</a></td>
+        <td data-col="1" data-sort="homologar errores de los servicios en backend">Homologar errores de los servicios en Backend</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="457.533">19d 1.5h</td><td class="num" data-col="6" data-sort="8.433">8.4 h</td><td class="num" data-col="7" data-sort="4.753">4.8 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-633"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-633" target="_blank" rel="noopener">APC-633</a></td>
+        <td data-col="1" data-sort="menu - ajustes en diseño, colores, eventos y estructura">Menu - Ajustes en diseño, colores, eventos y estructura</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="80.15">3d 8.2h</td><td class="num" data-col="6" data-sort="33.2">1d 9.2h</td><td class="num" data-col="7" data-sort="19.383">19.4 h</td><td class="num" data-col="8" data-sort="28.517">1d 4.5h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="17.97">18.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-637"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-637" target="_blank" rel="noopener">APC-637</a></td>
+        <td data-col="1" data-sort="header - ajustes de diseño, elementos y eventos">Header - Ajustes de diseño, elementos y eventos</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="80.183">3d 8.2h</td><td class="num" data-col="6" data-sort="34.367">1d 10.4h</td><td class="num" data-col="7" data-sort="17.733">17.7 h</td><td class="num" data-col="8" data-sort="28.95">1d 4.9h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="17.969">18.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-641"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-641" target="_blank" rel="noopener">APC-641</a></td>
+        <td data-col="1" data-sort="select app - cambio de pantalla para seleccionar aplicación">Select App - Cambio de pantalla para seleccionar aplicación</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="10.583">10.6 h</td><td class="num" data-col="6" data-sort="19.283">19.3 h</td><td class="num" data-col="7" data-sort="22.333">22.3 h</td><td class="num" data-col="8" data-sort="28.967">1d 5.0h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="9.008">9.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-651"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-651" target="_blank" rel="noopener">APC-651</a></td>
+        <td data-col="1" data-sort="formulario de tipo lista a partir de una consulta personalizada / no requerir permiso de seguridad">Formulario de tipo Lista a partir de una consulta personalizada / No requerir permiso de seguridad</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="55.3">2d 7.3h</td><td class="num" data-col="6" data-sort="48.483">2d 0.5h</td><td class="num" data-col="7" data-sort="0.207">0.2 h</td><td class="num" data-col="8" data-sort="28.733">1d 4.7h</td><td class="num" data-col="9" data-sort="0.117">0.1 h</td><td class="num" data-col="10" data-sort="15.729">15.7 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-666"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-666" target="_blank" rel="noopener">APC-666</a></td>
+        <td data-col="1" data-sort="implementar credenciales db's en parameter store">Implementar Credenciales DB's en Parameter Store</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="307.917">12d 19.9h</td><td class="num" data-col="6" data-sort="3.3">3.3 h</td><td class="num" data-col="7" data-sort="0.017">0.0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="APC-677"><a href="https://jirasegurosbolivar.atlassian.net/browse/APC-677" target="_blank" rel="noopener">APC-677</a></td>
+        <td data-col="1" data-sort="ajuste de iconos mensajes de error">Ajuste de Iconos mensajes de error</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="APC">APC</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0.217">0.2 h</td><td class="num" data-col="7" data-sort="11.817">11.8 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-1924"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-1924" target="_blank" rel="noopener">AUTDI-1924</a></td>
+        <td data-col="1" data-sort="rpa-bizagi : servicios web - documentacion operaciones para registrar y avanzar actividades">RPA-Bizagi : Servicios web - Documentacion Operaciones para registrar y avanzar actividades</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="4.05">4.1 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0.169">0.2 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-1951"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-1951" target="_blank" rel="noopener">AUTDI-1951</a></td>
+        <td data-col="1" data-sort="crear funcionalidad para extraer texto o el valor de un elemento de una pagina web">Crear funcionalidad para extraer texto o el valor de un elemento de una pagina web</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="11.15">11.2 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="1.09">1.1 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-1955"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-1955" target="_blank" rel="noopener">AUTDI-1955</a></td>
+        <td data-col="1" data-sort="crear funcionalidad para enviar el texto a google sheets, ya sea texto extraido de la pagina web o un texto que el usuario quiera enviar">Crear funcionalidad para enviar el texto a google sheets, ya sea texto extraido de la pagina web o un texto que el usuario quiera enviar</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="11.133">11.1 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="1.089">1.1 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-1963"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-1963" target="_blank" rel="noopener">AUTDI-1963</a></td>
+        <td data-col="1" data-sort="error al cargar el flujo del bot">Error al cargar el flujo del bot</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="275.467">11d 11.5h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="30.853">1d 6.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-1994"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-1994" target="_blank" rel="noopener">AUTDI-1994</a></td>
+        <td data-col="1" data-sort="seguridad">Seguridad</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="7.267">7.3 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0.928">0.9 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2013"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2013" target="_blank" rel="noopener">AUTDI-2013</a></td>
+        <td data-col="1" data-sort="visualización front usuario vs suitbot">visualización front Usuario Vs SuitBot</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="273.783">11d 9.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="30.158">1d 6.2h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2017"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2017" target="_blank" rel="noopener">AUTDI-2017</a></td>
+        <td data-col="1" data-sort="funcionalidad que permite establecer que usuario ejecuta el bot (no repudio)">Funcionalidad que permite establecer que usuario ejecuta el bot (No repudio)</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="251.7">10d 11.7h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="27.988">1d 4.0h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2042"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2042" target="_blank" rel="noopener">AUTDI-2042</a></td>
+        <td data-col="1" data-sort="hot-fix roles no se visualizan en el listado de roles.">Hot-Fix Roles no se visualizan en el listado de roles.</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="115.9">4d 19.9h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="12.955">13.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2053"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2053" target="_blank" rel="noopener">AUTDI-2053</a></td>
+        <td data-col="1" data-sort="hot-fix  format date corredores +">Hot-Fix  format date corredores +</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="7">7.0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0.562">0.6 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2057"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2057" target="_blank" rel="noopener">AUTDI-2057</a></td>
+        <td data-col="1" data-sort="refactor rpa runt soat">Refactor RPA RUNT SOAT</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0.017">0.0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0.001">0.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2061"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2061" target="_blank" rel="noopener">AUTDI-2061</a></td>
+        <td data-col="1" data-sort="acompañamiento configuracion rpa unidades servicio">Acompañamiento Configuracion RPA Unidades Servicio</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0.017">0.0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0.001">0.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2066"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2066" target="_blank" rel="noopener">AUTDI-2066</a></td>
+        <td data-col="1" data-sort="soporte funcion write google sheets - generator">Soporte funcion write google sheets - Generator</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="28.8">1d 4.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="3.075">3.1 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2071"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2071" target="_blank" rel="noopener">AUTDI-2071</a></td>
+        <td data-col="1" data-sort="re factor servicio getsuites - metrics ">Re factor Servicio getSuites - metrics </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="59.833">2d 11.8h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="6.868">6.9 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2076"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2076" target="_blank" rel="noopener">AUTDI-2076</a></td>
+        <td data-col="1" data-sort="fix: lectura de diferentes archivos de insumo en secuencia ">Fix: lectura de diferentes archivos de insumo en secuencia </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="1.6">1.6 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0.62">0.6 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2081"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2081" target="_blank" rel="noopener">AUTDI-2081</a></td>
+        <td data-col="1" data-sort="generar query insert users vs suites bd smartbot">Generar Query Insert users Vs suites BD Smartbot</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="18.533">18.5 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="2.022">2.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2101"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2101" target="_blank" rel="noopener">AUTDI-2101</a></td>
+        <td data-col="1" data-sort="automatización creación issue jira">Automatización Creación Issue Jira</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTDI-2112"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTDI-2112" target="_blank" rel="noopener">AUTDI-2112</a></td>
+        <td data-col="1" data-sort="activacion y refactor bot sisa/runt">Activacion y refactor bot sisa/runt</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTDI">AUTDI</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="9.1">9.1 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="1.006">1.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1536"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1536" target="_blank" rel="noopener">AUTSB-1536</a></td>
+        <td data-col="1" data-sort="vic_sol_bol_esa_rpa_2055- consulta de estado de tramites juridicos leasing">VIC_SOL_BOL_ESA_RPA_2055- Consulta de estado de tramites juridicos leasing</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0.017">0.0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="12.433">12.4 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="1.144">1.1 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1540"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1540" target="_blank" rel="noopener">AUTSB-1540</a></td>
+        <td data-col="1" data-sort="vic_de_pla_y_rie_esa_rpa_2056- bot para la generación de ordenes de pago sencillas tesoreria tronador">VIC_DE_PLA_Y_RIE_ESA_RPA_2056- Bot para la generación de ordenes de pago sencillas Tesoreria Tronador</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="117.783">4d 21.8h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0.017">0.0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="98.877">4d 2.9h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1795"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1795" target="_blank" rel="noopener">AUTSB-1795</a></td>
+        <td data-col="1" data-sort="vic_de_pla_y_rie_esa_rpa_2071	bot para proceso de ingresos y egresos de reaseguro">VIC_DE_PLA_Y_RIE_ESA_RPA_2071	Bot para proceso de ingresos y egresos de reaseguro</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="166.334">6d 22.3h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="385.5">16d 1.5h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="111.036">4d 15.0h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1802"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1802" target="_blank" rel="noopener">AUTSB-1802</a></td>
+        <td data-col="1" data-sort="vic_de_pla_y_rie_esa_rpa_2072	bot para proceso de costos diferidos de reaseguro">VIC_DE_PLA_Y_RIE_ESA_RPA_2072	Bot para proceso de costos diferidos de reaseguro</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="127.799">5d 7.8h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="290.85">12d 2.9h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="107.171">4d 11.2h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1953"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1953" target="_blank" rel="noopener">AUTSB-1953</a></td>
+        <td data-col="1" data-sort="vic_jur_esa_rpa_2062- automatizacion del proceso de tutelas">VIC_JUR_ESA_RPA_2062- AUTOMATIZACION DEL PROCESO DE TUTELAS</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="94.317">3d 22.3h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="17.583">17.6 h</td><td class="num" data-col="9" data-sort="0.017">0.0 h</td><td class="num" data-col="10" data-sort="10.199">10.2 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1966"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1966" target="_blank" rel="noopener">AUTSB-1966</a></td>
+        <td data-col="1" data-sort="rpa_accidentes_escolares_evolutivo_track_1_2">Rpa_Accidentes_escolares_evolutivo_track_1_2</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="46.85">1d 22.9h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="1201.267">50d 1.3h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="138.255">5d 18.3h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1970"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1970" target="_blank" rel="noopener">AUTSB-1970</a></td>
+        <td data-col="1" data-sort="rpa_cambio_de_beneficiario_evolutivo">RPA_cambio_de_beneficiario_evolutivo</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="41.417">1d 17.4h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="19.567">19.6 h</td><td class="num" data-col="9" data-sort="0.033">0.0 h</td><td class="num" data-col="10" data-sort="6.894">6.9 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-1978"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-1978" target="_blank" rel="noopener">AUTSB-1978</a></td>
+        <td data-col="1" data-sort="rpa_exclucion_de_vida_evolutivo">RPA_exclucion_de_vida_evolutivo</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="50.633">2d 2.6h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="3.717">3.7 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="5.681">5.7 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-2011"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-2011" target="_blank" rel="noopener">AUTSB-2011</a></td>
+        <td data-col="1" data-sort="rpa_valor_asegurado">RPA_Valor_Asegurado</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="55.716">2d 7.7h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="13.129">13.1 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-2083"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-2083" target="_blank" rel="noopener">AUTSB-2083</a></td>
+        <td data-col="1" data-sort="rpa: evolutivo bot cambio de beneficiario">Rpa: evolutivo bot cambio de beneficiario</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="44.45">1d 20.5h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="1.05">1.1 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="4.445">4.4 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-2087"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-2087" target="_blank" rel="noopener">AUTSB-2087</a></td>
+        <td data-col="1" data-sort="hotfix: rpa accidentes escolares">Hotfix: rpa accidentes escolares</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="26.033">1d 2.0h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="10.867">10.9 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="4.663">4.7 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-2158"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-2158" target="_blank" rel="noopener">AUTSB-2158</a></td>
+        <td data-col="1" data-sort="hotfix :  reenganche accidentes escolares">HotFix :  reenganche accidentes escolares</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="22.083">22.1 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="2.199">2.2 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-2200"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-2200" target="_blank" rel="noopener">AUTSB-2200</a></td>
+        <td data-col="1" data-sort="evolutivo  bot sisa/runt">Evolutivo  Bot Sisa/runt</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0.067">0.1 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="1.1">1.1 h</td><td class="num" data-col="9" data-sort="0.017">0.0 h</td><td class="num" data-col="10" data-sort="0.049">0.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="AUTSB-2257"><a href="https://jirasegurosbolivar.atlassian.net/browse/AUTSB-2257" target="_blank" rel="noopener">AUTSB-2257</a></td>
+        <td data-col="1" data-sort="fix evolutivo bot validaciones corredores +">Fix Evolutivo Bot Validaciones Corredores +</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="AUTSB">AUTSB</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="8.983">9.0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0.1">0.1 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="1.003">1.0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3059"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3059" target="_blank" rel="noopener">BALM-3059</a></td>
+        <td data-col="1" data-sort="bien: nuevo coach omitir todos los mensajes por categoría y cantidad de mensajes por  leer">BIEN: Nuevo coach Omitir todos los mensajes por categoría y cantidad de mensajes por  leer</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="8.433">8.4 h</td><td class="num" data-col="5" data-sort="2824.033">117d 16.0h</td><td class="num" data-col="6" data-sort="18">18.0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3740"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3740" target="_blank" rel="noopener">BALM-3740</a></td>
+        <td data-col="1" data-sort="añadir libreria tech-block a el admin portal">Añadir libreria Tech-block a el admin portal</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="8.867">8.9 h</td><td class="num" data-col="5" data-sort="71.7">2d 23.7h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3749"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3749" target="_blank" rel="noopener">BALM-3749</a></td>
+        <td data-col="1" data-sort="imple. componentes header">Imple. componentes Header</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3750"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3750" target="_blank" rel="noopener">BALM-3750</a></td>
+        <td data-col="1" data-sort="imple. componentes miga de pan">Imple. componentes Miga de Pan</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3825"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3825" target="_blank" rel="noopener">BALM-3825</a></td>
+        <td data-col="1" data-sort="bien: documentar consultas casos de uso datamesh">BIEN: Documentar consultas casos de uso datamesh</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3852"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3852" target="_blank" rel="noopener">BALM-3852</a></td>
+        <td data-col="1" data-sort="bien-validación de valores límite para ascenso, descenso, duración, distancia y límite de velocidad">BIEN-Validación de Valores Límite para ascenso, descenso, duración, distancia y límite de velocidad</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="3234.867">134d 18.9h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3869"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3869" target="_blank" rel="noopener">BALM-3869</a></td>
+        <td data-col="1" data-sort="bien: cobranding-boton verde qa">BIEN: Cobranding-Boton verde QA</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="47.283">1d 23.3h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="-1">—</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-3978"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-3978" target="_blank" rel="noopener">BALM-3978</a></td>
+        <td data-col="1" data-sort="trans-gesto nativo regresar en lista de integrantes">Trans-Gesto nativo regresar en lista de integrantes</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-4209"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-4209" target="_blank" rel="noopener">BALM-4209</a></td>
+        <td data-col="1" data-sort="modificar tamaño de la fuente en el modal de error en el admin portal bc">Modificar tamaño de la fuente en el modal de error en el admin portal BC</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-4265"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-4265" target="_blank" rel="noopener">BALM-4265</a></td>
+        <td data-col="1" data-sort="trans: revisión data login ">TRANS: Revisión data login </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-4375"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-4375" target="_blank" rel="noopener">BALM-4375</a></td>
+        <td data-col="1" data-sort="hus transversales 2024">Hus transversales 2024</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-4751"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-4751" target="_blank" rel="noopener">BALM-4751</a></td>
+        <td data-col="1" data-sort="bien: mejora desafíos nuevos">BIEN: Mejora desafíos nuevos</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-4995"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-4995" target="_blank" rel="noopener">BALM-4995</a></td>
+        <td data-col="1" data-sort="bien: mejora mis amigos- listado de mis amigos">BIEN: Mejora mis amigos- Listado de mis amigos</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-5510"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-5510" target="_blank" rel="noopener">BALM-5510</a></td>
+        <td data-col="1" data-sort="transv-implementar control cuando se realice cambio de contraseña">TRANSV-Implementar control cuando se realice cambio de contraseña</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-5691"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-5691" target="_blank" rel="noopener">BALM-5691</a></td>
+        <td data-col="1" data-sort="bien: link de ver mis entrenamientos no lleva a ver mis entrenamientos sino a actividad reciente">BIEN: Link de ver mis entrenamientos no lleva a ver mis entrenamientos sino a Actividad reciente</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-6358"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-6358" target="_blank" rel="noopener">BALM-6358</a></td>
+        <td data-col="1" data-sort="las dimensiones del modal de errores no coincide con el figma">Las dimensiones del modal de errores no coincide con el figma</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-6608"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-6608" target="_blank" rel="noopener">BALM-6608</a></td>
+        <td data-col="1" data-sort="bien: front: nuevo coach: historial del flujo principal">BIEN: Front: Nuevo coach: Historial del flujo principal</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="2760.25">115d 0.3h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-6614"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-6614" target="_blank" rel="noopener">BALM-6614</a></td>
+        <td data-col="1" data-sort="bien: back: nuevo coach - evaluación inicial">BIEN: BACK: Nuevo Coach - Evaluación inicial</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="6.883">6.9 h</td><td class="num" data-col="5" data-sort="2753.45">114d 17.4h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-8566"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-8566" target="_blank" rel="noopener">BALM-8566</a></td>
+        <td data-col="1" data-sort="nuevo servicio crear usuario bolívar conmigo">Nuevo servicio crear usuario Bolívar conmigo</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-8627"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-8627" target="_blank" rel="noopener">BALM-8627</a></td>
+        <td data-col="1" data-sort="implementar olivia en bolívar conmigo ">Implementar Olivia en Bolívar conmigo </td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BALM-9154"><a href="https://jirasegurosbolivar.atlassian.net/browse/BALM-9154" target="_blank" rel="noopener">BALM-9154</a></td>
+        <td data-col="1" data-sort="regresiones sp100">Regresiones SP100</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BALM">BALM</td>
+        <td class="num" data-col="4" data-sort="57.083">2d 9.1h</td><td class="num" data-col="5" data-sort="36.517">1d 12.5h</td><td class="num" data-col="6" data-sort="31.483">1d 7.5h</td><td class="num" data-col="7" data-sort="0.183">0.2 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BANCAN3-274"><a href="https://jirasegurosbolivar.atlassian.net/browse/BANCAN3-274" target="_blank" rel="noopener">BANCAN3-274</a></td>
+        <td data-col="1" data-sort="error en las consultas al runt">Error en las consultas al RUNT</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BANCAN3">BANCAN3</td>
+        <td class="num" data-col="4" data-sort="0.117">0.1 h</td><td class="num" data-col="5" data-sort="3549.933">147d 21.9h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BANCAN3-790"><a href="https://jirasegurosbolivar.atlassian.net/browse/BANCAN3-790" target="_blank" rel="noopener">BANCAN3-790</a></td>
+        <td data-col="1" data-sort="optimización del api emitirsoat y ajustes necesarios luego de la marcha blanca por r5">Optimización del API emitirSoat y ajustes necesarios luego de la marcha blanca por R5</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BANCAN3">BANCAN3</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="834.817">34d 18.8h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BANCAN3-845"><a href="https://jirasegurosbolivar.atlassian.net/browse/BANCAN3-845" target="_blank" rel="noopener">BANCAN3-845</a></td>
+        <td data-col="1" data-sort="ajuste parametrización de tasa runt por coberturas poliza rc pasajeros">Ajuste Parametrización de tasa Runt por coberturas Poliza RC Pasajeros</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BANCAN3">BANCAN3</td>
+        <td class="num" data-col="4" data-sort="0.017">0.0 h</td><td class="num" data-col="5" data-sort="612.117">25d 12.1h</td><td class="num" data-col="6" data-sort="0.117">0.1 h</td><td class="num" data-col="7" data-sort="19.183">19.2 h</td><td class="num" data-col="8" data-sort="144">6d</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="86.353">3d 14.4h</td>
+      </tr>
+      <tr>
+        <td data-col="0" data-sort="BANCAN3-859"><a href="https://jirasegurosbolivar.atlassian.net/browse/BANCAN3-859" target="_blank" rel="noopener">BANCAN3-859</a></td>
+        <td data-col="1" data-sort="error inclusión de riesgo vehiculos - ajuste fecha de vigencia">Error Inclusión de riesgo vehiculos - Ajuste fecha de vigencia</td>
+        <td data-col="2" data-sort="historia"><span class="badge">Historia</span></td>
+        <td data-col="3" data-sort="BANCAN3">BANCAN3</td>
+        <td class="num" data-col="4" data-sort="0">0 h</td><td class="num" data-col="5" data-sort="0">0 h</td><td class="num" data-col="6" data-sort="0">0 h</td><td class="num" data-col="7" data-sort="0">0 h</td><td class="num" data-col="8" data-sort="0">0 h</td><td class="num" data-col="9" data-sort="0">0 h</td><td class="num" data-col="10" data-sort="0">0 h</td>
+      </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Reporte generado el 25 de marzo de 2026</p>
+      <p style="margin-top: 0.5rem;">Ecosistema Ciencuadras · Seguros Bolívar</p>
+      <p style="margin-top: 1rem;"><a href="reportes.html">Ver todos los reportes</a></p>
+    </footer>
+  </div>
+  <script>
+    (function() {
+      var table = document.getElementById('issues-table');
+      if (!table) return;
+      var tbody = table.querySelector('tbody');
+      var headers = table.querySelectorAll('th.sortable');
+      var currentCol = -1;
+      var currentDir = 1;
+
+      function sort(colIndex, dir) {
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+        var isNum = headers[colIndex] && headers[colIndex].dataset.type === 'num';
+        rows.sort(function(a, b) {
+          var cellA = a.querySelector('td[data-col="' + colIndex + '"]');
+          var cellB = b.querySelector('td[data-col="' + colIndex + '"]');
+          if (!cellA || !cellB) return 0;
+          var valA = cellA.dataset.sort;
+          var valB = cellB.dataset.sort;
+          if (isNum) {
+            valA = parseFloat(valA);
+            valB = parseFloat(valB);
+            return dir * (valA - valB);
+          }
+          valA = (valA || '').toLowerCase();
+          valB = (valB || '').toLowerCase();
+          return dir * valA.localeCompare(valB);
+        });
+        rows.forEach(function(r) { tbody.appendChild(r); });
+      }
+
+      headers.forEach(function(th, i) {
+        th.addEventListener('click', function() {
+          var colIndex = parseInt(th.dataset.col, 10);
+          if (currentCol === colIndex) currentDir = -currentDir;
+          else { currentCol = colIndex; currentDir = 1; }
+          headers.forEach(function(h) { h.classList.remove('sorted-asc', 'sorted-desc'); });
+          th.classList.add(currentDir === 1 ? 'sorted-asc' : 'sorted-desc');
+          sort(colIndex, currentDir);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

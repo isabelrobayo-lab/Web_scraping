@@ -1,0 +1,14 @@
+{
+  "enabled": false,
+  "name": "Run Tests After Task",
+  "description": "Ejecuta los tests automáticamente después de completar una tarea de spec para validar que la implementación no rompe nada. Alineado con org-rules-devops.md sección 4 (unit tests en cada cambio).",
+  "version": "1",
+  "when": {
+    "type": "postTaskExecution"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "npm test --if-present"
+  },
+  "shortName": "post-task-tests"
+}

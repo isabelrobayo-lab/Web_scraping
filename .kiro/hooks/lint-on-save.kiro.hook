@@ -1,0 +1,22 @@
+{
+  "enabled": true,
+  "name": "Lint on Save",
+  "description": "Ejecuta ESLint automáticamente al guardar archivos JavaScript/TypeScript para mantener la calidad del código. Alineado con org-rules-devops.md sección 4 (static analysis obligatorio).",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.js",
+      "**/*.cjs",
+      "**/*.mjs",
+      "**/*.ts",
+      "**/*.tsx"
+    ]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "npx eslint --no-error-on-unmatched-pattern --max-warnings=0 --format=compact"
+  },
+  "shortName": "lint-on-save",
+  "workspaceFolderName": "KIRO_PO"
+}

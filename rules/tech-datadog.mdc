@@ -1,0 +1,23 @@
+---
+description: Uso de observabilidad para depuración y análisis de impacto.
+globs: "*"
+alwaysApply: false
+---
+
+# Observabilidad con Datadog
+
+## Validación en Datadog (obligatorio: agente dedicado)
+
+Cuando el usuario pida **validación en Datadog** (alertas, monitores en alerta, comprobar servicios alertados, flujo alerta → código → plan/Jira), el **Orquestador** debe activar el agente **Cloud Agent Datadog Alert** (inventario `docs/architecture/6-inventario-agentes.md` #8) vía **Task** `generalPurpose`, siguiendo el prompt completo en `docs/templates/automation-datadog-alert-prompt.md` y el runbook `docs/runbook/automation-datadog-alert.md`. No sustituir ese flujo con consultas aisladas al MCP.
+
+## Instrucciones
+Usa el MCP `datadog` cuando necesites:
+1. **Investigar Incidentes:** Si un ticket de Jira describe un error, consulta logs o monitores en Datadog para correlacionar con el código[cite: 1887, 4348].
+2. **Análisis de Desempeño:** Valida métricas críticas antes de proponer cambios arquitectónicos[cite: 129, 472].
+3. **Visualización:** Pide al MCP generar visualizaciones si es necesario para entender el flujo de tráfico en producción.
+
+## Runbooks de la plataforma
+Para alertas de la plataforma configurada, consultar los runbooks en `Workspace/observabilidad/runbooks/`:
+- Ausencia de tráfico: `runbooks/ausencia-trafico.md`
+- Alta tasa de error: `runbooks/alta-tasa-error.md`
+- Despliegue defectuoso: `runbooks/despliegue-defectuoso.md`

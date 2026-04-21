@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Hardcoded Data Validator",
+  "description": "Después de operaciones de escritura, detecta datos hardcodeados que deberían venir de platforms.json (URLs de Jira, IDs de dashboards Datadog, project keys fijos). Alineado con 03-validacion-agnostico-particular.md.",
+  "version": "1",
+  "when": {
+    "type": "postToolUse",
+    "toolTypes": [
+      "write"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "VALIDACIÓN POST-ESCRITURA — Hardcoded Data Validator.\n\nRevisa el archivo que se acaba de escribir y verifica que NO contenga datos hardcodeados que deberían obtenerse de platforms.json o variables de entorno:\n\n1. URLs de proyectos Jira (ej. https://xxx.atlassian.net/browse/GD768-*)\n2. IDs de dashboards o monitores Datadog fijos\n3. Project keys de Jira hardcodeados (ej. 'GD768' directamente en código)\n4. URLs de aplicaciones de producción hardcodeadas\n5. IDs de espacios de Confluence fijos\n6. Nombres de organización GitHub hardcodeados\n\nSi detectas alguno de estos patrones en archivos de CÓDIGO (scripts/, tests/, tools/, miniverse/, .kiro/):\n- ADVERTENCIA: Sugiere al usuario que estos valores deben leerse desde Workspace/config/platforms.json o variables de entorno.\n\nSi el archivo está en Workspace/ (planes, reportes, config): Es aceptable que contenga datos específicos de la plataforma.\n\nSi el archivo es un hook (.kiro/hooks/) o steering (.kiro/steering/): Los datos deben ser genéricos."
+  },
+  "shortName": "hardcoded-data-validator"
+}

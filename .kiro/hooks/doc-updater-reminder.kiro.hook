@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "Doc Updater Reminder",
+  "description": "Al editar archivos de código fuente, recuerda invocar al agente Doc Updater si los cambios son definitivos. Replica el comportamiento del pre-commit hook de .githooks/ dentro del IDE. Alineado con agent-doc-updater.md.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "scripts/**",
+      "tests/**",
+      "tools/**",
+      "miniverse/**",
+      "*.config.js",
+      "*.config.ts",
+      "package.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "RECORDATORIO — Doc Updater.\n\nSe ha editado un archivo de código fuente. Si este cambio representa una solución definitiva (no WIP ni experimento), recuerda que la documentación en docs/ debe actualizarse.\n\nConsulta el mapeo en agent-doc-updater.md para determinar qué documentos pueden estar afectados según el archivo modificado. No actúes automáticamente — solo recuerda al usuario que debe invocar al agente Doc Updater antes del commit si la solución es definitiva."
+  },
+  "shortName": "doc-updater-reminder"
+}

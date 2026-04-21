@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agentes, MCPs, CLIs, Skills y actividades</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --surface2: #243044;
+      --text: #e8edf4;
+      --muted: #8b9bb4;
+      --accent: #3d9cfd;
+      --mcp: #7c3aed;
+      --cli: #059669;
+      --skill: #ea580c;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    section.screen {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      padding: clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1.5rem;
+    }
+
+    .screen--agents {
+      background: radial-gradient(ellipse 120% 80% at 50% -20%, rgba(61, 156, 253, 0.15), transparent 50%),
+        var(--bg);
+    }
+
+    .screen--activities {
+      background: radial-gradient(ellipse 100% 60% at 80% 0%, rgba(124, 58, 237, 0.12), transparent 45%),
+        linear-gradient(180deg, #121820 0%, var(--bg) 30%);
+      border-top: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 52ch;
+    }
+
+    .scroll-hint {
+      margin-top: auto;
+      padding-top: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* Leyenda global */
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .legend h2 {
+      width: 100%;
+      margin: 0 0 0.25rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-family: ui-monospace, monospace;
+    }
+
+    .chip--mcp { background: rgba(124, 58, 237, 0.2); color: #c4b5fd; border: 1px solid rgba(124, 58, 237, 0.35); }
+    .chip--cli { background: rgba(5, 150, 105, 0.2); color: #6ee7b7; border: 1px solid rgba(5, 150, 105, 0.35); }
+    .chip--skill { background: rgba(234, 88, 12, 0.2); color: #fdba74; border: 1px solid rgba(234, 88, 12, 0.35); }
+    .chip--tool { background: rgba(61, 156, 253, 0.15); color: #93c5fd; border: 1px solid rgba(61, 156, 253, 0.3); }
+
+    /* Orquestador central */
+    .orchestrator-row {
+      display: flex;
+      justify-content: center;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .orchestrator {
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, var(--surface2), var(--surface));
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      text-align: center;
+      max-width: 420px;
+    }
+
+    .orchestrator strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .orchestrator span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Grid agentes */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .agent-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .agent-card:hover {
+      border-color: rgba(61, 156, 253, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .agent-card__title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .agent-card__role {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .agent-card__links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: auto;
+    }
+
+    .agent-card__links label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    /* Fases */
+    .phases {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .phase {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.75rem;
+      background: var(--surface2);
+      border-radius: 999px;
+      color: var(--muted);
+    }
+
+    .phase strong {
+      color: var(--text);
+    }
+
+    /* Sección actividades */
+    .activities-intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 60ch;
+    }
+
+    .activity-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 900px;
+    }
+
+    .activity-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      align-items: start;
+    }
+
+    .activity-item__date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .activity-item h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .activity-item p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .activity-item__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.6rem;
+    }
+
+    footer.note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .activity-item {
+        grid-template-columns: 1fr;
+      }
+      .activity-item__date {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla 1: Agentes ↔ MCPs, CLIs, Skills -->
+  <section class="screen screen--agents" id="agentes">
+    <header>
+      <h1>Agentes y su interacción con MCPs, CLIs y Skills</h1>
+      <p class="subtitle">
+        Vista basada en <code>docs/architecture/6-inventario-agentes.md</code>.
+        El Orquestador coordina y <strong>solo delega con Task</strong> (subagentes); MCP, CLI, skills y tools de repo las ejecutan los especialistas. Excepción: el usuario pide explícitamente actuar sin subagentes en ese turno.
+      </p>
+    </header>
+
+    <div class="phases">
+      <span class="phase"><strong>1</strong> Análisis (Scout)</span>
+      <span class="phase"><strong>2</strong> Contexto (Historian)</span>
+      <span class="phase"><strong>3</strong> Planificación</span>
+      <span class="phase"><strong>4</strong> Validación (Guardian)</span>
+    </div>
+
+    <div class="orchestrator-row">
+      <div class="orchestrator">
+        <strong>Orquestador (The Architect)</strong>
+        <span><span class="chip chip--tool" style="font-size:0.8rem">Task</span> única herramienta de ejecución · texto al usuario (decisión de orquestación y síntesis) · sin MCP / CLI / lectura de repo en sesión normal</span>
+      </div>
+    </div>
+
+    <div class="legend">
+      <h2>Capas transversales del proyecto</h2>
+      <span class="chip chip--mcp">MCP atlassian</span>
+      <span class="chip chip--mcp">MCP user-github</span>
+      <span class="chip chip--mcp">MCP datadog</span>
+      <span class="chip chip--mcp">MCP playwright</span>
+      <span class="chip chip--mcp">MCP @microsoft/clarity-mcp-server</span>
+      <span class="chip chip--mcp">MCP draw.io</span>
+      <span class="chip chip--mcp">MCP chrome-devtools</span>
+      <span class="chip chip--cli">gh</span>
+      <span class="chip chip--cli">node / npm / npx</span>
+      <span class="chip chip--cli">npx playwright test</span>
+      <span class="chip chip--cli">git log</span>
+      <span class="chip chip--skill">construir</span>
+      <span class="chip chip--skill">prueba</span>
+      <span class="chip chip--skill">diagramas-drawio</span>
+    </div>
+
+    <div class="agent-grid">
+      <article class="agent-card">
+        <div class="agent-card__title">Scout</div>
+        <p class="agent-card__role">Leer Jira y extraer requerimientos.</p>
+        <div class="agent-card__links">
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">atlassian</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">Historian</div>
+        <p class="agent-card__role">Impacto técnico en el repo actual (no repos externos).</p>
+        <div class="agent-card__links">
+          <div><label>Tools / CLI</label><div class="badges"><span class="chip chip--tool">@Codebase</span><span class="chip chip--cli">gh pr list</span><span class="chip chip--cli">git log</span><span class="chip chip--cli">tree</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">Guardian</div>
+        <p class="agent-card__role">E2E en verde antes de cerrar tarea.</p>
+        <div class="agent-card__links">
+          <div><label>Skill</label><div class="badges"><span class="chip chip--skill">prueba</span></div></div>
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">chrome-devtools</span> <span class="chip chip--tool">.kiro/settings/mcp.json</span></div></div>
+          <div><label>CLI</label><div class="badges"><span class="chip chip--cli">npx playwright test</span><span class="chip chip--cli">npm test</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">GitHub Repos</div>
+        <p class="agent-card__role">Repos externos definidos en <code>platforms.json</code>.</p>
+        <div class="agent-card__links">
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">user-github</span></div></div>
+          <div><label>CLI</label><div class="badges"><span class="chip chip--cli">gh</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">PO-Agile</div>
+        <p class="agent-card__role">Historias INVEST y criterios Dado-Cuando-Entonces.</p>
+        <div class="agent-card__links">
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">atlassian</span> <span class="chip chip--tool">createJiraIssue</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">Doc Updater</div>
+        <p class="agent-card__role">Documentación viva en <code>docs/</code>.</p>
+        <div class="agent-card__links">
+          <div><label>Skill</label><div class="badges"><span class="chip chip--skill">diagramas-drawio</span></div></div>
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">draw.io</span> (vía skill)</div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">Cloud Agent Datadog Alert</div>
+        <p class="agent-card__role">Automatización programada: alertas → plan → Jira.</p>
+        <div class="agent-card__links">
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">datadog</span><span class="chip chip--mcp">atlassian</span><span class="chip chip--mcp">github</span></div></div>
+          <div><label>CLI / scripts</label><div class="badges"><span class="chip chip--cli">npm run automation:create-cursor</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">Clarity Behavior</div>
+        <p class="agent-card__role">UX y comportamiento en producción vía Microsoft Clarity (métricas, sesiones, docs).</p>
+        <div class="agent-card__links">
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">@microsoft/clarity-mcp-server</span></div></div>
+          <div><label>Miniverse</label><div class="badges"><span class="chip chip--tool">clarity-behavior</span></div></div>
+        </div>
+      </article>
+
+      <article class="agent-card">
+        <div class="agent-card__title">Onboarding (regla)</div>
+        <p class="agent-card__role">Primera interacción: validar entorno y <code>platforms.json</code>.</p>
+        <div class="agent-card__links">
+          <div><label>CLI esperados</label><div class="badges"><span class="chip chip--cli">gh</span><span class="chip chip--cli">node</span><span class="chip chip--cli">npm</span><span class="chip chip--cli">npx playwright</span></div></div>
+          <div><label>MCP</label><div class="badges"><span class="chip chip--mcp">atlassian</span><span class="chip chip--mcp">datadog</span><span class="chip chip--mcp">github</span></div></div>
+        </div>
+      </article>
+    </div>
+
+    <p class="scroll-hint">Desplázate hacia abajo para ver actividades realizadas con los agentes</p>
+  </section>
+
+  <!-- Pantalla 2: Actividades -->
+  <section class="screen screen--activities" id="actividades">
+    <header>
+      <h1>Actividades realizadas con los agentes</h1>
+      <p class="activities-intro">
+        Resumen de entregables y planes bajo el <code>WORKSPACE_ROOT</code> activo: <code>reports/</code>, <code>plans/</code>, <code>observabilidad/</code>, etc. La raíz la resuelven los scripts con <code>scripts/workspace-root.js</code> y la variable de entorno <code>WORKSPACE_ROOT</code>. Puedes ampliar o editar esta lista cuando se añadan nuevos artefactos.
+      </p>
+    </header>
+
+    <div class="activity-list">
+      <article class="activity-item">
+        <time class="activity-item__date" datetime="2026-03-24">24 mar 2026</time>
+        <div>
+          <h3>Documentación y diagrama: Orquestador, WORKSPACE_ROOT y Datadog</h3>
+          <p>Inventario y vista HTML alineados con la regla del Orquestador (solo <strong>Task</strong> para ejecutar; MCP/CLI en subagentes). Rutas de planes y artefactos descritas con <code>WORKSPACE_ROOT</code> y <code>scripts/workspace-root.js</code>. En resumen de proyecto: automatización Datadog en Cursor como <strong>scheduled</strong> (sin webhook), coherente con runbook y template.</p>
+          <div class="activity-item__meta">
+            <span class="chip chip--tool">Doc Updater</span>
+            <span class="chip chip--skill">diagramas HTML</span>
+            <span class="chip chip--tool">scripts/workspace-root.js</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity-item">
+        <time class="activity-item__date" datetime="2026-03-17">17 mar 2026</time>
+        <div>
+          <h3>Reporte de productividad e incidencias (plataforma)</h3>
+          <p>Análisis de incidencias Jira (Error productivo y seguridad), métricas de cierre y entregables de valor.</p>
+          <div class="activity-item__meta">
+            <span class="chip chip--mcp">Jira / atlassian</span>
+            <span class="chip chip--tool">Scout · PO</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity-item">
+        <time class="activity-item__date" datetime="2026-03">Mar 2026</time>
+        <div>
+          <h3>Reportes HTML (negocio y calidad)</h3>
+          <p>Informes visuales: reportes por plataforma, auditoría de errores de consola, análisis de ciclo de desarrollo.</p>
+          <div class="activity-item__meta">
+            <span class="chip chip--tool">Doc Updater</span>
+            <span class="chip chip--skill">diagramas-drawio</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity-item">
+        <time class="activity-item__date" datetime="2026-03">Mar 2026</time>
+        <div>
+          <h3>Planes en {WORKSPACE_ROOT}/plans/</h3>
+          <p>Validación de solapamiento de reglas de agentes; HU de latencia (admin eventos masivos); mejoras sobre alerta Datadog; plan Miniverse; validación separación código/agentes; optimización de proyecto; plan de errores de consola; unit tests.</p>
+          <div class="activity-item__meta">
+            <span class="chip chip--tool">Orquestador</span>
+            <span class="chip chip--mcp">datadog</span>
+            <span class="chip chip--skill">prueba</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity-item">
+        <time class="activity-item__date" datetime="2026-03">Mar 2026</time>
+        <div>
+          <h3>Observabilidad: mapeo servicio ↔ repositorio</h3>
+          <p>Documento de trazabilidad entre servicios y repos para automatización y runbooks.</p>
+          <div class="activity-item__meta">
+            <span class="chip chip--mcp">datadog</span>
+            <span class="chip chip--mcp">github</span>
+            <span class="chip chip--tool">Cloud Agent</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="activity-item">
+        <time class="activity-item__date" datetime="2026-03">Mar 2026</time>
+        <div>
+          <h3>Validación E2E y flujo Guardian</h3>
+          <p>Ejecución y mantenimiento de pruebas Playwright; criterio de cierre con tests en verde según reglas del proyecto.</p>
+          <div class="activity-item__meta">
+            <span class="chip chip--skill">prueba</span>
+            <span class="chip chip--cli">npx playwright test</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <footer class="note">
+      Fuente de verdad del inventario de agentes: <code>docs/architecture/6-inventario-agentes.md</code>.
+      Archivo de esta vista: <code>docs/diagrams/agentes-mcps-cli-skills-actividades.html</code>.
+    </footer>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "GitHub MCP Guard",
+  "description": "Restringe el uso del MCP de GitHub para repos EXTERNOS de la plataforma al agente GitHub Repos y al Cloud Agent Datadog Alert. El Historian trabaja con el repo LOCAL, no con MCP GitHub. Alineado con 00-swarm-orchestrator.md y agent-github-repos.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*mcp_github.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CONTROL DE ACCESO — GitHub MCP Guard.\n\nEl MCP de GitHub (para repos EXTERNOS de la plataforma) está RESTRINGIDO a:\n- GitHub Repos (lectura de repos definidos en platforms.json)\n- Cloud Agent Datadog Alert (consulta de repos para correlacionar alertas con código)\n\nEvalúa si la herramienta MCP GitHub (get_file_contents, list_pull_requests, list_commits, search_code, search_repositories, create_pull_request, push_files, etc.) es invocada por un agente autorizado.\n\n- Si el contexto actual es GitHub Repos o Cloud Agent Datadog Alert: ACCESO PERMITIDO.\n- Si el contexto es Historian: ADVERTENCIA. Historian trabaja con el repo LOCAL usando herramientas del IDE (readFile, grepSearch, git log). Si necesita repos externos, debe delegarse a GitHub Repos.\n- Si el contexto es cualquier otro agente: ACCESO DENEGADO. Informa que las consultas a repos externos deben delegarse al agente GitHub Repos.\n\nExcepción: Operaciones sobre el repo PROPIO del proyecto (Squad Agentes IA) están permitidas para cualquier agente ya que son operaciones locales, no de plataforma."
+  },
+  "shortName": "github-mcp-guard"
+}

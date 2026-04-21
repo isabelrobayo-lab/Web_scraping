@@ -1,0 +1,33 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: 4 fases del protocolo"]
+        M2["Objetivo: 4 fases del protocolo (Análisis → Validación)"]
+        M3["Ruta archivo: docs/diagrams/4-fases-protocolo.mmd"]
+    end
+
+    subgraph entrada [Entrada]
+        U[👤 Usuario: Necesito implementar X]
+    end
+
+    subgraph fases ["4 Fases — Validar con docs/architecture/6-inventario-agentes.md"]
+        F1["1️⃣ ANÁLISIS — Scout<br/>Lee Jira vía MCP atlassian<br/>¿Qué quiere el negocio?"]
+        F2["2️⃣ CONTEXTO — Historian<br/>Codebase + gh pr list<br/>¿Qué impacto tendrá?"]
+        F3["3️⃣ PLANIFICACIÓN<br/>Plan en Workspace/plans/<br/>Regla: 01-plans-location.mdc"]
+        F4["4️⃣ VALIDACIÓN — Guardian<br/>npm test | Playwright<br/>¿Funciona correctamente?"]
+    end
+
+    subgraph soporte ["Agente de soporte"]
+        GH["📂 GitHub Repos<br/>Lee repos plataforma cuando aplica<br/>globs: platforms.json, plans"]
+    end
+
+    subgraph salida [Salida]
+        R[✅ Tarea completada con reporte de éxito]
+    end
+
+    U --> F1
+    F1 --> F2
+    F2 --> F3
+    F3 --> F4
+    F4 --> R
+    GH -.-> F2
+    GH -.-> F3

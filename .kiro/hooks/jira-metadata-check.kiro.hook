@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Jira Metadata Pre-Check",
+  "description": "Antes de crear issues en Jira, recuerda consultar getJiraIssueTypeMetaWithFields para obtener campos obligatorios. Evita errores por campos faltantes o formato incorrecto (ADF vs texto plano). Alineado con 05-jira-writing-guidelines.md.",
+  "version": "1",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [
+      ".*createJiraIssue.*"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "VALIDACIÓN — Jira Metadata Pre-Check.\n\nAntes de crear un issue en Jira, verifica que se hayan seguido los lineamientos de 05-jira-writing-guidelines.md:\n\n1. ¿Se consultó getJiraIssueTypeMetaWithFields para obtener los campos obligatorios del proyecto y tipo de issue?\n2. ¿Los campos rich-text (como customfield_10332 Criterios de Aceptación) usan formato ADF y no texto plano?\n3. ¿El texto 'Creado con IA' está en la descripción y NO en el título?\n4. ¿Se incluyeron todos los campos required: true del schema?\n\nSi no se consultó la metadata del proyecto previamente en esta sesión:\n- ACCESO DENEGADO. Primero ejecuta getJiraProjectIssueTypesMetadata y luego getJiraIssueTypeMetaWithFields.\n\nSi ya se consultó y el payload cumple los lineamientos:\n- ACCESO PERMITIDO. Procede con la creación."
+  },
+  "shortName": "jira-metadata-check"
+}

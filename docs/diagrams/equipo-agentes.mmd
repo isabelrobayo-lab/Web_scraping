@@ -1,0 +1,39 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Equipo de agentes"]
+        M2["Inventario: 8 roles con objetivo explícito (docs/architecture/6-inventario-agentes.md)"]
+        M3["Fuente: docs/diagrams/equipo-agentes.mmd"]
+    end
+
+    subgraph equipo ["Equipo de agentes — referencia 6-inventario-agentes.md"]
+        direction TB
+        O["🎯 Orquestador — Arquitecto del enjambre<br/>Objetivo: Liderar y orquestar Análisis → Contexto → Planificación → Validación<br/>Regla: 00-swarm-orchestrator.mdc · MCP: atlassian"]
+        O --> S["🔍 Analista de requisitos — Scout<br/>Objetivo: Leer Jira y extraer requerimientos. ¿Qué quiere el negocio?<br/>MCP: atlassian"]
+        O --> H["📚 Historiador de impacto — Historian<br/>Objetivo: Revisar código y PRs del repo actual; evitar repetir errores<br/>Tools: @Codebase, gh pr list"]
+        O --> R["📂 Lector de repos de plataforma<br/>Objetivo: Analizar repos externos listados en platforms.json (no el repo local)<br/>Regla: agent-github-repos.mdc · MCP: user-github"]
+        O --> P["📋 Refinador de historias — PO / Agile<br/>Objetivo: Convertir requisitos en HU INVEST y criterios Dado-Cuando-Entonces para Jira<br/>Regla: agent-po-agile.md · MCP: atlassian"]
+        O --> D["📝 Documentador de referencia<br/>Objetivo: Mantener docs/ viva y alineada al código; recordatorio pre-commit<br/>Regla: agent-doc-updater.mdc"]
+        O --> G["🛡️ Validador QA — E2E / Guardian<br/>Objetivo: Playwright en verde; no dar por cerrada la tarea sin tests OK<br/>Regla: agent-tech-guardian · Skill: prueba · npx playwright test"]
+    end
+
+    subgraph cloud ["Cloud Agent autónomo"]
+        CA["☁️ Observabilidad — alertas Datadog → plan → Jira<br/>Objetivo: En horario, leer alertas Datadog, validar servicios, generar plan y HU en Jira<br/>Prompt: automation-datadog-alert · MCPs: datadog, atlassian, github · Schedule ~15 min"]
+    end
+
+    subgraph fuentes ["Fuentes de información"]
+        J[Jira]
+        C[Código]
+        GH[Repos GitHub]
+        T[Tests]
+        DD[Datadog]
+    end
+
+    S --> J
+    H --> C
+    R --> GH
+    P --> J
+    D --> C
+    G --> T
+    CA --> DD
+    CA --> GH
+    CA --> J

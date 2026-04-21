@@ -1,0 +1,42 @@
+{
+  "_comment": "Copiar a {WORKSPACE_ROOT}/config/platforms.json. Ver docs/onboarding/01-flujo-primera-interaccion.md",
+  "platforms": [
+    {
+      "id": "ejemplo",
+      "name": "Nombre del producto o plataforma",
+      "urls": {
+        "app": "https://www.ejemplo.com",
+        "staging": "https://staging.ejemplo.com",
+        "docs": ""
+      },
+      "smokePaths": ["/", "/ruta1", "/ruta2"],
+      "auditZones": [
+        { "name": "Home", "url": "/" },
+        { "name": "Sección A", "url": "/ruta1" },
+        { "name": "Sección B", "url": "/ruta2" }
+      ],
+      "jira": {
+        "cloudId": "",
+        "projectKey": "",
+        "projectUrl": "https://tu-sitio.atlassian.net/browse/PROJ",
+        "boardId": "",
+        "incidentBoardId": "",
+        "securityIncidentBoardId": ""
+      },
+      "datadog": {
+        "site": "us1",
+        "dashboardIds": [],
+        "monitorTags": [],
+        "serviceToRepos": {
+          "_comment": "Mapeo servicio/tag Datadog → repos GitHub para automation de alertas. Ver docs/runbook/automation-datadog-alert.md",
+          "ejemplo-servicio": ["nombre-org/repo-frontend", "nombre-org/repo-api"]
+        }
+      },
+      "github": {
+        "org": "nombre-org",
+        "repos": ["repo-frontend", "repo-backend"]
+      }
+    }
+  ],
+  "defaultPlatformId": "ejemplo"
+}

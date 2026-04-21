@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportes | SQUAD-AGENTES-IA | Vicepresidencia Negocio y Tecnología</title>
+  <meta name="description" content="Índice de reportes del proyecto SQUAD-AGENTES-IA. Workspace agnóstico de pruebas E2E, auditoría y observabilidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Asset/report-base.css">
+  <link rel="stylesheet" href="Asset/report-index.css">
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-link">← Inicio</a>
+
+    <h1>Reportes del Proyecto</h1>
+    <p class="subtitle">SQUAD-AGENTES-IA · Vicepresidencia Negocio y Tecnología</p>
+
+    <!-- Filtro por plataforma (carga desde data/platforms.json en deploy) -->
+    <div class="platform-filter" id="platform-filter" style="display: none;">
+      <label for="platform-select">Plataforma:</label>
+      <select id="platform-select" aria-label="Filtrar por plataforma">
+        <option value="">Cargando...</option>
+      </select>
+      <span class="platform-url" id="platform-url"></span>
+    </div>
+
+    <!-- Card principal (página de inicio) -->
+    <a href="index.html" class="card primary">
+      <h2>Reporte Ejecutivo | Valor Entregado</h2>
+      <p>Resumen del valor entregado en el proyecto. Página principal.</p>
+    </a>
+
+    <!-- Cards de reportes individuales -->
+    <a href="reporte-ejecutivo-valor-proyecto.html" class="card">
+      <h2>Reporte Ejecutivo | Valor Entregado (standalone)</h2>
+      <p>Mismo contenido en página independiente</p>
+    </a>
+
+    <a href="analisis-ciclo-desarrollo.html" class="card">
+      <h2>Análisis Ciclo de Desarrollo | Reporte Gerencial</h2>
+      <p>Tiempo promedio por fase del ciclo. Tabla detallada con enlaces a Jira.</p>
+    </a>
+
+    <!-- Añadir más reportes según corresponda -->
+  </div>
+</body>
+</html>

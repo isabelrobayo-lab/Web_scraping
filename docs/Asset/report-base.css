@@ -1,0 +1,60 @@
+/**
+ * Plantilla base para reportes HTML publicados en GitHub Pages
+ * docs/Asset/report-base.css
+ *
+ * Incluye: variables CSS, reset, tipografía y layout base.
+ * Usar junto con report-components.css en reportes de contenido.
+ */
+
+:root {
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a2332;
+  --bg-card: #1e2a3a;
+  --accent: #00d4aa;
+  --accent-muted: #00a884;
+  --text-primary: #e8edf4;
+  --text-secondary: #8b9cb3;
+  --border: #2d3d52;
+  --success: #00d4aa;
+  --warning: #f0b429;
+  --critical: #e85d75;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.container--wide {
+  max-width: 1200px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+}

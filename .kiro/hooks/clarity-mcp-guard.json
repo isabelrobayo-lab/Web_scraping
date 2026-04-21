@@ -1,0 +1,13 @@
+{
+  "name": "clarity-mcp-guard",
+  "version": "1.0.0",
+  "description": "Guardia de acceso a herramientas MCP de Microsoft Clarity. Solo el agente Clarity_Behavior debe invocarlas.",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [".*clarity.*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CHECKPOINT DE DOMINIO — Clarity MCP.\n\nEstás a punto de invocar una herramienta del MCP de Microsoft Clarity (query-analytics-dashboard, list-session-recordings, query-documentation-resources).\n\nEvalúa lo siguiente:\n1. Revisa los archivos de steering activos en tu contexto. ¿Tu rol actual corresponde al agente Clarity_Behavior (especialista en comportamiento de usuarios y analítica Clarity)?\n2. Si tu rol NO es Clarity_Behavior: CANCELA esta invocación. Sugiere al usuario delegar esta tarea al agente Clarity_Behavior a través del Orquestador.\n3. EXCEPCIÓN: Si el usuario ha solicitado EXPLÍCITAMENTE en este mismo turno una correlación entre Clarity y otro dominio (por ejemplo, Clarity + tests E2E), documenta la excepción y procede.\n\nResponde con tu evaluación antes de continuar."
+  }
+}

@@ -1,0 +1,35 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Código vs artefactos"]
+        M2["Objetivo: Separación código vs artefactos"]
+        M3["Ruta archivo: docs/diagrams/codigo-vs-artefactos.mmd"]
+    end
+
+    subgraph source [Código fuente - versionado]
+        tests[tests/]
+        scripts[scripts/]
+        tools[tools/]
+        miniverse[miniverse/]
+        kiroSteering[.kiro/steering/]
+        kiroSkills[.kiro/skills/]
+        rules[rules/]
+        docsSource["docs/"]
+        githooks[.githooks/]
+    end
+
+    subgraph workspace [Workspace - resultados de agentes - .gitignore]
+        config[Workspace/config/]
+        reports[Workspace/reports/]
+        audit[Workspace/audit/]
+        playwright[Workspace/playwright/]
+        plans[Workspace/plans/]
+        observabilidad[Workspace/observabilidad/]
+        repos[Workspace/repos/]
+    end
+
+    scripts --> reports
+    scripts --> audit
+    tests --> playwright
+    kiroSteering --> plans
+    tools --> reports
+    miniverse -.-> playwright

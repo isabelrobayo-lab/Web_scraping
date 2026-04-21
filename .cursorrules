@@ -1,0 +1,17 @@
+# Reglas del Proyecto SQUAD-AGENTES-IA
+
+Lee el contexto completo en [docs/resumen-proyecto.md](./docs/resumen-proyecto.md).
+
+## Proyecto agnóstico
+
+- **Configuración por plataforma** en `Workspace/ciencuadras/config/platforms.json` por defecto (o `WORKSPACE_ROOT/config/platforms.json`; URLs, Jira, Datadog).
+- **Primera interacción**: Si falta `platforms.json`, el **Orquestador delega** validación MCP/CLI y creación de config vía **Task** (no ejecuta él los comandos). Ver `docs/onboarding/01-flujo-primera-interaccion.md` y `.cursor/rules/02-onboarding-first-interaction.mdc`.
+
+## Reglas obligatorias
+
+- **Orquestador y agentes especialistas**: El Orquestador **no usa** MCP, CLI ni tools del agente (lectura/escritura repo, búsquedas, etc.): **solo** entiende la petición, elige especialista y **Task**. Los subagentes ejecutan. Excepción: el usuario pide explícitamente “solo Orquestador, sin subagentes” en ese turno, o saludo/meta sin entregable. Mapa: `.cursor/rules/00-swarm-orchestrator.mdc`.
+- **No hagas build en cada cambio**: No ejecutes `npm run build` ni equivalentes tras cada modificación. Solo cuando sea explícitamente necesario (ej. antes de deploy).
+- **Planificación**: Para tareas complejas, genera un plan en `Workspace/plans/` antes de tocar código.
+- **Validación**: No consideres una tarea terminada sin reporte de éxito de Playwright cuando aplique.
+- **Documentación viva**: Lee y actualiza `docs/` cuando cambies arquitectura, decisiones o runbooks.
+- **Spec Driven Development (SDD)**: Especificación antes de código. Usa specs (PRD, Confluence) como fuente de verdad; genera plan en `Workspace/plans/` antes de implementar. Ver `rules/process-prd-generation.mdc` y `rules/AGENTS.md`.

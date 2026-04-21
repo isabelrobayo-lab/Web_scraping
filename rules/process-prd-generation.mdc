@@ -1,0 +1,21 @@
+---
+description: Guía para la generación de Documentos de Requerimientos de Producto (PRD).
+globs: "docs/*.md, requirements/*.md"
+alwaysApply: false
+---
+
+# Estándar de Documentación SPECDD (Spec Driven Development)
+
+Este estándar implementa el ciclo **Specify** de Spec Driven Development.
+
+## Formato del PRD
+[cite_start]Cada vez que generes un análisis para una iniciativa, el archivo debe incluir: [cite: 125, 4136, 4139]
+1. [cite_start]**Contexto Jira:** Enlace al ticket y prioridad. [cite: 140, 2437]
+2. [cite_start]**Problem Statement:** Definición clara del "por qué". [cite: 121, 2713]
+3. [cite_start]**Technical Design:** Diagrama Mermaid con la arquitectura propuesta. [cite: 124, 1899]
+4. [cite_start]**User Stories:** Historias en formato Gherkin (Given/When/Then). [cite: 132, 173, 1719]
+
+## Validación de Viabilidad
+El PRD debe terminar con una sección de "Viabilidad Técnica" que diga:
+- "Analizado contra el codebase: [SÍ/NO]"
+- "Bloqueos detectados en Git: [Detalle]"

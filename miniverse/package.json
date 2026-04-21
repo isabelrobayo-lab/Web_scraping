@@ -1,0 +1,24 @@
+{
+  "name": "miniverse",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n vite,server -c cyan,magenta \"vite\" \"miniverse --no-browser\"",
+    "dev:full": "npm run dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "miniverse",
+    "seed:agents": "node scripts/seed-inventory-agents.mjs",
+    "seed:agents:live": "node scripts/seed-inventory-agents.mjs --keep-alive"
+  },
+  "dependencies": {
+    "@miniverse/core": "^0.2.6",
+    "@miniverse/server": "^0.2.8"
+  },
+  "devDependencies": {
+    "@miniverse/generate": "^0.2.0",
+    "concurrently": "^9.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.4.0"
+  }
+}

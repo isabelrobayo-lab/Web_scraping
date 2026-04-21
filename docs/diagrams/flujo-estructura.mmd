@@ -1,0 +1,48 @@
+flowchart TB
+    subgraph metadata ["📋 Metadatos"]
+        M1["Título: Flujo estructura"]
+        M2["Objetivo: Flujos de configuración, E2E, auditoría, reportes y agentes"]
+        M3["Ruta archivo: docs/diagrams/flujo-estructura.mmd"]
+    end
+
+    subgraph config ["Flujo de configuración"]
+        A1[Onboarding] --> A2[platforms.json]
+        A2 --> A3[get-platform-config.js]
+        A3 --> A4[Scripts y tests]
+    end
+
+    subgraph e2e ["Flujo Tests E2E"]
+        B1[playwright.config.js] --> B2[getBaseUrl]
+        B2 --> B3[platforms.json]
+        B4[tests/smoke.spec.js] --> B5[getSmokePaths]
+        B5 --> B3
+    end
+
+    subgraph audit ["Flujo de auditoría"]
+        C1[npm run audit] --> C2[audit-console-errors.js]
+        C2 --> C3[getBaseUrl, getAuditZones]
+        C3 --> C4[Workspace/audit/]
+    end
+
+    subgraph reports ["Flujo de reportes"]
+        D1[docs/data/jira-cycle-*.json] --> D2[generate-cycle-report-html.js]
+        D2 --> D3[Workspace/reports/]
+        D3 --> D4[deploy-pages.js]
+        D4 --> D5[docs/*.html GitHub Pages]
+    end
+
+    subgraph agents ["Flujo de agentes — Ver 6-inventario-agentes.md"]
+        E1[Orquestador: Scout→Historian→Plan]
+        E2[Plan en Workspace/plans/]
+        E3[Guardian: npm test]
+        E4[GitHub Repos: soporte]
+        E5[PO-Agile: HU para Jira]
+        E6[Doc Updater: docs vivos + pre-commit]
+        E1 --> E2 --> E3
+        E4 -.-> E2
+        E5 -.-> E2
+        E6 -.-> E2
+    end
+
+    A2 -.-> B3
+    A2 -.-> C3

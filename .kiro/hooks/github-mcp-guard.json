@@ -1,0 +1,13 @@
+{
+  "name": "github-mcp-guard",
+  "version": "1.0.0",
+  "description": "Guardia de acceso a herramientas MCP de GitHub. Solo el agente GitHub_Repos debe invocarlas.",
+  "when": {
+    "type": "preToolUse",
+    "toolTypes": [".*github.*"]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "CHECKPOINT DE DOMINIO — GitHub MCP.\n\nEstás a punto de invocar una herramienta del MCP de GitHub (get_file_contents, list_pull_requests, list_commits, list_branches, search_code, list_issues, search_repositories).\n\nEvalúa lo siguiente:\n1. Revisa los archivos de steering activos en tu contexto. ¿Tu rol actual corresponde al agente GitHub_Repos (especialista en lectura y análisis de repositorios de plataforma)?\n2. Si tu rol NO es GitHub_Repos: CANCELA esta invocación. Sugiere al usuario delegar la tarea al agente GitHub_Repos a través del Orquestador.\n3. EXCEPCIÓN: Si el usuario ha solicitado EXPLÍCITAMENTE en este turno una operación que requiere GitHub desde otro agente, documenta la excepción y procede.\n\nResponde con tu evaluación antes de continuar."
+  }
+}

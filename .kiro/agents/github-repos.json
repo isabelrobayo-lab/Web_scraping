@@ -1,0 +1,54 @@
+{
+  "name": "github-repos",
+  "description": "Platform Repos Reader — Lee y analiza repositorios externos de GitHub definidos en platforms.json. Solo lectura: estructura, PRs, commits, búsqueda de código.",
+  "prompt": "file://../steering/agent-github-repos.md",
+  "model": "claude-sonnet-4",
+  "tools": [
+    "read",
+    "shell",
+    "@github"
+  ],
+  "allowedTools": [
+    "read",
+    "@github/get_file_contents",
+    "@github/list_pull_requests",
+    "@github/list_commits",
+    "@github/search_code",
+    "@github/list_issues",
+    "@github/search_repositories"
+  ],
+  "toolsSettings": {
+    "shell": {
+      "allowedCommands": [
+        "gh repo view*",
+        "gh pr list*",
+        "gh api*"
+      ],
+      "autoAllowReadonly": true
+    }
+  },
+  "resources": [
+    "file://../steering/agent-github-repos.md",
+    "file://../steering/06-platform-context.md",
+    "file://../../Workspace/config/platforms.json"
+  ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "echo 'GitHub Repos activado — Exploración de repos externos de la plataforma'"
+      }
+    ]
+  },
+  "includeMcpJson": false,
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.github.com/mcp",
+      "oauth": {
+        "oauthScopes": []
+      }
+    }
+  },
+  "keyboardShortcut": "ctrl+4",
+  "welcomeMessage": "GitHub Repos activo. ¿Qué repositorio de la plataforma necesitas explorar?"
+}
