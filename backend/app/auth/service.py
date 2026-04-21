@@ -64,7 +64,7 @@ class AuthService:
         await self.db.execute(
             update(Usuario)
             .where(Usuario.id == user.id)
-            .values(last_login=datetime.now(timezone.utc))
+            .values(last_login=datetime.utcnow())
         )
         await self.db.commit()
 
