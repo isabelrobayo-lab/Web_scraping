@@ -45,7 +45,7 @@ celery_app.conf.update(
 celery_app.conf.beat_schedule = {}
 
 # Autodiscover tasks from the app.tasks package
-celery_app.autodiscover_tasks(["app.tasks", "app.exports"])
+celery_app.autodiscover_tasks(["app.tasks", "app.exports", "app.selectors"])
 
 # Register Correlation_ID propagation signals
 import app.middleware.celery_correlation  # noqa: E402, F401

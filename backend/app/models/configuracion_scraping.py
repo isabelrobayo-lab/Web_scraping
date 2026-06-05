@@ -3,6 +3,7 @@
 from datetime import datetime
 
 from sqlalchemy import Boolean, Integer, String
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.database import Base
@@ -24,6 +25,18 @@ class ConfiguracionScraping(Base):
     tipo_operacion: Mapped[str] = mapped_column(String(50), nullable=False)
     modo_ejecucion: Mapped[str] = mapped_column(String(50), nullable=False)
     cron_expression: Mapped[str | None] = mapped_column(String(100), nullable=True)
+    include_patterns: Mapped[list | None] = mapped_column(
+        JSONB, nullable=True, default=None,
+        comment="Regex patterns for URLs to include in crawl",
+    )
+    exclude_patterns: Mapped[list | None] = mapped_column(
+        JSONB, nullable=True, default=None,
+        comment="Regex patterns for URLs to exclude from crawl",
+    )
+    selector_status: Mapped[str] = mapped_column(
+        String(20), nullable=False, default="pending",
+        comment="Status of selector map: pending, discovering, ready, partial, error",
+    )
     active: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
     created_at: Mapped[datetime] = mapped_column(
         nullable=False, default=datetime.utcnow

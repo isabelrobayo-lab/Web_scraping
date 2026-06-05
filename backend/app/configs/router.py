@@ -42,6 +42,9 @@ def _to_response(config: ConfiguracionScraping) -> ConfigResponse:
         modo_ejecucion=config.modo_ejecucion,
         cron_expression=config.cron_expression,
         cron_preview=cron_preview,
+        include_patterns=config.include_patterns,
+        exclude_patterns=config.exclude_patterns,
+        selector_status=config.selector_status if hasattr(config, 'selector_status') and config.selector_status else "pending",
         active=config.active,
         created_at=config.created_at,
         updated_at=config.updated_at,
@@ -108,11 +111,24 @@ async def create_config(
         tipo_operacion=payload.tipo_operacion.value,
         modo_ejecucion=payload.modo_ejecucion.value,
         cron_expression=payload.cron_expression,
+        include_patterns=payload.include_patterns,
+        exclude_patterns=payload.exclude_patterns,
         active=True,
     )
     db.add(config)
     await db.flush()
     await db.refresh(config)
+
+    # Auto-discover selectors for the new URL in background
+    from urllib.parse import urlparse as _urlparse
+
+    parsed = _urlparse(payload.url_base)
+    sitio_origen = (parsed.netloc or payload.url_base).removeprefix("www.")
+
+    from app.selectors.tasks import auto_discover_selectors
+
+    auto_discover_selectors.delay(config.id, payload.url_base, sitio_origen)
+
     return _to_response(config)
 
 
@@ -171,19 +187,32 @@ async def update_config(
 
     await db.flush()
     await db.refresh(config)
+
+    # Trigger auto-discover if selector_status is pending or URL changed
+    url_changed = "url_base" in update_data
+    if url_changed or (hasattr(config, "selector_status") and config.selector_status == "pending"):
+        from urllib.parse import urlparse as _urlparse
+
+        parsed = _urlparse(config.url_base)
+        sitio_origen = (parsed.netloc or config.url_base).removeprefix("www.")
+
+        from app.selectors.tasks import auto_discover_selectors
+
+        auto_discover_selectors.delay(config.id, config.url_base, sitio_origen)
+
     return _to_response(config)
 
 
 @router.delete(
     "/{config_id}",
-    response_model=ConfigResponse,
+    status_code=status.HTTP_204_NO_CONTENT,
     dependencies=[Depends(RBACMiddleware("configs:write"))],
 )
 async def delete_config(
     config_id: int,
     db: AsyncSession = Depends(get_db),
-) -> ConfigResponse:
-    """Soft delete a scraping configuration (sets active=false)."""
+) -> None:
+    """Hard delete a scraping configuration and its related tasks."""
     result = await db.execute(
         select(ConfiguracionScraping).where(ConfiguracionScraping.id == config_id)
     )
@@ -194,7 +223,17 @@ async def delete_config(
             detail=f"Configuración con id={config_id} no encontrada",
         )
 
-    config.active = False
+    # Delete related tasks first (foreign key)
+    from app.models.tarea_scraping import TareaScraping
+
+    await db.execute(
+        select(TareaScraping).where(TareaScraping.config_id == config_id)
+    )
+    from sqlalchemy import delete as sa_delete
+
+    await db.execute(
+        sa_delete(TareaScraping).where(TareaScraping.config_id == config_id)
+    )
+
+    await db.delete(config)
     await db.flush()
-    await db.refresh(config)
-    return _to_response(config)

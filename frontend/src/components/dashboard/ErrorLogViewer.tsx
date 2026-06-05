@@ -20,7 +20,7 @@ export function ErrorLogViewer() {
     queryFn: () =>
       get<PaginatedResponse<ErrorListItem>>('/errors', {
         page,
-        per_page: 20,
+        size: 20,
         ...filters,
       }),
   });

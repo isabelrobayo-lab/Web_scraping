@@ -22,7 +22,7 @@ const DEFAULT_COLUMNS: Column[] = [
   { key: 'tipo_inmueble', label: 'Tipo' },
   { key: 'operacion', label: 'Operación' },
   { key: 'municipio', label: 'Municipio' },
-  { key: 'precio_local', label: 'Precio', render: (v) => v != null ? Number(v).toLocaleString() : '—' },
+  { key: 'precio_local', label: 'Precio', render: (v) => v != null ? `$ ${Number(v).toLocaleString('es-CO', { maximumFractionDigits: 0 })}` : '—' },
   { key: 'metros_totales', label: 'Metros²', render: (v) => v != null ? String(v) : '—' },
   { key: 'habitaciones', label: 'Hab.' },
   { key: 'estado_activo', label: 'Activo', render: (v) => v === true ? 'Sí' : v === false ? 'No' : '—' },

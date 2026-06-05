@@ -12,7 +12,7 @@ import { TaskMonitorDetail } from '@/components/dashboard/TaskMonitorDetail';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { get } from '@/api/client';
-import type { PropertyFilters, PaginatedResponse, PropertyListItem, TaskListItem } from '@/types';
+import type { PropertyFilters, PaginatedResponse, PropertyListItem, TaskListItem, ConfigResponse } from '@/types';
 
 function NavBar() {
   const { user, logout, isAuthenticated } = useAuth();
@@ -45,16 +45,28 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
 function ConfigsPage() {
   const [showForm, setShowForm] = useState(false);
+  const [editConfig, setEditConfig] = useState<ConfigResponse | null>(null);
+
+  const handleEdit = (config: ConfigResponse) => {
+    setEditConfig(config);
+    setShowForm(true);
+  };
+
+  const handleClose = () => {
+    setShowForm(false);
+    setEditConfig(null);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold">Configuraciones de Scraping</h2>
-        <button onClick={() => setShowForm(!showForm)} className="rounded-md bg-primary px-4 py-2 text-sm text-white hover:bg-primary/90">
+        <button onClick={() => { setEditConfig(null); setShowForm(!showForm); }} className="rounded-md bg-primary px-4 py-2 text-sm text-white hover:bg-primary/90">
           {showForm ? 'Cancelar' : '+ Nueva Configuracion'}
         </button>
       </div>
-      {showForm && <div className="rounded-md border p-4"><ConfigForm onSuccess={() => setShowForm(false)} onCancel={() => setShowForm(false)} /></div>}
-      <ConfigList />
+      {showForm && <div className="rounded-md border p-4"><ConfigForm config={editConfig} onSuccess={handleClose} onCancel={handleClose} /></div>}
+      <ConfigList onEdit={handleEdit} />
     </div>
   );
 }
@@ -66,9 +78,38 @@ function DashboardPage() {
     queryKey: ['properties', page, filters],
     queryFn: () => get<PaginatedResponse<PropertyListItem>>('/properties', { page, size: 20, ...filters }),
   });
+
+  const handleDownloadCSV = () => {
+    if (!data?.items?.length) return;
+    const headers = ['codigo_inmueble', 'tipo_inmueble', 'operacion', 'municipio', 'barrio', 'estrato', 'precio_local', 'habitaciones', 'banos', 'metros_totales', 'titulo_anuncio', 'url_anuncio'];
+    const rows = data.items.map(item => headers.map(h => {
+      const val = (item as any)[h];
+      if (val === null || val === undefined) return '';
+      if (h === 'precio_local' && typeof val === 'number') return val.toString();
+      return String(val).replace(/,/g, ';');
+    }).join(','));
+    const csv = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `inmuebles_${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold">Dashboard de Inmuebles</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-2xl font-bold">Dashboard de Inmuebles</h2>
+        <button
+          onClick={handleDownloadCSV}
+          disabled={!data?.items?.length}
+          className="rounded-md bg-primary px-4 py-2 text-sm text-white hover:bg-primary/90 disabled:opacity-50"
+        >
+          ⬇ Descargar CSV
+        </button>
+      </div>
       <SummaryPanel />
       <FilterPanel filters={filters} onApply={setFilters} />
       <DataTable data={data} isLoading={isLoading} page={page} onPageChange={setPage} />

@@ -1,0 +1,653 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - link "Logo" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "Logo" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8] [cursor=pointer]: Publica tu propiedad
+        - button "Ingresar" [ref=e9] [cursor=pointer]:
+          - img [ref=e10]
+          - text: Ingresar
+      - button "☰" [ref=e12] [cursor=pointer]
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - generic [ref=e15]: Menú
+          - img [ref=e17]
+        - navigation [ref=e20]:
+          - link "Proyectos de vivienda" [ref=e21] [cursor=pointer]:
+            - /url: /proyectos-vivienda
+          - link "Venta" [ref=e22] [cursor=pointer]:
+            - /url: /venta
+          - link "Arriendo" [ref=e23] [cursor=pointer]:
+            - /url: /arriendo
+          - link "Inmobiliarias" [ref=e24] [cursor=pointer]:
+            - /url: /inmobiliarias
+          - link "Constructoras" [ref=e25] [cursor=pointer]:
+            - /url: /constructoras
+          - link "Noticias" [ref=e26] [cursor=pointer]:
+            - /url: https://www.fincaraiz.com.co/blog/
+          - link "Vivienda VIS" [ref=e27] [cursor=pointer]:
+            - /url: /vivienda-vis
+    - generic [ref=e29]:
+      - generic [ref=e33]:
+        - button "Back" [ref=e35] [cursor=pointer]:
+          - generic [ref=e36]:
+            - img "arrow-left" [ref=e38]:
+              - img [ref=e39]
+            - generic [ref=e41]: Volver a la búsqueda
+        - generic [ref=e43]:
+          - generic [ref=e44]: "Estás en:"
+          - link "Fincaraíz" [ref=e45] [cursor=pointer]:
+            - /url: /
+          - generic [ref=e46]: ">"
+          - link "Venta" [ref=e47] [cursor=pointer]:
+            - /url: /venta
+          - generic [ref=e48]: ">"
+          - link "Apartamentos" [ref=e49] [cursor=pointer]:
+            - /url: /venta/apartamentos
+          - generic [ref=e50]: ">"
+          - link "Bogotá" [ref=e51] [cursor=pointer]:
+            - /url: /venta/apartamentos/bogota
+          - generic [ref=e52]: ">"
+          - link "San cipriano" [ref=e53] [cursor=pointer]:
+            - /url: /venta/apartamentos/bogota/san-cipriano
+          - generic [ref=e54]: ">"
+          - link "Apartamento en Venta en San cipriano, Bogotá" [ref=e55] [cursor=pointer]:
+            - /url: /apartamento-en-venta-en-san-cipriano-bogota/193612101
+      - generic [ref=e56]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: Ubicación Principal
+            - paragraph [ref=e62]: San cipriano, Bogotá, Bogotá, d.c.
+          - generic [ref=e63]:
+            - paragraph [ref=e64]: Ubicaciones asociadas
+            - paragraph [ref=e65]: San cipriano, Granada norte, Britalia
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - generic [ref=e69]:
+              - generic [ref=e72]:
+                - generic [ref=e74]:
+                  - generic [ref=e77]:
+                    - img [ref=e78]
+                    - text: Destacado
+                  - generic [ref=e83]:
+                    - button "Favorito" [ref=e85] [cursor=pointer]:
+                      - img [ref=e86]
+                      - text: Favorito
+                    - button "share-alt Compartir" [ref=e89] [cursor=pointer]:
+                      - img "share-alt" [ref=e90]:
+                        - img [ref=e91]
+                      - text: Compartir
+                    - button "flag Reportar" [ref=e93] [cursor=pointer]:
+                      - img "flag" [ref=e94]:
+                        - img [ref=e95]
+                      - text: Reportar
+                - generic [ref=e99]:
+                  - button "Galería" [ref=e100] [cursor=pointer]
+                  - button "Video" [ref=e101] [cursor=pointer]
+                  - button "Mapa" [ref=e102] [cursor=pointer]
+                - generic [ref=e103] [cursor=pointer]:
+                  - img "Image" [ref=e105]
+                  - generic [ref=e107]:
+                    - img "Image" [ref=e109]
+                    - img "Image" [ref=e111]
+              - generic [ref=e114]:
+                - generic [ref=e115]:
+                  - heading "Apartamento en Venta en San cipriano, Bogotá" [level=1] [ref=e116]
+                  - generic [ref=e117]:
+                    - generic [ref=e118]:
+                      - img [ref=e119]
+                      - generic [ref=e121]: 3 Habs.
+                    - generic [ref=e122]:
+                      - img [ref=e123]
+                      - generic [ref=e125]: 2 Baños
+                    - generic [ref=e126]:
+                      - img [ref=e127]
+                      - generic [ref=e133]: 70 m²
+                - generic [ref=e135]:
+                  - paragraph [ref=e136]: $ 220.000.000
+                  - paragraph [ref=e137]: Precio de Venta
+                  - text: + $ 180.000 administración
+                - generic [ref=e140]:
+                  - heading "Ubicación" [level=4] [ref=e144]
+                  - generic [ref=e146]:
+                    - paragraph [ref=e147]: Suba, Bogotá, d.c.
+                    - paragraph [ref=e148]: San cipriano, Bogotá, d.c.
+                  - generic [ref=e154]:
+                    - button "Marker" [ref=e155] [cursor=pointer]
+                    - link "Leaflet" [ref=e157] [cursor=pointer]:
+                      - /url: https://leafletjs.com
+                      - img [ref=e158]
+                      - text: Leaflet
+            - generic [ref=e163]:
+              - heading "Detalles de la Propiedad" [level=4] [ref=e164]
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - generic [ref=e168]:
+                    - generic [ref=e170]: •
+                    - generic [ref=e171]: Tipo de Inmueble
+                  - generic "Apartamento" [ref=e174]:
+                    - strong [ref=e175]: Apartamento
+                - generic [ref=e176]:
+                  - generic [ref=e178]:
+                    - generic [ref=e180]: •
+                    - generic [ref=e181]: Estado
+                  - generic "Buen estado" [ref=e184]:
+                    - strong [ref=e185]: Buen estado
+                - generic [ref=e186]:
+                  - generic [ref=e188]:
+                    - generic [ref=e190]: •
+                    - generic [ref=e191]: Baños
+                  - generic "2" [ref=e194]:
+                    - strong [ref=e195]: "2"
+                - generic [ref=e196]:
+                  - generic [ref=e198]:
+                    - generic [ref=e200]: •
+                    - generic [ref=e201]: Antigüedad
+                  - generic "más de 30 años" [ref=e204]:
+                    - strong [ref=e205]: más de 30 años
+                - generic [ref=e206]:
+                  - generic [ref=e208]:
+                    - generic [ref=e210]: •
+                    - generic [ref=e211]: Habitaciones
+                  - generic "3" [ref=e214]:
+                    - strong [ref=e215]: "3"
+                - generic [ref=e216]:
+                  - generic [ref=e218]:
+                    - generic [ref=e220]: •
+                    - generic [ref=e221]: Parqueaderos
+                  - button "¡Pregúntale!" [ref=e224] [cursor=pointer]
+                - generic [ref=e225]:
+                  - generic [ref=e227]:
+                    - generic [ref=e229]: •
+                    - generic [ref=e230]: Área Construida
+                  - generic "70 m2" [ref=e233]:
+                    - strong [ref=e234]: 70 m2
+                - generic [ref=e235]:
+                  - generic [ref=e237]:
+                    - generic [ref=e239]: •
+                    - generic [ref=e240]: Área Privada
+                  - generic "70 m2" [ref=e243]:
+                    - strong [ref=e244]: 70 m2
+                - generic [ref=e245]:
+                  - generic [ref=e247]:
+                    - generic [ref=e249]: •
+                    - generic [ref=e250]: Estrato
+                  - button "¡Pregúntale!" [ref=e253] [cursor=pointer]
+                - generic [ref=e254]:
+                  - generic [ref=e256]:
+                    - generic [ref=e258]: •
+                    - generic [ref=e259]: Administración
+                  - generic "$ 180.000" [ref=e262]:
+                    - strong [ref=e263]: $ 180.000
+                - generic [ref=e264]:
+                  - generic [ref=e266]:
+                    - generic [ref=e268]: •
+                    - generic [ref=e269]: Piso N°
+                  - button "¡Pregúntale!" [ref=e272] [cursor=pointer]
+                - generic [ref=e273]:
+                  - generic [ref=e275]:
+                    - generic [ref=e277]: •
+                    - generic [ref=e278]: Cantidad de Pisos
+                  - button "¡Pregúntale!" [ref=e281] [cursor=pointer]
+                - generic [ref=e282]:
+                  - generic [ref=e284]:
+                    - generic [ref=e286]: •
+                    - generic [ref=e287]: Acepta permuta
+                  - button "¡Pregúntale!" [ref=e290] [cursor=pointer]
+                - generic [ref=e291]:
+                  - generic [ref=e293]:
+                    - generic [ref=e295]: •
+                    - generic [ref=e296]: Remodelado
+                  - button "¡Pregúntale!" [ref=e299] [cursor=pointer]
+            - generic [ref=e303]:
+              - heading "Comodidades de la propiedad" [level=4] [ref=e304]
+              - generic [ref=e305]:
+                - generic [ref=e306]:
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: •
+                    - generic [ref=e310]: Balcón
+                  - generic [ref=e312]:
+                    - generic [ref=e313]: •
+                    - generic [ref=e314]: Cocina Integral
+                - generic [ref=e317]:
+                  - generic [ref=e318]: •
+                  - generic [ref=e319]: Estudio
+            - generic [ref=e321]:
+              - heading "Descripción" [level=4] [ref=e322]
+              - generic [ref=e324]:
+                - text: Se vende una propiedad ubicada en el barrio Granada Norte de Bogotá. Esta propiedad se encuentra en buen estado y cuenta con una superficie total de 69.54 metros cuadrados. consta de 3 habitaciones, 2 baños (habitación principal con baño privado), Estudio independiente, Sala – comedor, Cocina amplia, Balcón.
+                - text: El inmueble cuenta con buena iluminación natural y ventilación. Su distribución es funcional y cómoda, ideal para familias o como inversión. Se encuentra para remodelación (actualización de closets, puertas, ventanas y cocina), lo que permite adecuarlo al gusto del comprador y aumentar su valorización.
+                - text: Excelente oportunidad para quienes buscan un inmueble con proyección y ubicación estratégica en Bogotá.
+                - text: Tiene buena iluminación por todas las ventanas entra luz natural, ubicado en conjunto cerrado, cerca a vías principales. Ideal para quienes buscan un lugar cómodo y funcional en una ubicación conveniente en Bogotá.
+            - generic [ref=e325]: "Código Fincaraíz: 193612101"
+          - generic [ref=e332]:
+            - link "Tu360Inmobiliario Tu360Inmobiliario Inmobiliaria Verificada" [ref=e334] [cursor=pointer]:
+              - /url: /inmobiliarias/perfil/176504835-tu360inmobiliario-
+              - generic [ref=e335]:
+                - img "Tu360Inmobiliario" [ref=e337]
+                - generic [ref=e338]:
+                  - strong [ref=e339]: Tu360Inmobiliario
+                  - generic [ref=e340]:
+                    - img [ref=e341]
+                    - text: Inmobiliaria Verificada
+            - generic [ref=e343]:
+              - paragraph [ref=e344]: Completa tus datos para habilitar el medio de contacto
+              - textbox "Nombre y Apellido*" [ref=e346]
+              - generic [ref=e347]:
+                - generic [ref=e349] [cursor=pointer]:
+                  - generic [ref=e350]:
+                    - combobox [ref=e352]
+                    - generic [ref=e354]:
+                      - img "Colombia" [ref=e355]
+                      - text: "+57"
+                  - generic:
+                    - img:
+                      - img
+                - textbox "Teléfono*" [ref=e357]
+              - textbox "Email*" [ref=e359]
+              - textbox "Mensaje" [ref=e360]: Hola, vi esta propiedad en Fincaraíz y me interesa recibir más información. ¡Muchas gracias!
+              - generic [ref=e363] [cursor=pointer]:
+                - text: Aceptas nuestros
+                - link "Términos y condiciones" [ref=e364]:
+                  - /url: /informacion#terminos-y-condiciones
+                - text: "y"
+                - link "Política de privacidad" [ref=e365]:
+                  - /url: /informacion#politicas-de-privacidad
+              - generic [ref=e366]:
+                - button "Contactar" [disabled] [ref=e368]:
+                  - img [ref=e369]
+                  - text: Contactar
+                - button "phone Llamar" [disabled] [ref=e372]:
+                  - img "phone" [ref=e374]:
+                    - img [ref=e375]
+                  - generic [ref=e377]: Llamar
+                - button "whats-app Whatsapp" [disabled] [ref=e379]:
+                  - img "whats-app" [ref=e381]:
+                    - img [ref=e382]
+                  - generic [ref=e385]: Whatsapp
+      - generic [ref=e389]:
+        - generic [ref=e390]:
+          - link "Tu360Inmobiliario Tu360Inmobiliario Inmobiliaria Verificada" [ref=e393] [cursor=pointer]:
+            - /url: /inmobiliarias/perfil/176504835-tu360inmobiliario-
+            - generic [ref=e394]:
+              - img "Tu360Inmobiliario" [ref=e396]
+              - generic [ref=e397]:
+                - strong [ref=e398]: Tu360Inmobiliario
+                - generic [ref=e399]:
+                  - img [ref=e400]
+                  - text: Inmobiliaria Verificada
+          - link "Ver todas las propiedades" [ref=e402] [cursor=pointer]:
+            - /url: /inmobiliarias/perfil/176504835-tu360inmobiliario-
+            - text: Ver todas las propiedades
+            - img [ref=e403]
+        - generic [ref=e408]:
+          - paragraph [ref=e409]: Completa tus datos para habilitar el medio de contacto
+          - textbox "Nombre y Apellido*" [ref=e411]
+          - generic [ref=e412]:
+            - generic [ref=e414] [cursor=pointer]:
+              - generic [ref=e415]:
+                - combobox [ref=e417]
+                - generic [ref=e419]:
+                  - img "Colombia" [ref=e420]
+                  - text: "+57"
+              - generic:
+                - img:
+                  - img
+            - textbox "Teléfono*" [ref=e422]
+          - textbox "Email*" [ref=e424]
+          - textbox "Mensaje" [ref=e425]: Hola, vi esta propiedad en Fincaraíz y me interesa recibir más información. ¡Muchas gracias!
+          - generic [ref=e428] [cursor=pointer]:
+            - text: Aceptas nuestros
+            - link "Términos y condiciones" [ref=e429]:
+              - /url: /informacion#terminos-y-condiciones
+            - text: "y"
+            - link "Política de privacidad" [ref=e430]:
+              - /url: /informacion#politicas-de-privacidad
+          - generic [ref=e431]:
+            - button "Contactar" [disabled] [ref=e433]:
+              - img [ref=e434]
+              - text: Contactar
+            - button "phone Llamar" [disabled] [ref=e437]:
+              - img "phone" [ref=e439]:
+                - img [ref=e440]
+              - generic [ref=e442]: Llamar
+            - button "whats-app Whatsapp" [disabled] [ref=e444]:
+              - img "whats-app" [ref=e446]:
+                - img [ref=e447]
+              - generic [ref=e450]: Whatsapp
+      - generic [ref=e451]: Apartamento en Venta en San cipriano, Bogotá es un Apartamento con 3 habitaciones, 2 baños y 70 m². Esta propiedad se encuentra disponible a la venta y fue ingresada por Tu360Inmobiliario el 9 de abril de 2026. El precio de Venta es de $ 220.000.000
+      - generic [ref=e454]:
+        - generic [ref=e455]: "Estás en:"
+        - link "Fincaraíz" [ref=e456] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e457]: ">"
+        - link "Venta" [ref=e458] [cursor=pointer]:
+          - /url: /venta
+        - generic [ref=e459]: ">"
+        - link "Apartamentos" [ref=e460] [cursor=pointer]:
+          - /url: /venta/apartamentos
+        - generic [ref=e461]: ">"
+        - link "Bogotá" [ref=e462] [cursor=pointer]:
+          - /url: /venta/apartamentos/bogota
+        - generic [ref=e463]: ">"
+        - link "San cipriano" [ref=e464] [cursor=pointer]:
+          - /url: /venta/apartamentos/bogota/san-cipriano
+        - generic [ref=e465]: ">"
+        - link "Apartamento en Venta en San cipriano, Bogotá" [ref=e466] [cursor=pointer]:
+          - /url: /apartamento-en-venta-en-san-cipriano-bogota/193612101
+      - contentinfo [ref=e468]:
+        - generic [ref=e470]:
+          - heading "Descarga la app" [level=4] [ref=e471]
+          - generic [ref=e473]:
+            - link "Botón que dirige a la tienda de aplicaciones de Google Play" [ref=e474] [cursor=pointer]:
+              - /url: https://play.google.com/store/apps/details?id=co.com.fincaraiz.app
+              - img "Botón que dirige a la tienda de aplicaciones de Google Play" [ref=e475]
+            - link "Botón que dirige a la tienda de aplicaciones de App Store" [ref=e476] [cursor=pointer]:
+              - /url: https://itunes.apple.com/co/app/fincaraiz.com.co/id1068634301
+              - img "Botón que dirige a la tienda de aplicaciones de App Store" [ref=e477]
+            - link "Botón que dirige a la tienda de aplicaciones de App Gallery" [ref=e478] [cursor=pointer]:
+              - /url: https://appgallery.huawei.com/#/app/C101202375
+              - img "Botón que dirige a la tienda de aplicaciones de App Gallery" [ref=e479]
+        - separator [ref=e480]
+        - generic [ref=e481]:
+          - generic [ref=e482]:
+            - generic [ref=e483]:
+              - heading "Apartamentos en Venta" [level=5] [ref=e484]
+              - generic [ref=e485]:
+                - link "Apartamentos en Venta de 3 habitaciones en Chico norte" [ref=e486] [cursor=pointer]:
+                  - /url: /venta/apartamentos/chico-norte/zona-nororiental/bogota/3-habitaciones/
+                - separator [ref=e487]
+              - generic [ref=e488]:
+                - link "Apartamentos en Venta de 3 habitaciones en Los rosales" [ref=e489] [cursor=pointer]:
+                  - /url: /venta/apartamentos/los-rosales/zona-nororiental/bogota/3-habitaciones/
+                - separator [ref=e490]
+              - generic [ref=e491]:
+                - link "Apartamentos en Venta de 3 habitaciones en Santa Barbara" [ref=e492] [cursor=pointer]:
+                  - /url: /venta/apartamentos/santa-barbara/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e493]
+              - generic [ref=e494]:
+                - link "Apartamentos en Venta de 3 habitaciones en Colina Campestre" [ref=e495] [cursor=pointer]:
+                  - /url: /venta/apartamentos/colina-campestre/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e496]
+              - generic [ref=e497]:
+                - link "Apartamentos en Venta de 3 habitaciones en Cedritos" [ref=e498] [cursor=pointer]:
+                  - /url: /venta/apartamentos/cedritos/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e499]
+              - generic [ref=e500]:
+                - link "Apartamentos en Venta de 3 habitaciones en Fontibon" [ref=e501] [cursor=pointer]:
+                  - /url: /venta/apartamentos/fontibon/zona-occidental/bogota/3-habitaciones/
+                - separator [ref=e502]
+              - generic [ref=e503]:
+                - link "Apartamentos en Venta de 3 habitaciones en Santa barbara central" [ref=e504] [cursor=pointer]:
+                  - /url: /venta/apartamentos/santa-barbara-central/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e505]
+              - generic [ref=e506]:
+                - link "Apartamentos en Venta de 3 habitaciones en La cabrera" [ref=e507] [cursor=pointer]:
+                  - /url: /venta/apartamentos/la-cabrera/zona-nororiental/bogota/3-habitaciones/
+                - separator [ref=e508]
+              - generic [ref=e509]:
+                - link "Apartamentos en Venta de 3 habitaciones en Engativá" [ref=e510] [cursor=pointer]:
+                  - /url: /venta/apartamentos/engativa/zona-noroccidente/bogota/3-habitaciones/
+                - separator [ref=e511]
+              - generic [ref=e512]:
+                - link "Apartamentos en Venta de 3 habitaciones en Usaquen" [ref=e513] [cursor=pointer]:
+                  - /url: /venta/apartamentos/usaquen/bogota/3-habitaciones/
+                - separator [ref=e514]
+            - button "Más" [ref=e515] [cursor=pointer]
+          - generic [ref=e516]:
+            - generic [ref=e517]:
+              - heading "Casas en Venta" [level=5] [ref=e518]
+              - generic [ref=e519]:
+                - link "Casas en Venta de 3 habitaciones en Cedritos" [ref=e520] [cursor=pointer]:
+                  - /url: /venta/casas/cedritos/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e521]
+              - generic [ref=e522]:
+                - link "Casas en Venta de 3 habitaciones en Cerros de Suba" [ref=e523] [cursor=pointer]:
+                  - /url: /venta/casas/cerros-de-suba/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e524]
+              - generic [ref=e525]:
+                - link "Casas en Venta de 3 habitaciones en Suba" [ref=e526] [cursor=pointer]:
+                  - /url: /venta/casas/suba/bogota/3-habitaciones/
+                - separator [ref=e527]
+              - generic [ref=e528]:
+                - link "Casas en Venta de 3 habitaciones en Engativá" [ref=e529] [cursor=pointer]:
+                  - /url: /venta/casas/engativa/zona-noroccidente/bogota/3-habitaciones/
+                - separator [ref=e530]
+              - generic [ref=e531]:
+                - link "Casas en Venta de 3 habitaciones en Gratamira" [ref=e532] [cursor=pointer]:
+                  - /url: /venta/casas/gratamira/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e533]
+              - generic [ref=e534]:
+                - link "Casas en Venta de 3 habitaciones en Colina Campestre" [ref=e535] [cursor=pointer]:
+                  - /url: /venta/casas/colina-campestre/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e536]
+              - generic [ref=e537]:
+                - link "Casas en Venta de 3 habitaciones en San jose de bavaria" [ref=e538] [cursor=pointer]:
+                  - /url: /venta/casas/san-jose-de-bavaria/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e539]
+              - generic [ref=e540]:
+                - link "Casas en Venta de 3 habitaciones en Bogotá" [ref=e541] [cursor=pointer]:
+                  - /url: /venta/casas/bogota/bogota-dc/3-habitaciones/
+                - separator [ref=e542]
+              - generic [ref=e543]:
+                - link "Casas en Venta de 3 habitaciones en Guaymaral" [ref=e544] [cursor=pointer]:
+                  - /url: /venta/casas/guaymaral/zona-norte/bogota/3-habitaciones/
+                - separator [ref=e545]
+              - generic [ref=e546]:
+                - link "Casas en Venta de 3 habitaciones en Modelia" [ref=e547] [cursor=pointer]:
+                  - /url: /venta/casas/modelia/zona-occidental/bogota/3-habitaciones/
+                - separator [ref=e548]
+            - button "Más" [ref=e549] [cursor=pointer]
+          - generic [ref=e550]:
+            - generic [ref=e551]:
+              - heading "Apartaestudios en Venta" [level=5] [ref=e552]
+              - generic [ref=e553]:
+                - link "Apartaestudios en Venta en Laureles" [ref=e554] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/laureles/occidente/medellin
+                - separator [ref=e555]
+              - generic [ref=e556]:
+                - link "Apartaestudios en Venta en Pinares" [ref=e557] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/pinares/circunvalar-alamos/pereira
+                - separator [ref=e558]
+              - generic [ref=e559]:
+                - link "Apartaestudios en Venta en El Poblado" [ref=e560] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/el-poblado/suroriente/medellin
+                - separator [ref=e561]
+              - generic [ref=e562]:
+                - link "Apartaestudios en Venta en Cedritos" [ref=e563] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/cedritos/zona-norte/bogota
+                - separator [ref=e564]
+              - generic [ref=e565]:
+                - link "Apartaestudios en Venta en Chico norte" [ref=e566] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/chico-norte/zona-nororiental/bogota
+                - separator [ref=e567]
+              - generic [ref=e568]:
+                - link "Apartaestudios en Venta en Chapinero Alto" [ref=e569] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/chapinero-alto/zona-chapinero/bogota
+                - separator [ref=e570]
+              - generic [ref=e571]:
+                - link "Apartaestudios en Venta en Chapinero central" [ref=e572] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/chapinero-central/zona-chapinero/bogota
+                - separator [ref=e573]
+              - generic [ref=e574]:
+                - link "Apartaestudios en Venta en Las nieves" [ref=e575] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/las-nieves/zona-centro/bogota
+                - separator [ref=e576]
+              - generic [ref=e577]:
+                - link "Apartaestudios en Venta en Santa marta" [ref=e578] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/santa-marta/magdalena
+                - separator [ref=e579]
+              - generic [ref=e580]:
+                - link "Apartaestudios en Venta en Centro Internacional" [ref=e581] [cursor=pointer]:
+                  - /url: /venta/apartaestudios/centro-internacional/zona-centro/bogota
+                - separator [ref=e582]
+            - button "Más" [ref=e583] [cursor=pointer]
+          - generic [ref=e584]:
+            - generic [ref=e585]:
+              - heading "Lotes en Venta" [level=5] [ref=e586]
+              - generic [ref=e587]:
+                - link "Lotes en Venta en Cerritos" [ref=e588] [cursor=pointer]:
+                  - /url: /venta/lotes/cerritos/pereira
+                - separator [ref=e589]
+              - generic [ref=e590]:
+                - link "Lotes en Venta en El porvenir" [ref=e591] [cursor=pointer]:
+                  - /url: /venta/lotes/el-porvenir/rionegro
+                - separator [ref=e592]
+              - generic [ref=e593]:
+                - link "Lotes en Venta en Llano Grande" [ref=e594] [cursor=pointer]:
+                  - /url: /venta/lotes/llano-grande/rionegro
+                - separator [ref=e595]
+              - generic [ref=e596]:
+                - link "Lotes en Venta en El Retiro" [ref=e597] [cursor=pointer]:
+                  - /url: /venta/lotes/el-retiro/antioquia
+                - separator [ref=e598]
+              - generic [ref=e599]:
+                - link "Lotes en Venta en Rionegro" [ref=e600] [cursor=pointer]:
+                  - /url: /venta/lotes/rionegro/antioquia
+                - separator [ref=e601]
+              - generic [ref=e602]:
+                - link "Lotes en Venta en El tambo" [ref=e603] [cursor=pointer]:
+                  - /url: /venta/lotes/el-tambo/la-ceja
+                - separator [ref=e604]
+              - generic [ref=e605]:
+                - link "Lotes en Venta en La ceja" [ref=e606] [cursor=pointer]:
+                  - /url: /venta/lotes/la-ceja/antioquia
+                - separator [ref=e607]
+              - generic [ref=e608]:
+                - link "Lotes en Venta en Pance" [ref=e609] [cursor=pointer]:
+                  - /url: /venta/lotes/pance/sur/cali
+                - separator [ref=e610]
+              - generic [ref=e611]:
+                - link "Lotes en Venta en Otra banda" [ref=e612] [cursor=pointer]:
+                  - /url: /venta/lotes/otra-banda/sopetran
+                - separator [ref=e613]
+              - generic [ref=e614]:
+                - link "Lotes en Venta en Las Palmas" [ref=e615] [cursor=pointer]:
+                  - /url: /venta/lotes/las-palmas/envigado
+                - separator [ref=e616]
+            - button "Más" [ref=e617] [cursor=pointer]
+          - generic [ref=e618]:
+            - generic [ref=e619]:
+              - heading "Proyectos De Vivienda" [level=5] [ref=e620]
+              - generic [ref=e621]:
+                - link "Proyectos De Vivienda en Bochalema" [ref=e622] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/bochalema/sur/cali
+                - separator [ref=e623]
+              - generic [ref=e624]:
+                - link "Proyectos De Vivienda en Miramar" [ref=e625] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/miramar/norte-centro-historico/barranquilla
+                - separator [ref=e626]
+              - generic [ref=e627]:
+                - link "Proyectos De Vivienda en Valle del Lili" [ref=e628] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/valle-del-lili/sur/cali
+                - separator [ref=e629]
+              - generic [ref=e630]:
+                - link "Proyectos De Vivienda en La felicidad" [ref=e631] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/la-felicidad/zona-occidental/bogota
+                - separator [ref=e632]
+              - generic [ref=e633]:
+                - link "Proyectos De Vivienda en Cr gratamira" [ref=e634] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/cr-gratamira/comuna-7/villavicencio
+                - separator [ref=e635]
+              - generic [ref=e636]:
+                - link "Proyectos De Vivienda en Fontibon" [ref=e637] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/fontibon/zona-occidental/bogota
+                - separator [ref=e638]
+              - generic [ref=e639]:
+                - link "Proyectos De Vivienda en Ricaurte" [ref=e640] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/ricaurte/cundinamarca
+                - separator [ref=e641]
+              - generic [ref=e642]:
+                - link "Proyectos De Vivienda en Tintala" [ref=e643] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/tintala/zona-occidental/bogota
+                - separator [ref=e644]
+              - generic [ref=e645]:
+                - link "Proyectos De Vivienda en Conjunto residencial villa campestre" [ref=e646] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/conjunto-residencial-villa-campestre/riomar/barranquilla
+                - separator [ref=e647]
+              - generic [ref=e648]:
+                - link "Proyectos De Vivienda en La picota sur" [ref=e649] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/la-picota-sur/zona-sur/bogota
+                - separator [ref=e650]
+            - button "Más" [ref=e651] [cursor=pointer]
+          - generic [ref=e652]:
+            - generic [ref=e653]:
+              - heading "Inmobiliarias" [level=5] [ref=e654]
+              - generic [ref=e655]:
+                - link "Millan & Asociados Propiedad Raíz" [ref=e656] [cursor=pointer]:
+                  - /url: /inmobiliarias/millan-asociados-propiedad-raiz/174655345
+                - separator [ref=e657]
+              - generic [ref=e658]:
+                - link "Engel & Völkers" [ref=e659] [cursor=pointer]:
+                  - /url: /inmobiliarias/engel-volkers/174845933
+                - separator [ref=e660]
+              - generic [ref=e661]:
+                - link "BROKER" [ref=e662] [cursor=pointer]:
+                  - /url: /inmobiliarias/broker/174632350
+                - separator [ref=e663]
+              - generic [ref=e664]:
+                - link "Grupo Empresarial Mi" [ref=e665] [cursor=pointer]:
+                  - /url: /inmobiliarias/grupo-empresarial-mi/174706628
+                - separator [ref=e666]
+              - generic [ref=e667]:
+                - link "Prointegral" [ref=e668] [cursor=pointer]:
+                  - /url: /inmobiliarias/prointegral/174681635
+                - separator [ref=e669]
+              - generic [ref=e670]:
+                - link "Grupo Arenas" [ref=e671] [cursor=pointer]:
+                  - /url: /inmobiliarias/grupo-arenas/174745926
+                - separator [ref=e672]
+              - generic [ref=e673]:
+                - link "Inmobiliare Julio Corredor" [ref=e674] [cursor=pointer]:
+                  - /url: /inmobiliarias/inmobiliare-julio-corredor/174808172
+                - separator [ref=e675]
+              - generic [ref=e676]:
+                - link "Casa 360" [ref=e677] [cursor=pointer]:
+                  - /url: /inmobiliarias/casa-360/174787115
+                - separator [ref=e678]
+              - generic [ref=e679]:
+                - link "BIENES RAICES RISARALDA - CONSUELO MURILLO S." [ref=e680] [cursor=pointer]:
+                  - /url: /inmobiliarias/bienes-raices-risaralda-consuelo-murillo-s/174835003
+                - separator [ref=e681]
+              - generic [ref=e682]:
+                - link "NC INTERNATIONAL BUSINESS SAS" [ref=e683] [cursor=pointer]:
+                  - /url: /inmobiliarias/nc-international-business-sas/175965237
+                - separator [ref=e684]
+            - button "Más" [ref=e685] [cursor=pointer]
+          - generic [ref=e686]:
+            - heading "Siguenos" [level=5] [ref=e687]
+            - link "LinkedIn" [ref=e688] [cursor=pointer]:
+              - /url: //www.linkedin.com/company/fincaraiz-com-co/
+              - img [ref=e689]
+              - text: LinkedIn
+            - link "YouTube" [ref=e690] [cursor=pointer]:
+              - /url: //www.youtube.com/c/fincaraiz
+              - img [ref=e691]
+              - text: YouTube
+            - link "Instagram" [ref=e692] [cursor=pointer]:
+              - /url: //www.instagram.com/fincaraiz.com.co/
+              - img [ref=e693]
+              - text: Instagram
+            - link "Facebook" [ref=e694] [cursor=pointer]:
+              - /url: //www.facebook.com/fincaraiz.com.co
+              - img [ref=e695]
+              - text: Facebook
+          - generic [ref=e696]:
+            - heading "Acerca de nosotros" [level=5] [ref=e697]
+            - link "Preguntas Frecuentes" [ref=e698] [cursor=pointer]:
+              - /url: /informacion#preguntas-frecuentes
+            - link "Aviso Legal" [ref=e699] [cursor=pointer]:
+              - /url: /informacion#aviso-legal
+            - link "Términos y Condiciones" [ref=e700] [cursor=pointer]:
+              - /url: /informacion#terminos-y-condiciones
+            - link "Políticas de tratamiento de datos" [ref=e701] [cursor=pointer]:
+              - /url: /informacion#politicas-de-privacidad
+            - link "Nosotros" [ref=e702] [cursor=pointer]:
+              - /url: /informacion#anuncia-con-nosotros
+            - link "Recomendaciones de Seguridad" [ref=e703] [cursor=pointer]:
+              - /url: /informacion#recomendaciones-de-seguridad
+            - link "Políticas de Cookies" [ref=e704] [cursor=pointer]:
+              - /url: /informacion#politicas-de-cookies
+  - alert [ref=e705]

@@ -57,6 +57,9 @@ export interface ConfigResponse {
   modo_ejecucion: string;
   cron_expression: string | null;
   cron_preview: string | null;
+  include_patterns: string[] | null;
+  exclude_patterns: string[] | null;
+  selector_status: 'pending' | 'discovering' | 'ready' | 'partial' | 'error';
   active: boolean;
   created_at: string;
   updated_at: string;

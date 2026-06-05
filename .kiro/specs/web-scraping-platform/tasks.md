@@ -1,4 +1,9 @@
-# Tasks — Plataforma Paramétrica de Web Scraping Inmobiliario
+CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS                        PORTS                                         NAMES
+3d9682768073   webscraping-celery-beat     "celery -A app.core.…"   About a minute ago   Up 57 seconds                 8000/tcp                                      scraping-celery-beat
+ef09bde7ccf8   webscraping-celery-worker   "celery -A app.core.…"   About a minute ago   Up 57 seconds                 8000/tcp                                      scraping-celery-worker
+6ed5b4bf4142   webscraping-api             "uvicorn app.main:ap…"   About a minute ago   Up 56 seconds                 0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp   scraping-api
+808095cacf5e   postgres:15-alpine          "docker-entrypoint.s…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   scraping-postgres
+9cb62a51e5c2   redis:7-alpine              "docker-entrypoint.s…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp   scraping-redis# Tasks — Plataforma Paramétrica de Web Scraping Inmobiliario
 
 ## Task 1: Project Setup and Infrastructure
 
