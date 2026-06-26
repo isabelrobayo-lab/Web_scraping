@@ -180,6 +180,9 @@ class UpsertService:
         # Remove id_interno if present (auto-generated)
         record_data.pop("id_interno", None)
 
+        # Coerce types before inserting
+        record_data = self._coerce_types(record_data)
+
         new_record = EsquemaInmueble(**record_data)
         session.add(new_record)
         await session.flush()
@@ -297,3 +300,80 @@ class UpsertService:
         precio_bajo = new_precio < old_precio
 
         return cambio, precio_bajo
+
+    @staticmethod
+    def _coerce_types(record_data: dict[str, Any]) -> dict[str, Any]:
+        """Coerce field types to match the DB schema before inserting.
+
+        Converts string values to appropriate numeric/boolean types.
+        Fields that can't be converted are set to None.
+        """
+        import re
+
+        numeric_fields = {
+            "habitaciones", "banos", "estacionamiento",
+            "administracion_valor", "metros_utiles", "metros_totales",
+            "latitud", "longitud", "estrato", "precio_usd",
+            "precio_local", "piso_propiedad", "cambio_precio_valor",
+            "area_privada", "area_construida",
+        }
+
+        boolean_fields = {
+            "tipo_estudio", "es_loft", "amoblado",
+            "tiene_ascensores", "tiene_balcones", "tiene_seguridad",
+            "tiene_bodega_deposito", "tiene_terraza", "cuarto_servicio",
+            "bano_servicio", "tiene_calefaccion", "tiene_alarma",
+            "acceso_controlado", "circuito_cerrado",
+            "estacionamiento_visita", "cocina_americana",
+            "tiene_gimnasio", "tiene_bbq", "tiene_piscina",
+            "en_conjunto_residencial", "uso_comercial", "precio_bajo",
+        }
+
+        true_values = {"si", "sí", "yes", "true", "1"}
+        false_values = {"no", "false", "0"}
+
+        result = dict(record_data)
+
+        for field in numeric_fields:
+            val = result.get(field)
+            if val is None:
+                continue
+            if isinstance(val, (int, float, Decimal)):
+                continue
+            if isinstance(val, str):
+                # Extract numeric portion: remove $, spaces, "Desde", etc.
+                cleaned = val.replace("$", "").replace("Desde", "").strip()
+                # Handle thousands separator (.) and decimal (,) in Spanish
+                nums = re.findall(r"[\d.]+", cleaned)
+                if nums:
+                    num_str = nums[0]
+                    # If has multiple dots, they're thousands separators
+                    if num_str.count(".") > 1:
+                        num_str = num_str.replace(".", "")
+                    elif num_str.count(".") == 1:
+                        parts = num_str.split(".")
+                        if len(parts[1]) == 3 and len(parts[0]) <= 3:
+                            num_str = num_str.replace(".", "")
+                    try:
+                        result[field] = float(num_str)
+                    except ValueError:
+                        result[field] = None
+                else:
+                    result[field] = None
+
+        for field in boolean_fields:
+            val = result.get(field)
+            if val is None:
+                continue
+            if isinstance(val, bool):
+                continue
+            if isinstance(val, str):
+                normalized = val.strip().lower()
+                if normalized in true_values:
+                    result[field] = True
+                elif normalized in false_values:
+                    result[field] = False
+                else:
+                    result[field] = None
+
+        return result

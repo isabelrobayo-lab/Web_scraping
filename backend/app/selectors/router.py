@@ -3,9 +3,11 @@
 Provides:
 - GET  /api/v1/selector-maps/{sitio_origen}  — Get latest selector map version
 - PUT  /api/v1/selector-maps/{sitio_origen}  — Create/update selector map (new version)
+- POST /api/v1/selector-maps/{sitio_origen}/validate — Validate selectors against a URL
 """
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -93,3 +95,64 @@ async def update_selector_map(
         mappings=new_map.mappings,
         created_at=new_map.created_at,
     )
+
+
+class ValidateRequest(BaseModel):
+    """Request body for selector validation."""
+
+    url: str = Field(
+        ..., description="URL to validate selectors against"
+    )
+
+
+@router.post(
+    "/{sitio_origen}/validate",
+    dependencies=[Depends(RBACMiddleware("configs:write"))],
+)
+async def validate_selectors(
+    sitio_origen: str,
+    payload: ValidateRequest,
+    db: AsyncSession = Depends(get_db),
+) -> dict:
+    """Validate the selector map for a sitio_origen against a live URL.
+
+    Navigates to the URL using Playwright and tests each CSS selector
+    in the map to verify it can find elements on the page.
+
+    Returns per-field results showing which selectors matched and which didn't.
+    """
+    # Load latest selector map
+    result = await db.execute(
+        select(MapaSelectores)
+        .where(MapaSelectores.sitio_origen == sitio_origen)
+        .order_by(MapaSelectores.version.desc())
+        .limit(1)
+    )
+    selector_map = result.scalar_one_or_none()
+
+    if selector_map is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Mapa de selectores para '{sitio_origen}' no encontrado",
+        )
+
+    from app.selectors.validator import SelectorValidator
+
+    validator = SelectorValidator()
+    validation_result = await validator.validate(
+        url=payload.url,
+        selector_map=selector_map.mappings,
+        sitio_origen=sitio_origen,
+    )
+
+    return {
+        "url": validation_result.url,
+        "sitio_origen": validation_result.sitio_origen,
+        "selector_map_version": selector_map.version,
+        "total_fields": validation_result.total_fields,
+        "fields_found": validation_result.fields_found,
+        "fields_missing": validation_result.fields_missing,
+        "is_valid": validation_result.is_valid,
+        "error": validation_result.error,
+        "field_results": validation_result.field_results,
+    }

@@ -36,7 +36,8 @@ class CrawlQueue:
     Manages the crawl frontier for a scraping session, ensuring:
     - URLs are not visited more than once
     - URLs beyond the configured max depth are rejected
-    - FIFO ordering for breadth-first crawling
+    - Detail pages (ending in numeric ID) are prioritized over listing pages
+    - FIFO ordering within each priority level
     """
 
     def __init__(self, max_depth: int) -> None:

@@ -75,8 +75,8 @@ class StealthConfig:
     """
 
     user_agents: list[str] = field(default_factory=lambda: list(DEFAULT_USER_AGENTS))
-    min_delay: float = 2.0
-    max_delay: float = 7.0
+    min_delay: float = 1.0
+    max_delay: float = 3.0
     session_rotation_interval: int = 50
     backoff_initial: int = 30
     backoff_max: int = 600

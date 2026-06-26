@@ -56,7 +56,7 @@ async def _run_scraping_task(
 
     async with session_factory() as db:
         # Update task status to running
-        now = datetime.now(timezone.utc)
+        now = datetime.now(timezone.utc).replace(tzinfo=None)
         await db.execute(
             update(TareaScraping)
             .where(TareaScraping.task_id == uuid.UUID(task_id))
@@ -78,7 +78,7 @@ async def _run_scraping_task(
                 .where(TareaScraping.task_id == uuid.UUID(task_id))
                 .values(
                     status="failure",
-                    ended_at=datetime.now(timezone.utc),
+                    ended_at=datetime.now(timezone.utc).replace(tzinfo=None),
                     errors_by_type={"Configuracion": 1},
                 )
             )
@@ -89,7 +89,9 @@ async def _run_scraping_task(
         from urllib.parse import urlparse
 
         parsed = urlparse(config.url_base)
-        sitio_origen = parsed.netloc or config.url_base
+        # Strip "www." prefix to match mapa_selectores.sitio_origen convention
+        raw_host = parsed.netloc or config.url_base
+        sitio_origen = raw_host.removeprefix("www.")
 
         # Load latest selector map for this sitio_origen
         selector_result = await db.execute(
@@ -99,6 +101,16 @@ async def _run_scraping_task(
             .limit(1)
         )
         selector_map_record = selector_result.scalar_one_or_none()
+
+        # Fallback: try with www. prefix if not found
+        if selector_map_record is None and not raw_host.startswith("www."):
+            selector_result = await db.execute(
+                select(MapaSelectores)
+                .where(MapaSelectores.sitio_origen == f"www.{raw_host}")
+                .order_by(MapaSelectores.version.desc())
+                .limit(1)
+            )
+            selector_map_record = selector_result.scalar_one_or_none()
 
         selector_map = {}
         selector_map_version = 0
@@ -117,9 +129,23 @@ async def _run_scraping_task(
             correlation_id=correlation_id,
         )
 
-        # Execute scraping engine
-        engine = ScrapingEngine()
+        # Execute scraping engine with DB session for persistence
+        # Create Redis client for real-time progress publishing
+        import redis.asyncio as aioredis
+
+        redis_url = settings.REDIS_URL if hasattr(settings, 'REDIS_URL') else "redis://redis:6379/0"
+        redis_client = aioredis.from_url(redis_url)
+
+        from app.engine.progress_publisher import ProgressPublisher
+
+        progress_publisher = ProgressPublisher(redis_client=redis_client)
+
+        engine = ScrapingEngine(progress_publisher=progress_publisher)
         try:
+            # Load include/exclude patterns from config
+            include_patterns = getattr(config, "include_patterns", None)
+            exclude_patterns = getattr(config, "exclude_patterns", None)
+
             exec_result = await engine.execute(
                 task_id=task_id,
                 base_url=config.url_base,
@@ -127,11 +153,36 @@ async def _run_scraping_task(
                 selector_map=selector_map,
                 sitio_origen=sitio_origen,
                 correlation_id=correlation_id,
+                include_patterns=include_patterns,
+                exclude_patterns=exclude_patterns,
+                db_session=db,
             )
+
+            # Run deactivation detection after scraping completes
+            deactivation_counts = {"deactivated": 0, "reactivated": 0}
+            if exec_result.found_property_keys:
+                from app.data_logic.deactivation_detector import (
+                    DeactivationDetector,
+                )
+
+                detector = DeactivationDetector()
+                deactivation_counts = await detector.detect(
+                    db, sitio_origen, exec_result.found_property_keys
+                )
+                await db.commit()
+
+                logger.info(
+                    "Deactivation detection completed",
+                    task_id=task_id,
+                    sitio_origen=sitio_origen,
+                    deactivated=deactivation_counts["deactivated"],
+                    reactivated=deactivation_counts["reactivated"],
+                    correlation_id=correlation_id,
+                )
 
             # Determine final status
             final_status = exec_result.status
-            ended_at = datetime.now(timezone.utc)
+            ended_at = datetime.now(timezone.utc).replace(tzinfo=None)
             started_at_result = await db.execute(
                 select(TareaScraping.started_at).where(
                     TareaScraping.task_id == uuid.UUID(task_id)
@@ -146,7 +197,7 @@ async def _run_scraping_task(
                 err_type = err.get("error_type", "Unknown")
                 errors_by_type[err_type] = errors_by_type.get(err_type, 0) + 1
 
-            # Update task with results
+            # Update task with results (including insert/update/skip counts)
             await db.execute(
                 update(TareaScraping)
                 .where(TareaScraping.task_id == uuid.UUID(task_id))
@@ -156,6 +207,9 @@ async def _run_scraping_task(
                     duration_seconds=duration,
                     pages_processed=exec_result.pages_processed,
                     records_extracted=exec_result.records_extracted,
+                    records_inserted=exec_result.records_inserted,
+                    records_updated=exec_result.records_updated,
+                    records_skipped=exec_result.records_skipped,
                     errors_by_type=errors_by_type if errors_by_type else None,
                 )
             )
@@ -174,6 +228,9 @@ async def _run_scraping_task(
                 status=final_status,
                 pages_processed=exec_result.pages_processed,
                 records_extracted=exec_result.records_extracted,
+                records_inserted=exec_result.records_inserted,
+                records_updated=exec_result.records_updated,
+                records_skipped=exec_result.records_skipped,
                 duration_seconds=duration,
                 correlation_id=correlation_id,
             )
@@ -182,11 +239,14 @@ async def _run_scraping_task(
                 "status": final_status,
                 "pages_processed": exec_result.pages_processed,
                 "records_extracted": exec_result.records_extracted,
+                "records_inserted": exec_result.records_inserted,
+                "records_updated": exec_result.records_updated,
+                "records_skipped": exec_result.records_skipped,
                 "duration_seconds": duration,
             }
 
         except Exception as e:
-            ended_at = datetime.now(timezone.utc)
+            ended_at = datetime.now(timezone.utc).replace(tzinfo=None)
             duration = (ended_at - now).total_seconds()
 
             await db.execute(

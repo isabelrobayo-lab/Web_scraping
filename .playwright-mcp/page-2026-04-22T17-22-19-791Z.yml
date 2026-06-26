@@ -1,0 +1,1731 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - link "Logo" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "Logo" [ref=e5]
+      - generic [ref=e6]:
+        - generic [ref=e7] [cursor=pointer]: Publica tu propiedad
+        - button "Ingresar" [ref=e8] [cursor=pointer]:
+          - img [ref=e9]
+          - text: Ingresar
+      - button "☰" [ref=e11] [cursor=pointer]
+      - generic [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: Menú
+          - img [ref=e16]
+        - navigation [ref=e19]:
+          - link "Proyectos de vivienda" [ref=e20] [cursor=pointer]:
+            - /url: /proyectos-vivienda
+          - link "Venta" [ref=e21] [cursor=pointer]:
+            - /url: /venta
+          - link "Arriendo" [ref=e22] [cursor=pointer]:
+            - /url: /arriendo
+          - link "Inmobiliarias" [ref=e23] [cursor=pointer]:
+            - /url: /inmobiliarias
+          - link "Constructoras" [ref=e24] [cursor=pointer]:
+            - /url: /constructoras
+          - link "Noticias" [ref=e25] [cursor=pointer]:
+            - /url: https://www.fincaraiz.com.co/blog/
+          - link "Vivienda VIS" [ref=e26] [cursor=pointer]:
+            - /url: /vivienda-vis
+    - generic [ref=e28]:
+      - generic [ref=e31]:
+        - generic [ref=e32] [cursor=pointer]:
+          - generic [ref=e33]: Bogotá
+          - img [ref=e35]
+        - generic [ref=e38]: Busca por ubicación o palabra clave
+      - generic "Abrir filtros" [ref=e40] [cursor=pointer]:
+        - paragraph [ref=e41]: Venta
+        - img [ref=e42]
+      - generic "Abrir filtros" [ref=e45] [cursor=pointer]:
+        - paragraph [ref=e46]: Apartamento
+        - button [ref=e47]:
+          - img [ref=e48]
+      - generic "Abrir filtros" [ref=e52] [cursor=pointer]:
+        - paragraph [ref=e53]: Precio
+        - img [ref=e54]
+      - generic "Abrir filtros" [ref=e57] [cursor=pointer]:
+        - paragraph [ref=e58]: Habs. y baños
+        - img [ref=e59]
+      - generic "Abrir filtros" [ref=e62] [cursor=pointer]:
+        - paragraph [ref=e63]: Extras
+        - img [ref=e64]
+      - generic [ref=e67] [cursor=pointer]:
+        - img [ref=e68]
+        - paragraph [ref=e69]: Más filtros
+        - generic [ref=e71]: "2"
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - heading "Apartamentos en Venta en Bogotá" [level=1] [ref=e76]
+          - generic [ref=e77]:
+            - generic [ref=e78]: "Estás en:"
+            - link "Fincaraíz" [ref=e79] [cursor=pointer]:
+              - /url: /
+            - generic [ref=e80]: ">"
+            - link "Venta" [ref=e81] [cursor=pointer]:
+              - /url: /venta
+            - generic [ref=e82]: ">"
+            - link "Apartamentos" [ref=e83] [cursor=pointer]:
+              - /url: /venta/apartamentos
+            - generic [ref=e84]: ">"
+            - link "Bogota, Bogota Dc" [ref=e85] [cursor=pointer]:
+              - /url: /venta/apartamentos/bogota/bogota-dc
+          - generic [ref=e86]:
+            - text: Mostrando
+            - strong [ref=e87]: 1 - 21
+            - text: de
+            - strong [ref=e88]: más de 400
+            - text: resultados
+        - generic [ref=e89]:
+          - button "Popularidad" [ref=e91] [cursor=pointer]:
+            - img [ref=e92]
+            - generic [ref=e94]: Popularidad
+          - button "Ver Mapa" [ref=e95] [cursor=pointer]:
+            - img [ref=e96]
+            - text: Ver Mapa
+      - generic [ref=e98]:
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e105]:
+                - button [ref=e106] [cursor=pointer]:
+                  - img [ref=e107]:
+                    - img [ref=e108]
+                - link "Image" [ref=e110] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/urbania-terra-apartamentos-en-venta-en-fontibon-bogota/15017038
+                  - img "Image" [ref=e115]
+                - button [ref=e174] [cursor=pointer]:
+                  - img [ref=e175]:
+                    - img [ref=e176]
+                - generic:
+                  - generic: 1 / 30
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e180]:
+              - generic [ref=e181]:
+                - img [ref=e182]
+                - text: Destacado
+              - img [ref=e187]
+          - generic [ref=e190]:
+            - generic [ref=e191]: CONSTRUCTORA CAPITAL
+            - link "CONSTRUCTORA CAPITAL":
+              - /url: /inmobiliarias/perfil/174543873-constructora-capital
+              - img "CONSTRUCTORA CAPITAL" [ref=e194] [cursor=pointer]
+            - link [ref=e195] [cursor=pointer]:
+              - /url: /proyectos-vivienda/urbania-terra-apartamentos-en-venta-en-fontibon-bogota/15017038
+              - generic [ref=e196]:
+                - paragraph [ref=e200]: Desde $ 262.310.000
+                - strong [ref=e201]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e202]:
+                - paragraph [ref=e203]: "Unidades desde:"
+                - generic [ref=e204]:
+                  - generic [ref=e205]:
+                    - img [ref=e207]
+                    - strong [ref=e209]: 3 Habs.
+                  - generic [ref=e210]:
+                    - img [ref=e212]
+                    - strong [ref=e214]: 2 Baños
+                  - generic [ref=e215]:
+                    - img [ref=e217]
+                    - strong [ref=e223]: 45.42 m²
+              - generic [ref=e224]:
+                - heading "Urbania terra, apartamento en venta en fontibon, bogotá" [level=2] [ref=e225]
+                - paragraph [ref=e226]: Terra, es uno de los 6 proyectos de Urbania Ciudadela que vive tu ritmo en la ciudad, contará con más de 22.000 m2 de parque público con zonas deportivas y zonas verdes, lo mejor de este proyecto es su ubicación privilegiada, con acceso a principales e importantes vías como la Calle 13, Avda. El Dorado y la futura Avda. Ferrocarril como a una estación Regiotram del Occidente (a 5 minutos del proyecto). En el futuro podrás disfrutar de un Club House de 8 niveles con diferentes zonas comunes como Zona Cool, Zona de Lavandería, Zona Creativa, Zona Húmeda con piscina para niños y adultos, Turco, Sauna, jacuzzi, Zona Lounge entre otras más. En la parte interna del proyecto al aire libre podrás encontrar una Zona Pet, Playground, Zona Kids; en total contarás con más de 25 zonas comunes totalmente dotadas, espacios para vivir diferentes actividades junto amigos y familiares.
+              - generic [ref=e228]:
+                - button "Contactar" [ref=e230]:
+                  - img [ref=e231]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e234]:
+                  - img "phone" [ref=e236]:
+                    - img [ref=e237]
+                  - generic [ref=e239]: Llamar
+                - button "whats-app Whatsapp" [ref=e241]:
+                  - img "whats-app" [ref=e243]:
+                    - img [ref=e244]
+                  - generic [ref=e247]: Whatsapp
+        - generic [ref=e250]:
+          - generic [ref=e251]:
+            - generic [ref=e252]:
+              - generic [ref=e254]:
+                - button [ref=e255] [cursor=pointer]:
+                  - img [ref=e256]:
+                    - img [ref=e257]
+                - link "Image" [ref=e259] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/bosscatta-147-apartamentos-en-venta-en-bogota/10728765
+                  - img "Image" [ref=e264]
+                - button [ref=e287] [cursor=pointer]:
+                  - img [ref=e288]:
+                    - img [ref=e289]
+                - generic:
+                  - generic: 1 / 12
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: ¡Bono de $2.250.000!
+            - generic [ref=e293]:
+              - generic [ref=e294]:
+                - img [ref=e295]
+                - text: Destacado
+              - img [ref=e300]
+          - generic [ref=e303]:
+            - generic [ref=e304]: CONCONCRETO
+            - link "CONCONCRETO":
+              - /url: /inmobiliarias/perfil/174759371-conconcreto
+              - img "CONCONCRETO" [ref=e307] [cursor=pointer]
+            - 'link "Desde $ 632.000.000 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 2 Habs. 2 Baños 52 m² Bosscatta 147, apartamento en venta en bogotá Bosscatta 147 se ubica en un sector privilegiado del norte de Bogotá, donde la serenidad natural y la vida urbana conviven en equilibrio. Su entorno está rodeado de zonas residenciales consolidadas, amplias vías de acceso y espacios verdes que invitan a vivir con tranquilidad y bienestar. A pocos pasos encontrarás la Reserva Forestal Limonar, un refugio natural ideal para desconectarte; el Club de la Policía, que aporta seguridad y orden al sector; y el Centro Comercial Parque La Colina, referente de modernidad con una amplia oferta comercial, gastronómica y de entretenimiento. Un lugar pensado para disfrutar cada día con calidad de vida y todo lo que necesitas cerca. Contactar phone Llamar whats-app Whatsapp" [ref=e308] [cursor=pointer]':
+              - /url: /proyectos-vivienda/bosscatta-147-apartamentos-en-venta-en-bogota/10728765
+              - generic [ref=e309]:
+                - paragraph [ref=e313]: Desde $ 632.000.000
+                - strong [ref=e314]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e315]:
+                - paragraph [ref=e316]: "Unidades desde:"
+                - generic [ref=e317]:
+                  - generic [ref=e318]:
+                    - img [ref=e320]
+                    - strong [ref=e322]: 2 Habs.
+                  - generic [ref=e323]:
+                    - img [ref=e325]
+                    - strong [ref=e327]: 2 Baños
+                  - generic [ref=e328]:
+                    - img [ref=e330]
+                    - strong [ref=e336]: 52 m²
+              - generic [ref=e337]:
+                - heading "Bosscatta 147, apartamento en venta en bogotá" [level=2] [ref=e338]
+                - paragraph [ref=e339]: Bosscatta 147 se ubica en un sector privilegiado del norte de Bogotá, donde la serenidad natural y la vida urbana conviven en equilibrio. Su entorno está rodeado de zonas residenciales consolidadas, amplias vías de acceso y espacios verdes que invitan a vivir con tranquilidad y bienestar. A pocos pasos encontrarás la Reserva Forestal Limonar, un refugio natural ideal para desconectarte; el Club de la Policía, que aporta seguridad y orden al sector; y el Centro Comercial Parque La Colina, referente de modernidad con una amplia oferta comercial, gastronómica y de entretenimiento. Un lugar pensado para disfrutar cada día con calidad de vida y todo lo que necesitas cerca.
+              - generic [ref=e341]:
+                - button "Contactar" [ref=e343]:
+                  - img [ref=e344]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e347]:
+                  - img "phone" [ref=e349]:
+                    - img [ref=e350]
+                  - generic [ref=e352]: Llamar
+                - button "whats-app Whatsapp" [ref=e354]:
+                  - img "whats-app" [ref=e356]:
+                    - img [ref=e357]
+                  - generic [ref=e360]: Whatsapp
+        - generic [ref=e363]:
+          - generic [ref=e364]:
+            - generic [ref=e365]:
+              - generic [ref=e367]:
+                - button [ref=e368] [cursor=pointer]:
+                  - img [ref=e369]:
+                    - img [ref=e370]
+                - link "Image" [ref=e372] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/colina-living-apartamentos-en-venta-en-colina-campestre-bogota/15017472
+                  - img "Image" [ref=e377]
+                - button [ref=e396] [cursor=pointer]:
+                  - img [ref=e397]:
+                    - img [ref=e398]
+                - generic:
+                  - generic: 1 / 10
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e402]:
+              - generic [ref=e403]:
+                - img [ref=e404]
+                - text: Destacado
+              - img [ref=e409]
+          - generic [ref=e412]:
+            - generic [ref=e413]: ARQUITECTURA Y CONCRETO
+            - link "ARQUITECTURA Y CONCRETO":
+              - /url: /inmobiliarias/perfil/176021793-arquitectura-y-concreto
+              - img "ARQUITECTURA Y CONCRETO" [ref=e416] [cursor=pointer]
+            - 'link "Desde $ 597.958.977 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 2 Baños 46.13 m² Colina living, apartamentos en venta en colina campestre, bogotá Contactar phone Llamar whats-app Whatsapp" [ref=e417] [cursor=pointer]':
+              - /url: /proyectos-vivienda/colina-living-apartamentos-en-venta-en-colina-campestre-bogota/15017472
+              - generic [ref=e418]:
+                - paragraph [ref=e422]: Desde $ 597.958.977
+                - strong [ref=e423]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e424]:
+                - paragraph [ref=e425]: "Unidades desde:"
+                - generic [ref=e426]:
+                  - generic [ref=e427]:
+                    - img [ref=e429]
+                    - strong [ref=e431]: 1 Hab
+                  - generic [ref=e432]:
+                    - img [ref=e434]
+                    - strong [ref=e436]: 2 Baños
+                  - generic [ref=e437]:
+                    - img [ref=e439]
+                    - strong [ref=e445]: 46.13 m²
+              - generic [ref=e446]:
+                - heading "Colina living, apartamentos en venta en colina campestre, bogotá" [level=2] [ref=e447]
+                - paragraph
+              - generic [ref=e449]:
+                - button "Contactar" [ref=e451]:
+                  - img [ref=e452]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e455]:
+                  - img "phone" [ref=e457]:
+                    - img [ref=e458]
+                  - generic [ref=e460]: Llamar
+                - button "whats-app Whatsapp" [ref=e462]:
+                  - img "whats-app" [ref=e464]:
+                    - img [ref=e465]
+                  - generic [ref=e468]: Whatsapp
+        - generic [ref=e471]:
+          - generic [ref=e472]:
+            - generic [ref=e473]:
+              - generic [ref=e475]:
+                - button [ref=e476] [cursor=pointer]:
+                  - img [ref=e477]:
+                    - img [ref=e478]
+                - link "Image" [ref=e480] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/nativa-parque-de-las-americas-apartamentos-en-venta-en-la-florida-occidental-bogota/10338805
+                  - img "Image" [ref=e485]
+                - button [ref=e502] [cursor=pointer]:
+                  - img [ref=e503]:
+                    - img [ref=e504]
+                - generic:
+                  - generic: 1 / 9
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e508]:
+              - generic [ref=e509]:
+                - img [ref=e510]
+                - text: Destacado
+              - img [ref=e515]
+          - generic [ref=e518]:
+            - generic [ref=e519]: COMPENSAR
+            - link "COMPENSAR":
+              - /url: /inmobiliarias/perfil/174754913-compensar
+              - img "COMPENSAR" [ref=e522] [cursor=pointer]
+            - 'link "Desde $ 301.326.480 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 1 Baño 38.81 m² Nativa - parque de las americas, apartamento en venta en la florida occidental, bogotá NATIVA es el segundo proyecto inmobiliario independiente de Parque de las Américas con viviendas de interés social y renovación urbana. Esta propuesta arquitectónica innovadora ocupa una posición privilegiada en el corazón del plan parcial de renovación urbana “Triángulo de Bavaria”, siguiendo los exitosos pasos de su predecesor, la manzana: Terra Contactar phone Llamar whats-app Whatsapp" [ref=e523] [cursor=pointer]':
+              - /url: /proyectos-vivienda/nativa-parque-de-las-americas-apartamentos-en-venta-en-la-florida-occidental-bogota/10338805
+              - generic [ref=e524]:
+                - paragraph [ref=e528]: Desde $ 301.326.480
+                - strong [ref=e529]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e530]:
+                - paragraph [ref=e531]: "Unidades desde:"
+                - generic [ref=e532]:
+                  - generic [ref=e533]:
+                    - img [ref=e535]
+                    - strong [ref=e537]: 1 Hab
+                  - generic [ref=e538]:
+                    - img [ref=e540]
+                    - strong [ref=e542]: 1 Baño
+                  - generic [ref=e543]:
+                    - img [ref=e545]
+                    - strong [ref=e551]: 38.81 m²
+              - generic [ref=e552]:
+                - heading "Nativa - parque de las americas, apartamento en venta en la florida occidental, bogotá" [level=2] [ref=e553]
+                - paragraph [ref=e554]: "NATIVA es el segundo proyecto inmobiliario independiente de Parque de las Américas con viviendas de interés social y renovación urbana. Esta propuesta arquitectónica innovadora ocupa una posición privilegiada en el corazón del plan parcial de renovación urbana “Triángulo de Bavaria”, siguiendo los exitosos pasos de su predecesor, la manzana: Terra"
+              - generic [ref=e556]:
+                - button "Contactar" [ref=e558]:
+                  - img [ref=e559]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e562]:
+                  - img "phone" [ref=e564]:
+                    - img [ref=e565]
+                  - generic [ref=e567]: Llamar
+                - button "whats-app Whatsapp" [ref=e569]:
+                  - img "whats-app" [ref=e571]:
+                    - img [ref=e572]
+                  - generic [ref=e575]: Whatsapp
+        - generic [ref=e578]:
+          - heading "Información útil para comprar y vender Apartamento en Bogotá, Bogotá, D.C." [level=3] [ref=e579]:
+            - strong [ref=e580]: Información útil para comprar y vender Apartamento en Bogotá, Bogotá, D.C.
+          - paragraph [ref=e581]: Los apartamentos en venta en Bogotá, Bogotá, D.C., tienen un precio promedio de $ 2.802.362.710, con un tamaño promedio de 90 ㎡. Aunque la mayoría de las propiedades son de tamaño moderado, algunas unidades pueden alcanzar precios más altos, reflejando la diversidad del mercado inmobiliario en la ciudad.
+          - paragraph [ref=e582]: Estos apartamentos suelen ofrecer espacios funcionales adecuados para familias, profesionales y estudiantes. Es común encontrar propiedades con buena iluminación natural y acceso a servicios básicos, ideales para quienes buscan comodidad en un entorno urbano.
+          - paragraph [ref=e583]: Bogotá es la capital y ciudad más grande de Colombia, con un ambiente vibrante que combina zonas residenciales, áreas históricas y distritos financieros. La ciudad cuenta con importantes universidades como la Universidad de los Andes y la Pontificia Universidad Javeriana, además de centros de salud como la Fundación Santa Fe de Bogotá. Para el ocio y la cultura, destacan el Museo del Oro, el Cerro de Monserrate y la Plaza de Bolívar. El transporte es eficiente gracias al sistema TransMilenio y la Terminal de Transporte, complementado por vías principales como la Avenida El Dorado y la Autopista Norte. También ofrece opciones de compras en centros comerciales como Andino y Gran Estación, y una variada oferta gastronómica con restaurantes reconocidos como Andrés Carne de Res y Leo.
+        - generic [ref=e586]:
+          - generic [ref=e587]:
+            - generic [ref=e588]:
+              - generic [ref=e590]:
+                - button [ref=e591] [cursor=pointer]:
+                  - img [ref=e592]:
+                    - img [ref=e593]
+                - link "Image" [ref=e595] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/element-142-apartamentos-en-venta-en-cedritos-bogota/15017257
+                  - img "Image" [ref=e600]
+                - button [ref=e659] [cursor=pointer]:
+                  - img [ref=e660]:
+                    - img [ref=e661]
+                - generic:
+                  - generic: 1 / 30
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e665]:
+              - generic [ref=e666]:
+                - img [ref=e667]
+                - text: Destacado
+              - img [ref=e672]
+          - generic [ref=e675]:
+            - generic [ref=e676]: CONSTRUCTORA CAPITAL
+            - link "CONSTRUCTORA CAPITAL":
+              - /url: /inmobiliarias/perfil/174543873-constructora-capital
+              - img "CONSTRUCTORA CAPITAL" [ref=e679] [cursor=pointer]
+            - link [ref=e680] [cursor=pointer]:
+              - /url: /proyectos-vivienda/element-142-apartamentos-en-venta-en-cedritos-bogota/15017257
+              - generic [ref=e681]:
+                - paragraph [ref=e685]: Desde $ 753.800.000
+                - strong [ref=e686]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e687]:
+                - paragraph [ref=e688]: "Unidades desde:"
+                - generic [ref=e689]:
+                  - generic [ref=e690]:
+                    - img [ref=e692]
+                    - strong [ref=e694]: 2 Habs.
+                  - generic [ref=e695]:
+                    - img [ref=e697]
+                    - strong [ref=e699]: 2 Baños
+                  - generic [ref=e700]:
+                    - img [ref=e702]
+                    - strong [ref=e708]: 57.62 m²
+              - generic [ref=e709]:
+                - heading "Element 142, apartamento en venta en cedritos, bogotá" [level=2] [ref=e710]
+                - paragraph [ref=e711]: "En la calle 142 con autopista norte nace un nuevo ícono de elegancia y exclusividad. Element 142 es un proyecto de apartamentos diseñado para quienes buscan lo extraordinario, arquitectura moderna y líneas elegantes, ofreciendo un entorno que inspira sofisticación y comodidad en cada espacio.Descubre una experiencia única de estilo de vida en cada una de sus zonas sociales. Cada espacio está pensado para pasar momentos únicos mas de 16 zonas comunes: Bike zone, home cinema zone,home cinema, zona fitness, salon social VIP, spining, salón social, salón de clases grupales, coworking, café, piscina adultos, zona cool, piscina niños, zona lounge, sauna, cancha de padel, turco, terraza BBQ, spa ,playground, zona kids, pet spa, gimnasio urbano, terraza VIP."
+              - generic [ref=e713]:
+                - button "Contactar" [ref=e715]:
+                  - img [ref=e716]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e719]:
+                  - img "phone" [ref=e721]:
+                    - img [ref=e722]
+                  - generic [ref=e724]: Llamar
+                - button "whats-app Whatsapp" [ref=e726]:
+                  - img "whats-app" [ref=e728]:
+                    - img [ref=e729]
+                  - generic [ref=e732]: Whatsapp
+        - generic [ref=e735]:
+          - generic [ref=e736]:
+            - generic [ref=e737]:
+              - generic [ref=e739]:
+                - button [ref=e740] [cursor=pointer]:
+                  - img [ref=e741]:
+                    - img [ref=e742]
+                - link "Image" [ref=e744] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/torres-de-galicia-apartamentos-en-venta-en-suba-bogota/6792008
+                  - img "Image" [ref=e749]
+                - button [ref=e764] [cursor=pointer]:
+                  - img [ref=e765]:
+                    - img [ref=e766]
+                - generic:
+                  - generic: 1 / 8
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e770]:
+              - generic [ref=e771]:
+                - img [ref=e772]
+                - text: Destacado
+              - img [ref=e777]
+          - generic [ref=e780]:
+            - generic [ref=e781]: COMPENSAR
+            - link "COMPENSAR":
+              - /url: /inmobiliarias/perfil/174754913-compensar
+              - img "COMPENSAR" [ref=e784] [cursor=pointer]
+            - link "Desde $ 270.287.000 Apartamento en Bogotá, Bogotá, d.c. 1 Hab 1 Baño 36.23 m² Torres de galicia, apartamentos en venta en suba, bogotá Contactar phone Llamar whats-app Whatsapp" [ref=e785] [cursor=pointer]:
+              - /url: /proyectos-vivienda/torres-de-galicia-apartamentos-en-venta-en-suba-bogota/6792008
+              - generic [ref=e786]:
+                - paragraph [ref=e790]: Desde $ 270.287.000
+                - strong [ref=e791]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e793]:
+                - generic [ref=e794]:
+                  - img [ref=e796]
+                  - strong [ref=e798]: 1 Hab
+                - generic [ref=e799]:
+                  - img [ref=e801]
+                  - strong [ref=e803]: 1 Baño
+                - generic [ref=e804]:
+                  - img [ref=e806]
+                  - strong [ref=e812]: 36.23 m²
+              - generic [ref=e813]:
+                - heading "Torres de galicia, apartamentos en venta en suba, bogotá" [level=2] [ref=e814]
+                - paragraph
+              - generic [ref=e816]:
+                - button "Contactar" [ref=e818]:
+                  - img [ref=e819]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e822]:
+                  - img "phone" [ref=e824]:
+                    - img [ref=e825]
+                  - generic [ref=e827]: Llamar
+                - button "whats-app Whatsapp" [ref=e829]:
+                  - img "whats-app" [ref=e831]:
+                    - img [ref=e832]
+                  - generic [ref=e835]: Whatsapp
+        - generic [ref=e838]:
+          - generic [ref=e839]:
+            - generic [ref=e840]:
+              - generic [ref=e842]:
+                - button [ref=e843] [cursor=pointer]:
+                  - img [ref=e844]:
+                    - img [ref=e845]
+                - link "Image" [ref=e847] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/centrix-145-apartamentos-en-venta-en-prado-pinzon-bogota/15017900
+                  - img "Image" [ref=e852]
+                - button [ref=e881] [cursor=pointer]:
+                  - img [ref=e882]:
+                    - img [ref=e883]
+                - generic:
+                  - generic: 1 / 15
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: Regalo en Sala de Ventas
+            - generic [ref=e887]:
+              - generic [ref=e888]:
+                - img [ref=e889]
+                - text: Destacado
+              - img [ref=e894]
+          - generic [ref=e897]:
+            - generic [ref=e898]: CONCONCRETO
+            - link "CONCONCRETO":
+              - /url: /inmobiliarias/perfil/174759371-conconcreto
+              - img "CONCONCRETO" [ref=e901] [cursor=pointer]
+            - link [ref=e902] [cursor=pointer]:
+              - /url: /proyectos-vivienda/centrix-145-apartamentos-en-venta-en-prado-pinzon-bogota/15017900
+              - generic [ref=e903]:
+                - paragraph [ref=e907]: Desde $ 354.000.000
+                - strong [ref=e908]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e909]:
+                - paragraph [ref=e910]: "Unidades desde:"
+                - generic [ref=e911]:
+                  - generic [ref=e912]:
+                    - img [ref=e914]
+                    - strong [ref=e916]: 1 Hab
+                  - generic [ref=e917]:
+                    - img [ref=e919]
+                    - strong [ref=e921]: 1 Baño
+                  - generic [ref=e922]:
+                    - img [ref=e924]
+                    - strong [ref=e930]: 36.09 m²
+              - generic [ref=e931]:
+                - heading "Centrix 145, apartamento en venta en prado pinzon, bogotá" [level=2] [ref=e932]
+                - paragraph [ref=e933]: "En Prado Pinzón, Bogotá, surge CENTRIX 145, una torre de apartamentos que forma parte del proceso de renovación urbana de la ciudad. Más que viviendas, creamos oportunidades: espacios diseñados para el bienestar, la cercanía y el crecimiento de quienes buscan proyectarse en un entorno con futuro. Condiciones de pago La cuota inicial de 30% y el 70% con financiamiento CENTRIX 145 representa una oportunidad de inversión estratégica en una zona en transformación, donde cada metro cuadrado gana valor a medida que el sector se desarrolla. Es un proyecto que conecta con la modernidad de la ciudad, ofreciendo acceso a transporte, servicios y todo lo necesario para disfrutar de una vida práctica, cómoda y de calidad. *El valor no incluye acabados."
+              - generic [ref=e935]:
+                - button "Contactar" [ref=e937]:
+                  - img [ref=e938]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e941]:
+                  - img "phone" [ref=e943]:
+                    - img [ref=e944]
+                  - generic [ref=e946]: Llamar
+                - button "whats-app Whatsapp" [ref=e948]:
+                  - img "whats-app" [ref=e950]:
+                    - img [ref=e951]
+                  - generic [ref=e954]: Whatsapp
+        - generic [ref=e957]:
+          - generic [ref=e958]:
+            - generic [ref=e959]:
+              - generic [ref=e961]:
+                - button [ref=e962] [cursor=pointer]:
+                  - img [ref=e963]:
+                    - img [ref=e964]
+                - link "Image" [ref=e966] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/centriko-apartamentos-en-venta-en-hayuelos-bogota/7887828
+                  - img "Image" [ref=e971]
+                - button [ref=e1008] [cursor=pointer]:
+                  - img [ref=e1009]:
+                    - img [ref=e1010]
+                - generic:
+                  - generic: 1 / 19
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1014]:
+              - generic [ref=e1015]:
+                - img [ref=e1016]
+                - text: Destacado
+              - img [ref=e1021]
+          - generic [ref=e1024]:
+            - generic [ref=e1025]: CONSTRUCTORA CAPITAL
+            - link "CONSTRUCTORA CAPITAL":
+              - /url: /inmobiliarias/perfil/174543873-constructora-capital
+              - img "CONSTRUCTORA CAPITAL" [ref=e1028] [cursor=pointer]
+            - 'link "Desde $ 559.485.000 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 3 Habs. 2 Baños 62.62 m² Centriko, apartamentos en venta en hayuelos, bogotá Contactar phone Llamar whats-app Whatsapp" [ref=e1029] [cursor=pointer]':
+              - /url: /proyectos-vivienda/centriko-apartamentos-en-venta-en-hayuelos-bogota/7887828
+              - generic [ref=e1030]:
+                - paragraph [ref=e1034]: Desde $ 559.485.000
+                - strong [ref=e1035]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1036]:
+                - paragraph [ref=e1037]: "Unidades desde:"
+                - generic [ref=e1038]:
+                  - generic [ref=e1039]:
+                    - img [ref=e1041]
+                    - strong [ref=e1043]: 3 Habs.
+                  - generic [ref=e1044]:
+                    - img [ref=e1046]
+                    - strong [ref=e1048]: 2 Baños
+                  - generic [ref=e1049]:
+                    - img [ref=e1051]
+                    - strong [ref=e1057]: 62.62 m²
+              - generic [ref=e1058]:
+                - heading "Centriko, apartamentos en venta en hayuelos, bogotá" [level=2] [ref=e1059]
+                - paragraph
+              - generic [ref=e1061]:
+                - button "Contactar" [ref=e1063]:
+                  - img [ref=e1064]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1067]:
+                  - img "phone" [ref=e1069]:
+                    - img [ref=e1070]
+                  - generic [ref=e1072]: Llamar
+                - button "whats-app Whatsapp" [ref=e1074]:
+                  - img "whats-app" [ref=e1076]:
+                    - img [ref=e1077]
+                  - generic [ref=e1080]: Whatsapp
+        - generic [ref=e1083]:
+          - generic [ref=e1084]:
+            - generic [ref=e1085]:
+              - generic [ref=e1087]:
+                - button [ref=e1088] [cursor=pointer]:
+                  - img [ref=e1089]:
+                    - img [ref=e1090]
+                - link "Image" [ref=e1092] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/scaleno-17-apartamentos-en-venta-en-los-martires-bogota/7922480
+                  - img "Image" [ref=e1097]
+                - button [ref=e1126] [cursor=pointer]:
+                  - img [ref=e1127]:
+                    - img [ref=e1128]
+                - generic:
+                  - generic: 1 / 15
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1132]:
+              - generic [ref=e1133]:
+                - img [ref=e1134]
+                - text: Destacado
+              - img [ref=e1139]
+          - generic [ref=e1142]:
+            - generic [ref=e1143]: CONSTRUCTORA COLPATRIA
+            - link "CONSTRUCTORA COLPATRIA":
+              - /url: /inmobiliarias/perfil/174708114-constructora-colpatria
+              - img "CONSTRUCTORA COLPATRIA" [ref=e1146] [cursor=pointer]
+            - 'link "Desde $ 207.546.300 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 1 Baño 30.1 m² Scaleno 17, apartamento en venta en paloquemao, bogotá Scaleno 17 es el proyecto de vivienda de interés social en Paloquemao, Bogotá, que te ofrece zonas sociales y áreas verdes para tu disfrute. Disfruta de la comodidad de un apartamento diseñado con calidad y vive en una ubicación privilegiada cerca de importantes zonas financieras y comerciales de la ciudad. Contactar phone Llamar whats-app Whatsapp" [ref=e1147] [cursor=pointer]':
+              - /url: /proyectos-vivienda/scaleno-17-apartamentos-en-venta-en-los-martires-bogota/7922480
+              - generic [ref=e1148]:
+                - paragraph [ref=e1152]: Desde $ 207.546.300
+                - strong [ref=e1153]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1154]:
+                - paragraph [ref=e1155]: "Unidades desde:"
+                - generic [ref=e1156]:
+                  - generic [ref=e1157]:
+                    - img [ref=e1159]
+                    - strong [ref=e1161]: 1 Hab
+                  - generic [ref=e1162]:
+                    - img [ref=e1164]
+                    - strong [ref=e1166]: 1 Baño
+                  - generic [ref=e1167]:
+                    - img [ref=e1169]
+                    - strong [ref=e1175]: 30.1 m²
+              - generic [ref=e1176]:
+                - heading "Scaleno 17, apartamento en venta en paloquemao, bogotá" [level=2] [ref=e1177]
+                - paragraph [ref=e1178]: Scaleno 17 es el proyecto de vivienda de interés social en Paloquemao, Bogotá, que te ofrece zonas sociales y áreas verdes para tu disfrute. Disfruta de la comodidad de un apartamento diseñado con calidad y vive en una ubicación privilegiada cerca de importantes zonas financieras y comerciales de la ciudad.
+              - generic [ref=e1180]:
+                - button "Contactar" [ref=e1182]:
+                  - img [ref=e1183]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1186]:
+                  - img "phone" [ref=e1188]:
+                    - img [ref=e1189]
+                  - generic [ref=e1191]: Llamar
+                - button "whats-app Whatsapp" [ref=e1193]:
+                  - img "whats-app" [ref=e1195]:
+                    - img [ref=e1196]
+                  - generic [ref=e1199]: Whatsapp
+        - generic [ref=e1202]:
+          - generic [ref=e1203]:
+            - generic [ref=e1204]:
+              - generic [ref=e1206]:
+                - button [ref=e1207] [cursor=pointer]:
+                  - img [ref=e1208]:
+                    - img [ref=e1209]
+                - link "Image" [ref=e1211] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/nuvo-club-residencial-apartamentos-en-venta-en-prados-de-la-sabana-bogota/15017985
+                  - img "Image" [ref=e1216]
+                - button [ref=e1245] [cursor=pointer]:
+                  - img [ref=e1246]:
+                    - img [ref=e1247]
+                - generic:
+                  - generic: 1 / 15
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1251]:
+              - generic [ref=e1252]:
+                - img [ref=e1253]
+                - text: Destacado
+              - img [ref=e1258]
+          - generic [ref=e1261]:
+            - generic [ref=e1262]: CONSTRUCTORA CAPITAL
+            - link "CONSTRUCTORA CAPITAL":
+              - /url: /inmobiliarias/perfil/174543873-constructora-capital
+              - img "CONSTRUCTORA CAPITAL" [ref=e1265] [cursor=pointer]
+            - 'link "Desde $ 560.300.000 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 2 Baños 53.72 m² Nuvó club residencial, apartamento en venta en prados de la sabana, bogotá Descubre el lugar donde la serenidad y la exclusividad se unenNuvó es un proyecto diseñado para quienes buscan mucho más que un apartamento: un espacio para vivir con distinción y confort.Con construcción tradicional que te permite personalizar cada detalle, amplios espacios que se adaptan a tu estilo de vida y acabados modernos que elevan la experiencia de vivir. Contactar phone Llamar whats-app Whatsapp" [ref=e1266] [cursor=pointer]':
+              - /url: /proyectos-vivienda/nuvo-club-residencial-apartamentos-en-venta-en-prados-de-la-sabana-bogota/15017985
+              - generic [ref=e1267]:
+                - paragraph [ref=e1271]: Desde $ 560.300.000
+                - strong [ref=e1272]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1273]:
+                - paragraph [ref=e1274]: "Unidades desde:"
+                - generic [ref=e1275]:
+                  - generic [ref=e1276]:
+                    - img [ref=e1278]
+                    - strong [ref=e1280]: 1 Hab
+                  - generic [ref=e1281]:
+                    - img [ref=e1283]
+                    - strong [ref=e1285]: 2 Baños
+                  - generic [ref=e1286]:
+                    - img [ref=e1288]
+                    - strong [ref=e1294]: 53.72 m²
+              - generic [ref=e1295]:
+                - heading "Nuvó club residencial, apartamento en venta en prados de la sabana, bogotá" [level=2] [ref=e1296]
+                - paragraph [ref=e1297]: "Descubre el lugar donde la serenidad y la exclusividad se unenNuvó es un proyecto diseñado para quienes buscan mucho más que un apartamento: un espacio para vivir con distinción y confort.Con construcción tradicional que te permite personalizar cada detalle, amplios espacios que se adaptan a tu estilo de vida y acabados modernos que elevan la experiencia de vivir."
+              - generic [ref=e1299]:
+                - button "Contactar" [ref=e1301]:
+                  - img [ref=e1302]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1305]:
+                  - img "phone" [ref=e1307]:
+                    - img [ref=e1308]
+                  - generic [ref=e1310]: Llamar
+                - button "whats-app Whatsapp" [ref=e1312]:
+                  - img "whats-app" [ref=e1314]:
+                    - img [ref=e1315]
+                  - generic [ref=e1318]: Whatsapp
+        - generic [ref=e1321]:
+          - generic [ref=e1322]:
+            - generic [ref=e1323]:
+              - generic [ref=e1325]:
+                - button [ref=e1326] [cursor=pointer]:
+                  - img [ref=e1327]:
+                    - img [ref=e1328]
+                - link "Image" [ref=e1330] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/ventto-central-apartamentos-en-venta-en-san-miguel-bogota/15017615
+                  - img "Image" [ref=e1335]
+                - button [ref=e1362] [cursor=pointer]:
+                  - img [ref=e1363]:
+                    - img [ref=e1364]
+                - generic:
+                  - generic: 1 / 14
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1368]:
+              - generic [ref=e1369]:
+                - img [ref=e1370]
+                - text: Destacado
+              - img [ref=e1375]
+          - generic [ref=e1378]:
+            - generic [ref=e1379]: ARQUITECTURA Y CONCRETO
+            - link "ARQUITECTURA Y CONCRETO":
+              - /url: /inmobiliarias/perfil/176021793-arquitectura-y-concreto
+              - img "ARQUITECTURA Y CONCRETO" [ref=e1382] [cursor=pointer]
+            - link "Desde $ 673.141.950 Apartamento en Bogotá, Bogotá, d.c. 2 Habs. 2 Baños 61.04 m² Ventto central, apartamento en venta en san miguel, bogotá Ventto Central apartamentos, La libertad de vivir a tú manera. Un espacio diseñado para adaptarse a distintos estilos de vida, brindando comodidad, conexión con la ciudad y cercanía a la naturaleza. Más que un hogar, es la oportunidad de elegir cómo y dónde vivir, con la independencia de moverte fácilmente y disfrutar de tu entorno a tu propio ritmo. Contactar phone Llamar whats-app Whatsapp" [ref=e1383] [cursor=pointer]:
+              - /url: /proyectos-vivienda/ventto-central-apartamentos-en-venta-en-san-miguel-bogota/15017615
+              - generic [ref=e1384]:
+                - paragraph [ref=e1388]: Desde $ 673.141.950
+                - strong [ref=e1389]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1391]:
+                - generic [ref=e1392]:
+                  - img [ref=e1394]
+                  - strong [ref=e1396]: 2 Habs.
+                - generic [ref=e1397]:
+                  - img [ref=e1399]
+                  - strong [ref=e1401]: 2 Baños
+                - generic [ref=e1402]:
+                  - img [ref=e1404]
+                  - strong [ref=e1410]: 61.04 m²
+              - generic [ref=e1411]:
+                - heading "Ventto central, apartamento en venta en san miguel, bogotá" [level=2] [ref=e1412]
+                - paragraph [ref=e1413]: Ventto Central apartamentos, La libertad de vivir a tú manera. Un espacio diseñado para adaptarse a distintos estilos de vida, brindando comodidad, conexión con la ciudad y cercanía a la naturaleza. Más que un hogar, es la oportunidad de elegir cómo y dónde vivir, con la independencia de moverte fácilmente y disfrutar de tu entorno a tu propio ritmo.
+              - generic [ref=e1415]:
+                - button "Contactar" [ref=e1417]:
+                  - img [ref=e1418]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1421]:
+                  - img "phone" [ref=e1423]:
+                    - img [ref=e1424]
+                  - generic [ref=e1426]: Llamar
+                - button "whats-app Whatsapp" [ref=e1428]:
+                  - img "whats-app" [ref=e1430]:
+                    - img [ref=e1431]
+                  - generic [ref=e1434]: Whatsapp
+        - generic [ref=e1437]:
+          - generic [ref=e1438]:
+            - generic [ref=e1439]:
+              - generic [ref=e1441]:
+                - button [ref=e1442] [cursor=pointer]:
+                  - img [ref=e1443]:
+                    - img [ref=e1444]
+                - link "Image" [ref=e1446] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/viena-apartamentos-en-venta-en-marsella-bogota/15017469
+                  - img "Image" [ref=e1451]
+                - button [ref=e1476] [cursor=pointer]:
+                  - img [ref=e1477]:
+                    - img [ref=e1478]
+                - generic:
+                  - generic: 1 / 13
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1482]:
+              - generic [ref=e1483]:
+                - img [ref=e1484]
+                - text: Destacado
+              - img [ref=e1489]
+          - generic [ref=e1492]:
+            - generic [ref=e1493]: ARQUITECTURA Y CONCRETO
+            - link "ARQUITECTURA Y CONCRETO":
+              - /url: /inmobiliarias/perfil/176021793-arquitectura-y-concreto
+              - img "ARQUITECTURA Y CONCRETO" [ref=e1496] [cursor=pointer]
+            - 'link "Desde $ 447.152.534 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 2 Habs. 2 Baños 59 m² Viena, apartamento en venta en marsella, bogotá Se destaca por ser un proyecto exclusivo de 2 torres ubicado en Las Américas con Carrera 68D (Detrás del Éxito de las Américas) que te permite tener un fácil acceso a Supermercados, Centros Comerciales, Centros de salud y Colegios y con excelente cobertura de transporte público. Los apartamentos cuentan con áreas construidas desde 59 m² hasta 75 m², contamos con opción de elegir 2 o 3 habitaciones, 2 baños, cocina, zona de ropas, sala comedor, estudio u oficina y balcón. Contactar phone Llamar whats-app Whatsapp" [ref=e1497] [cursor=pointer]':
+              - /url: /proyectos-vivienda/viena-apartamentos-en-venta-en-marsella-bogota/15017469
+              - generic [ref=e1498]:
+                - paragraph [ref=e1502]: Desde $ 447.152.534
+                - strong [ref=e1503]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1504]:
+                - paragraph [ref=e1505]: "Unidades desde:"
+                - generic [ref=e1506]:
+                  - generic [ref=e1507]:
+                    - img [ref=e1509]
+                    - strong [ref=e1511]: 2 Habs.
+                  - generic [ref=e1512]:
+                    - img [ref=e1514]
+                    - strong [ref=e1516]: 2 Baños
+                  - generic [ref=e1517]:
+                    - img [ref=e1519]
+                    - strong [ref=e1525]: 59 m²
+              - generic [ref=e1526]:
+                - heading "Viena, apartamento en venta en marsella, bogotá" [level=2] [ref=e1527]
+                - paragraph [ref=e1528]: Se destaca por ser un proyecto exclusivo de 2 torres ubicado en Las Américas con Carrera 68D (Detrás del Éxito de las Américas) que te permite tener un fácil acceso a Supermercados, Centros Comerciales, Centros de salud y Colegios y con excelente cobertura de transporte público. Los apartamentos cuentan con áreas construidas desde 59 m² hasta 75 m², contamos con opción de elegir 2 o 3 habitaciones, 2 baños, cocina, zona de ropas, sala comedor, estudio u oficina y balcón.
+              - generic [ref=e1530]:
+                - button "Contactar" [ref=e1532]:
+                  - img [ref=e1533]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1536]:
+                  - img "phone" [ref=e1538]:
+                    - img [ref=e1539]
+                  - generic [ref=e1541]: Llamar
+                - button "whats-app Whatsapp" [ref=e1543]:
+                  - img "whats-app" [ref=e1545]:
+                    - img [ref=e1546]
+                  - generic [ref=e1549]: Whatsapp
+        - link "Bodega" [ref=e1550] [cursor=pointer]:
+          - /url: https://www.fincaraiz.com.co/proyectos-vivienda/bodega-habitat-apartamentos-apartamentos-en-venta-en-perpetuo-socorro-medellin/15017765?time=1775688626215
+          - img "Bodega" [ref=e1551]
+        - generic [ref=e1554]:
+          - generic [ref=e1555]:
+            - generic [ref=e1556]:
+              - generic [ref=e1558]:
+                - button [ref=e1559] [cursor=pointer]:
+                  - img [ref=e1560]:
+                    - img [ref=e1561]
+                - link "Image" [ref=e1563] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/nuva-park-apartamentos-en-venta-en-nueva-colina-bogota/15017470
+                  - img "Image" [ref=e1568]
+                - button [ref=e1593] [cursor=pointer]:
+                  - img [ref=e1594]:
+                    - img [ref=e1595]
+                - generic:
+                  - generic: 1 / 13
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1599]:
+              - generic [ref=e1600]:
+                - img [ref=e1601]
+                - text: Destacado
+              - img [ref=e1606]
+          - generic [ref=e1609]:
+            - generic [ref=e1610]: ARQUITECTURA Y CONCRETO
+            - link "ARQUITECTURA Y CONCRETO":
+              - /url: /inmobiliarias/perfil/176021793-arquitectura-y-concreto
+              - img "ARQUITECTURA Y CONCRETO" [ref=e1613] [cursor=pointer]
+            - 'link "Desde $ 357.960.000 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 1 Baño 36.57 m² Nuva park, apartamento en venta en nueva colina, bogotá Ubicación estratégica que conecta con lo mejor de la ciudad. A solo minutos de la Autopista Norte, entre las calles 134 y calle 129 en el sector Nueva Colina, tendrás fácil acceso a importantes vías y todo lo que necesitas: centros comerciales, supermercados, restaurantes y servicios esenciales. Contactar phone Llamar whats-app Whatsapp" [ref=e1614] [cursor=pointer]':
+              - /url: /proyectos-vivienda/nuva-park-apartamentos-en-venta-en-nueva-colina-bogota/15017470
+              - generic [ref=e1615]:
+                - paragraph [ref=e1619]: Desde $ 357.960.000
+                - strong [ref=e1620]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1621]:
+                - paragraph [ref=e1622]: "Unidades desde:"
+                - generic [ref=e1623]:
+                  - generic [ref=e1624]:
+                    - img [ref=e1626]
+                    - strong [ref=e1628]: 1 Hab
+                  - generic [ref=e1629]:
+                    - img [ref=e1631]
+                    - strong [ref=e1633]: 1 Baño
+                  - generic [ref=e1634]:
+                    - img [ref=e1636]
+                    - strong [ref=e1642]: 36.57 m²
+              - generic [ref=e1643]:
+                - heading "Nuva park, apartamento en venta en nueva colina, bogotá" [level=2] [ref=e1644]
+                - paragraph [ref=e1645]: "Ubicación estratégica que conecta con lo mejor de la ciudad. A solo minutos de la Autopista Norte, entre las calles 134 y calle 129 en el sector Nueva Colina, tendrás fácil acceso a importantes vías y todo lo que necesitas: centros comerciales, supermercados, restaurantes y servicios esenciales."
+              - generic [ref=e1647]:
+                - button "Contactar" [ref=e1649]:
+                  - img [ref=e1650]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1653]:
+                  - img "phone" [ref=e1655]:
+                    - img [ref=e1656]
+                  - generic [ref=e1658]: Llamar
+                - button "whats-app Whatsapp" [ref=e1660]:
+                  - img "whats-app" [ref=e1662]:
+                    - img [ref=e1663]
+                  - generic [ref=e1666]: Whatsapp
+        - generic [ref=e1669]:
+          - generic [ref=e1670]:
+            - generic [ref=e1671]:
+              - generic [ref=e1673]:
+                - button [ref=e1674] [cursor=pointer]:
+                  - img [ref=e1675]:
+                    - img [ref=e1676]
+                - link "Image" [ref=e1678] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/turpiales-de-cantoval-apartamentos-en-venta-en-lagos-de-torca-bogota/7952697
+                  - img "Image" [ref=e1683]
+                - button [ref=e1698] [cursor=pointer]:
+                  - img [ref=e1699]:
+                    - img [ref=e1700]
+                - generic:
+                  - generic: 1 / 8
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1704]:
+              - generic [ref=e1705]:
+                - img [ref=e1706]
+                - text: Destacado
+              - img [ref=e1711]
+          - generic [ref=e1714]:
+            - generic [ref=e1715]: COMPENSAR
+            - link "COMPENSAR":
+              - /url: /inmobiliarias/perfil/174754913-compensar
+              - img "COMPENSAR" [ref=e1718] [cursor=pointer]
+            - link "Desde $ 237.012.750 Apartamento en Bogotá, Bogotá, d.c. 3 Habs. 1 Baño 45.05 m² Turpiales de cantoval, apartamento en venta en lagos de torca, bogotá Turpiales de Cantoval es un proyecto de interés social que se construirá en el plan parcial lagos de torca, la mega apuesta arquitectónica al norte de Bogotá, con un concepto que evoluciona el desarrollo urbanístico de nuestra ciudad, turpiales esta distribuido en 5 torres de 12 y 13 pisos con un área de 45mts, único proyecto vis en la zona que se entrega con acabados, listo para habitar. Contactar phone Llamar whats-app Whatsapp" [ref=e1719] [cursor=pointer]:
+              - /url: /proyectos-vivienda/turpiales-de-cantoval-apartamentos-en-venta-en-lagos-de-torca-bogota/7952697
+              - generic [ref=e1720]:
+                - paragraph [ref=e1724]: Desde $ 237.012.750
+                - strong [ref=e1725]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1727]:
+                - generic [ref=e1728]:
+                  - img [ref=e1730]
+                  - strong [ref=e1732]: 3 Habs.
+                - generic [ref=e1733]:
+                  - img [ref=e1735]
+                  - strong [ref=e1737]: 1 Baño
+                - generic [ref=e1738]:
+                  - img [ref=e1740]
+                  - strong [ref=e1746]: 45.05 m²
+              - generic [ref=e1747]:
+                - heading "Turpiales de cantoval, apartamento en venta en lagos de torca, bogotá" [level=2] [ref=e1748]
+                - paragraph [ref=e1749]: Turpiales de Cantoval es un proyecto de interés social que se construirá en el plan parcial lagos de torca, la mega apuesta arquitectónica al norte de Bogotá, con un concepto que evoluciona el desarrollo urbanístico de nuestra ciudad, turpiales esta distribuido en 5 torres de 12 y 13 pisos con un área de 45mts, único proyecto vis en la zona que se entrega con acabados, listo para habitar.
+              - generic [ref=e1751]:
+                - button "Contactar" [ref=e1753]:
+                  - img [ref=e1754]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1757]:
+                  - img "phone" [ref=e1759]:
+                    - img [ref=e1760]
+                  - generic [ref=e1762]: Llamar
+                - button "whats-app Whatsapp" [ref=e1764]:
+                  - img "whats-app" [ref=e1766]:
+                    - img [ref=e1767]
+                  - generic [ref=e1770]: Whatsapp
+        - generic [ref=e1773]:
+          - generic [ref=e1774]:
+            - generic [ref=e1775]:
+              - generic [ref=e1777]:
+                - button [ref=e1778] [cursor=pointer]:
+                  - img [ref=e1779]:
+                    - img [ref=e1780]
+                - link "Image" [ref=e1782] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/maui-68-apartamentos-en-venta-en-venecia-bogota/10471287
+                  - img "Image" [ref=e1787]
+                - button [ref=e1806] [cursor=pointer]:
+                  - img [ref=e1807]:
+                    - img [ref=e1808]
+                - generic:
+                  - generic: 1 / 10
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1812]:
+              - generic [ref=e1813]:
+                - img [ref=e1814]
+                - text: Destacado
+              - img [ref=e1819]
+          - generic [ref=e1822]:
+            - generic [ref=e1823]: COMPENSAR
+            - link "COMPENSAR":
+              - /url: /inmobiliarias/perfil/174754913-compensar
+              - img "COMPENSAR" [ref=e1826] [cursor=pointer]
+            - 'link "Desde $ 295.000.000 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 2 Habs. 1 Baño 41.7 m² Maui 68, apartamento en venta en venecia, bogotá EN CONSTRUCCIÓN!! Proyecto de Vivienda de Renovación Urbana que NO APLICA SUBSIDIO y se consolida en una zona privilegiada sobre la Avenida 68 en el barrio Venecia, al Sur de Bogotá. Pensado para quienes buscan calidad de vida, ofrece amplios espacios funcionales y zonas comunes pensadas para toda la familia, incluyendo tus peluditos. Viviendas de dos habitaciones y opción de dos baños en un diseño funcional con ACABADOS BÁSICOS. - ENTREGAS DESDE 2027 ¡¡NO SE RECIBE SUBSIDIO!! Contactar phone Llamar whats-app Whatsapp" [ref=e1827] [cursor=pointer]':
+              - /url: /proyectos-vivienda/maui-68-apartamentos-en-venta-en-venecia-bogota/10471287
+              - generic [ref=e1828]:
+                - paragraph [ref=e1832]: Desde $ 295.000.000
+                - strong [ref=e1833]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1834]:
+                - paragraph [ref=e1835]: "Unidades desde:"
+                - generic [ref=e1836]:
+                  - generic [ref=e1837]:
+                    - img [ref=e1839]
+                    - strong [ref=e1841]: 2 Habs.
+                  - generic [ref=e1842]:
+                    - img [ref=e1844]
+                    - strong [ref=e1846]: 1 Baño
+                  - generic [ref=e1847]:
+                    - img [ref=e1849]
+                    - strong [ref=e1855]: 41.7 m²
+              - generic [ref=e1856]:
+                - heading "Maui 68, apartamento en venta en venecia, bogotá" [level=2] [ref=e1857]
+                - paragraph [ref=e1858]: EN CONSTRUCCIÓN!! Proyecto de Vivienda de Renovación Urbana que NO APLICA SUBSIDIO y se consolida en una zona privilegiada sobre la Avenida 68 en el barrio Venecia, al Sur de Bogotá. Pensado para quienes buscan calidad de vida, ofrece amplios espacios funcionales y zonas comunes pensadas para toda la familia, incluyendo tus peluditos. Viviendas de dos habitaciones y opción de dos baños en un diseño funcional con ACABADOS BÁSICOS. - ENTREGAS DESDE 2027 ¡¡NO SE RECIBE SUBSIDIO!!
+              - generic [ref=e1860]:
+                - button "Contactar" [ref=e1862]:
+                  - img [ref=e1863]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1866]:
+                  - img "phone" [ref=e1868]:
+                    - img [ref=e1869]
+                  - generic [ref=e1871]: Llamar
+                - button "whats-app Whatsapp" [ref=e1873]:
+                  - img "whats-app" [ref=e1875]:
+                    - img [ref=e1876]
+                  - generic [ref=e1879]: Whatsapp
+        - generic [ref=e1882]:
+          - generic [ref=e1883]:
+            - generic [ref=e1884]:
+              - generic [ref=e1886]:
+                - button [ref=e1887] [cursor=pointer]:
+                  - img [ref=e1888]:
+                    - img [ref=e1889]
+                - link "Image" [ref=e1891] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/artie-84-apartamentos-en-venta-en-la-cabrera-bogota/15017586
+                  - img "Image" [ref=e1896]
+                - button [ref=e1911] [cursor=pointer]:
+                  - img [ref=e1912]:
+                    - img [ref=e1913]
+                - generic:
+                  - generic: 1 / 8
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e1917]:
+              - generic [ref=e1918]:
+                - img [ref=e1919]
+                - text: Destacado
+              - img [ref=e1924]
+          - generic [ref=e1927]:
+            - generic [ref=e1928]: ARQUITECTURA Y CONCRETO
+            - link "ARQUITECTURA Y CONCRETO":
+              - /url: /inmobiliarias/perfil/176021793-arquitectura-y-concreto
+              - img "ARQUITECTURA Y CONCRETO" [ref=e1931] [cursor=pointer]
+            - 'link "Desde $ 1.466.775.344 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 2 Baños 76.45 m² Artié 84, apartamento en venta en la cabrera, bogotá Artié84 es un proyecto que marcará un hito de Bogotá, al combinar un gran diseño arquitectónico en una entorno privilegiado donde podrán disfrutar de un estilo de vida exclusivo al alcance de la mano. Esta ubicación inmejorable les permitirá vivir una vida cosmopolita, rodeados de lo mejor que Bogotá tiene para ofrecer. Contactar phone Llamar whats-app Whatsapp" [ref=e1932] [cursor=pointer]':
+              - /url: /proyectos-vivienda/artie-84-apartamentos-en-venta-en-la-cabrera-bogota/15017586
+              - generic [ref=e1933]:
+                - paragraph [ref=e1937]: Desde $ 1.466.775.344
+                - strong [ref=e1938]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e1939]:
+                - paragraph [ref=e1940]: "Unidades desde:"
+                - generic [ref=e1941]:
+                  - generic [ref=e1942]:
+                    - img [ref=e1944]
+                    - strong [ref=e1946]: 1 Hab
+                  - generic [ref=e1947]:
+                    - img [ref=e1949]
+                    - strong [ref=e1951]: 2 Baños
+                  - generic [ref=e1952]:
+                    - img [ref=e1954]
+                    - strong [ref=e1960]: 76.45 m²
+              - generic [ref=e1961]:
+                - heading "Artié 84, apartamento en venta en la cabrera, bogotá" [level=2] [ref=e1962]
+                - paragraph [ref=e1963]: Artié84 es un proyecto que marcará un hito de Bogotá, al combinar un gran diseño arquitectónico en una entorno privilegiado donde podrán disfrutar de un estilo de vida exclusivo al alcance de la mano. Esta ubicación inmejorable les permitirá vivir una vida cosmopolita, rodeados de lo mejor que Bogotá tiene para ofrecer.
+              - generic [ref=e1965]:
+                - button "Contactar" [ref=e1967]:
+                  - img [ref=e1968]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e1971]:
+                  - img "phone" [ref=e1973]:
+                    - img [ref=e1974]
+                  - generic [ref=e1976]: Llamar
+                - button "whats-app Whatsapp" [ref=e1978]:
+                  - img "whats-app" [ref=e1980]:
+                    - img [ref=e1981]
+                  - generic [ref=e1984]: Whatsapp
+        - generic [ref=e1987]:
+          - generic [ref=e1988]:
+            - generic [ref=e1989]:
+              - generic [ref=e1991]:
+                - button [ref=e1992] [cursor=pointer]:
+                  - img [ref=e1993]:
+                    - img [ref=e1994]
+                - link "Image" [ref=e1996] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/vilanova-apartamentos-en-venta-en-villemar-bogota/15017083
+                  - img "Image" [ref=e2001]
+                - button [ref=e2032] [cursor=pointer]:
+                  - img [ref=e2033]:
+                    - img [ref=e2034]
+                - generic:
+                  - generic: 1 / 16
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e2038]:
+              - generic [ref=e2039]:
+                - img [ref=e2040]
+                - text: Destacado
+              - img [ref=e2045]
+          - generic [ref=e2048]:
+            - generic [ref=e2049]: CONSTRUCTORA COLPATRIA
+            - link "CONSTRUCTORA COLPATRIA":
+              - /url: /inmobiliarias/perfil/174708114-constructora-colpatria
+              - img "CONSTRUCTORA COLPATRIA" [ref=e2052] [cursor=pointer]
+            - link "Desde $ 230.607.000 Apartamento en Bogotá, Bogotá, d.c. 2 Habs. 1 Baño 42 m² Vilanova, apartamentos en venta en villemar, bogotá Contactar phone Llamar whats-app Whatsapp" [ref=e2053] [cursor=pointer]:
+              - /url: /proyectos-vivienda/vilanova-apartamentos-en-venta-en-villemar-bogota/15017083
+              - generic [ref=e2054]:
+                - paragraph [ref=e2058]: Desde $ 230.607.000
+                - strong [ref=e2059]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e2061]:
+                - generic [ref=e2062]:
+                  - img [ref=e2064]
+                  - strong [ref=e2066]: 2 Habs.
+                - generic [ref=e2067]:
+                  - img [ref=e2069]
+                  - strong [ref=e2071]: 1 Baño
+                - generic [ref=e2072]:
+                  - img [ref=e2074]
+                  - strong [ref=e2080]: 42 m²
+              - generic [ref=e2081]:
+                - heading "Vilanova, apartamentos en venta en villemar, bogotá" [level=2] [ref=e2082]
+                - paragraph
+              - generic [ref=e2084]:
+                - button "Contactar" [ref=e2086]:
+                  - img [ref=e2087]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e2090]:
+                  - img "phone" [ref=e2092]:
+                    - img [ref=e2093]
+                  - generic [ref=e2095]: Llamar
+                - button "whats-app Whatsapp" [ref=e2097]:
+                  - img "whats-app" [ref=e2099]:
+                    - img [ref=e2100]
+                  - generic [ref=e2103]: Whatsapp
+        - generic [ref=e2106]:
+          - generic [ref=e2107]:
+            - generic [ref=e2108]:
+              - generic [ref=e2110]:
+                - button [ref=e2111] [cursor=pointer]:
+                  - img [ref=e2112]:
+                    - img [ref=e2113]
+                - link "Image" [ref=e2115] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/paseo-de-sevilla-apartamentos-en-venta-en-nueva-castilla-bogota/5311768
+                  - img "Image" [ref=e2120]
+                - button [ref=e2133] [cursor=pointer]:
+                  - img [ref=e2134]:
+                    - img [ref=e2135]
+                - generic:
+                  - generic: 1 / 7
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e2139]:
+              - generic [ref=e2140]:
+                - img [ref=e2141]
+                - text: Destacado
+              - img [ref=e2146]
+          - generic [ref=e2149]:
+            - generic [ref=e2150]: MARVAL BOGOTA
+            - link "MARVAL BOGOTA":
+              - /url: /inmobiliarias/perfil/174532303-marval-bogota
+              - img "MARVAL BOGOTA" [ref=e2153] [cursor=pointer]
+            - link "Desde $ 459.939.000 Apartamento en Bogotá, Bogotá, d.c. 3 Habs. 3 Baños 67.41 m² Paseo de sevilla, apartamentos en venta en nueva castilla, bogotá Contactar phone Llamar whats-app Whatsapp" [ref=e2154] [cursor=pointer]:
+              - /url: /proyectos-vivienda/paseo-de-sevilla-apartamentos-en-venta-en-nueva-castilla-bogota/5311768
+              - generic [ref=e2155]:
+                - paragraph [ref=e2159]: Desde $ 459.939.000
+                - strong [ref=e2160]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e2162]:
+                - generic [ref=e2163]:
+                  - img [ref=e2165]
+                  - strong [ref=e2167]: 3 Habs.
+                - generic [ref=e2168]:
+                  - img [ref=e2170]
+                  - strong [ref=e2172]: 3 Baños
+                - generic [ref=e2173]:
+                  - img [ref=e2175]
+                  - strong [ref=e2181]: 67.41 m²
+              - generic [ref=e2182]:
+                - heading "Paseo de sevilla, apartamentos en venta en nueva castilla, bogotá" [level=2] [ref=e2183]
+                - paragraph
+              - generic [ref=e2185]:
+                - button "Contactar" [ref=e2187]:
+                  - img [ref=e2188]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e2191]:
+                  - img "phone" [ref=e2193]:
+                    - img [ref=e2194]
+                  - generic [ref=e2196]: Llamar
+                - button "whats-app Whatsapp" [ref=e2198]:
+                  - img "whats-app" [ref=e2200]:
+                    - img [ref=e2201]
+                  - generic [ref=e2204]: Whatsapp
+        - generic [ref=e2207]:
+          - generic [ref=e2208]:
+            - generic [ref=e2209]:
+              - generic [ref=e2211]:
+                - button [ref=e2212] [cursor=pointer]:
+                  - img [ref=e2213]:
+                    - img [ref=e2214]
+                - link "Image" [ref=e2216] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/mare-44-apartamentos-en-venta-en-puente-aranda-bogota/15017558
+                  - img "Image" [ref=e2221]
+                - button [ref=e2228] [cursor=pointer]:
+                  - img [ref=e2229]:
+                    - img [ref=e2230]
+                - generic:
+                  - generic: 1 / 4
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - generic [ref=e2234]:
+              - generic [ref=e2235]:
+                - img [ref=e2236]
+                - text: Destacado
+              - img [ref=e2241]
+          - generic [ref=e2244]:
+            - generic [ref=e2245]: CONSTRUCTORA COLPATRIA
+            - link "CONSTRUCTORA COLPATRIA":
+              - /url: /inmobiliarias/perfil/174708114-constructora-colpatria
+              - img "CONSTRUCTORA COLPATRIA" [ref=e2248] [cursor=pointer]
+            - link "Desde $ 261.554.459 Apartamento en Bogotá, Bogotá, d.c. 1 Hab 1 Baño 34.44 m² Mare 44, apartamento en venta en puente aranda, bogotá El proyecto cuenta con 5 etapas constructivas. Una torre por cada etapa, para un total de 5 torres de 25 pisos cada una con una terraza transitable con 1481 unidades de vivienda y 8 locales comerciales. El proyecto tipo VIS y VIS RU se entregarán en obra gris y será estrato 3 Contactar phone Llamar whats-app Whatsapp" [ref=e2249] [cursor=pointer]:
+              - /url: /proyectos-vivienda/mare-44-apartamentos-en-venta-en-puente-aranda-bogota/15017558
+              - generic [ref=e2250]:
+                - paragraph [ref=e2254]: Desde $ 261.554.459
+                - strong [ref=e2255]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e2257]:
+                - generic [ref=e2258]:
+                  - img [ref=e2260]
+                  - strong [ref=e2262]: 1 Hab
+                - generic [ref=e2263]:
+                  - img [ref=e2265]
+                  - strong [ref=e2267]: 1 Baño
+                - generic [ref=e2268]:
+                  - img [ref=e2270]
+                  - strong [ref=e2276]: 34.44 m²
+              - generic [ref=e2277]:
+                - heading "Mare 44, apartamento en venta en puente aranda, bogotá" [level=2] [ref=e2278]
+                - paragraph [ref=e2279]: El proyecto cuenta con 5 etapas constructivas. Una torre por cada etapa, para un total de 5 torres de 25 pisos cada una con una terraza transitable con 1481 unidades de vivienda y 8 locales comerciales. El proyecto tipo VIS y VIS RU se entregarán en obra gris y será estrato 3
+              - generic [ref=e2281]:
+                - button "Contactar" [ref=e2283]:
+                  - img [ref=e2284]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e2287]:
+                  - img "phone" [ref=e2289]:
+                    - img [ref=e2290]
+                  - generic [ref=e2292]: Llamar
+                - button "whats-app Whatsapp" [ref=e2294]:
+                  - img "whats-app" [ref=e2296]:
+                    - img [ref=e2297]
+                  - generic [ref=e2300]: Whatsapp
+        - generic [ref=e2303]:
+          - generic [ref=e2304]:
+            - generic [ref=e2305]:
+              - generic [ref=e2307]:
+                - button [ref=e2308] [cursor=pointer]:
+                  - img [ref=e2309]:
+                    - img [ref=e2310]
+                - link "Image" [ref=e2312] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/infinitum-zentral-apartamentos-en-venta-en-las-nieves-bogota/10601864
+                  - img "Image" [ref=e2317]
+                - button [ref=e2352] [cursor=pointer]:
+                  - img [ref=e2353]:
+                    - img [ref=e2354]
+                - generic:
+                  - generic: 1 / 18
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: ¡BONO 3 MILLONES! A&C
+            - generic [ref=e2358]:
+              - generic [ref=e2359]:
+                - img [ref=e2360]
+                - text: Destacado
+              - img [ref=e2365]
+          - generic [ref=e2368]:
+            - generic [ref=e2369]: GRUPO EMPRESARIAL OIKOS
+            - link "GRUPO EMPRESARIAL OIKOS":
+              - /url: /inmobiliarias/perfil/174652684-grupo-empresarial-oikos
+              - img "GRUPO EMPRESARIAL OIKOS" [ref=e2372] [cursor=pointer]
+            - link "Desde $ 318.061.000 Apartamento en Bogotá, Bogotá, d.c. 2 Habs. 1 Baño 35.9 m² Infinitum zentral, apartamento en venta en las nieves, bogotá ¡PRECIOS FIJOS! Proyecto de apartamentos tipo Co-Living en el centro de Bogotá, ideal para turistas, estudiantes, profesionales y aquellos interesados en un centro urbano diverso y lleno de oportunidades. Conoce nuestro moderno proyecto en el corazón de la ciudad que contará con 20 pisos y dos sótanos, que albergará 369 apartamentos con opción de 1 o 2 habitaciones. Experimenta un estilo de vida comunitario donde los residentes comparten espacios basados en amenidades, intereses y valores compartidos. Descubre la comodidad y la convivencia en este multifamiliar único. **PRECIO FIJO EN PESOS **Entregas 2028 **Plazo de hasta 27 meses para pago cuota inicial **Separación $2.000.000 Contactar phone Llamar whats-app Whatsapp" [ref=e2373] [cursor=pointer]:
+              - /url: /proyectos-vivienda/infinitum-zentral-apartamentos-en-venta-en-las-nieves-bogota/10601864
+              - generic [ref=e2374]:
+                - paragraph [ref=e2378]: Desde $ 318.061.000
+                - strong [ref=e2379]: Apartamento en Bogotá, Bogotá, d.c.
+              - generic [ref=e2381]:
+                - generic [ref=e2382]:
+                  - img [ref=e2384]
+                  - strong [ref=e2386]: 2 Habs.
+                - generic [ref=e2387]:
+                  - img [ref=e2389]
+                  - strong [ref=e2391]: 1 Baño
+                - generic [ref=e2392]:
+                  - img [ref=e2394]
+                  - strong [ref=e2400]: 35.9 m²
+              - generic [ref=e2401]:
+                - heading "Infinitum zentral, apartamento en venta en las nieves, bogotá" [level=2] [ref=e2402]
+                - paragraph [ref=e2403]: ¡PRECIOS FIJOS! Proyecto de apartamentos tipo Co-Living en el centro de Bogotá, ideal para turistas, estudiantes, profesionales y aquellos interesados en un centro urbano diverso y lleno de oportunidades. Conoce nuestro moderno proyecto en el corazón de la ciudad que contará con 20 pisos y dos sótanos, que albergará 369 apartamentos con opción de 1 o 2 habitaciones. Experimenta un estilo de vida comunitario donde los residentes comparten espacios basados en amenidades, intereses y valores compartidos. Descubre la comodidad y la convivencia en este multifamiliar único. **PRECIO FIJO EN PESOS **Entregas 2028 **Plazo de hasta 27 meses para pago cuota inicial **Separación $2.000.000
+              - generic [ref=e2405]:
+                - button "Contactar" [ref=e2407]:
+                  - img [ref=e2408]
+                  - text: Contactar
+                - button "phone Llamar" [ref=e2411]:
+                  - img "phone" [ref=e2413]:
+                    - img [ref=e2414]
+                  - generic [ref=e2416]: Llamar
+                - button "whats-app Whatsapp" [ref=e2418]:
+                  - img "whats-app" [ref=e2420]:
+                    - img [ref=e2421]
+                  - generic [ref=e2424]: Whatsapp
+        - generic [ref=e2427]:
+          - generic [ref=e2428]:
+            - generic [ref=e2429]:
+              - generic [ref=e2431]:
+                - button [ref=e2432] [cursor=pointer]:
+                  - img [ref=e2433]:
+                    - img [ref=e2434]
+                - link "Image" [ref=e2436] [cursor=pointer]:
+                  - /url: /proyectos-vivienda/samper-24-apartamentos-en-venta-en-santa-fe-bogota/15018411
+                  - img "Image" [ref=e2441]
+                - button [ref=e2450] [cursor=pointer]:
+                  - img [ref=e2451]:
+                    - img [ref=e2452]
+                - generic:
+                  - generic: 1 / 5
+              - generic:
+                - img
+                - generic:
+                  - img
+                  - text: FincaFest
+            - img [ref=e2458]
+          - 'link "Desde $ 270.000.000 Apartamento en Bogotá, Bogotá, d.c. Unidades desde: 1 Hab 2 Baños 36 m² Samper 24, apartamento en venta en santa fe, bogotá SAMPER 24 es el proyecto ideal para tu primera inversión, te ofrece 8 tipos de apartamentos entre 38 y 63 M2, con opción de una y dos habitaciones. Solo 72 unidades de vivienda distribuidos en 7 pisos, lo que te ofrece un concepto de exclusividad, cerca de una zona estratégica e icónica de Bogotá como es el Centro Internacional y Teusaquillo. Dentro de sus amenidades se cuentan: Terraza BBQ, coworking, gimnasio y salón social. Anímate a comprar en Samper 24 y comienza a valorizar tu patrimonio. Contactar phone Llamar whats-app Whatsapp" [ref=e2462] [cursor=pointer]':
+            - /url: /proyectos-vivienda/samper-24-apartamentos-en-venta-en-santa-fe-bogota/15018411
+            - generic [ref=e2463]:
+              - paragraph [ref=e2467]: Desde $ 270.000.000
+              - strong [ref=e2468]: Apartamento en Bogotá, Bogotá, d.c.
+            - generic [ref=e2469]:
+              - paragraph [ref=e2470]: "Unidades desde:"
+              - generic [ref=e2471]:
+                - generic [ref=e2472]:
+                  - img [ref=e2474]
+                  - strong [ref=e2476]: 1 Hab
+                - generic [ref=e2477]:
+                  - img [ref=e2479]
+                  - strong [ref=e2481]: 2 Baños
+                - generic [ref=e2482]:
+                  - img [ref=e2484]
+                  - strong [ref=e2490]: 36 m²
+            - generic [ref=e2491]:
+              - heading "Samper 24, apartamento en venta en santa fe, bogotá" [level=2] [ref=e2492]
+              - paragraph [ref=e2493]: "SAMPER 24 es el proyecto ideal para tu primera inversión, te ofrece 8 tipos de apartamentos entre 38 y 63 M2, con opción de una y dos habitaciones. Solo 72 unidades de vivienda distribuidos en 7 pisos, lo que te ofrece un concepto de exclusividad, cerca de una zona estratégica e icónica de Bogotá como es el Centro Internacional y Teusaquillo. Dentro de sus amenidades se cuentan: Terraza BBQ, coworking, gimnasio y salón social. Anímate a comprar en Samper 24 y comienza a valorizar tu patrimonio."
+            - generic [ref=e2495]:
+              - button "Contactar" [ref=e2497]:
+                - img [ref=e2498]
+                - text: Contactar
+              - button "phone Llamar" [ref=e2501]:
+                - img "phone" [ref=e2503]:
+                  - img [ref=e2504]
+                - generic [ref=e2506]: Llamar
+              - button "whats-app Whatsapp" [ref=e2508]:
+                - img "whats-app" [ref=e2510]:
+                  - img [ref=e2511]
+                - generic [ref=e2514]: Whatsapp
+      - generic [ref=e2515]:
+        - generic [ref=e2516]:
+          - text: Mostrando
+          - strong [ref=e2517]: 1 - 21
+          - text: de
+          - strong [ref=e2518]: más de 400
+          - text: resultados
+        - navigation "Pagination" [ref=e2519]:
+          - listitem [ref=e2520] [cursor=pointer]: "1"
+          - listitem [ref=e2521] [cursor=pointer]:
+            - link "Page 2" [ref=e2522]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina2
+              - text: "2"
+          - listitem [ref=e2523] [cursor=pointer]:
+            - link "Page 3" [ref=e2524]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina3
+              - text: "3"
+          - listitem [ref=e2525] [cursor=pointer]:
+            - link "Page 4" [ref=e2526]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina4
+              - text: "4"
+          - listitem [ref=e2527] [cursor=pointer]:
+            - link "Page 5" [ref=e2528]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina5
+              - text: "5"
+          - listitem [ref=e2529] [cursor=pointer]:
+            - link "Page 6" [ref=e2530]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina6
+              - text: "6"
+          - listitem [ref=e2531] [cursor=pointer]:
+            - link "Page 7" [ref=e2532]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina7
+              - text: "7"
+          - listitem [ref=e2533] [cursor=pointer]: ...
+          - listitem [ref=e2534] [cursor=pointer]:
+            - link "Page 50" [ref=e2535]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina50
+              - text: "50"
+          - listitem [ref=e2536] [cursor=pointer]:
+            - link ">" [ref=e2537]:
+              - /url: /venta/apartamentos/bogota/bogota-dc/pagina2
+    - contentinfo [ref=e2538]:
+      - generic [ref=e2540]:
+        - heading "Descarga la app" [level=4] [ref=e2541]
+        - generic [ref=e2543]:
+          - link "Botón que dirige a la tienda de aplicaciones de Google Play" [ref=e2544] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=co.com.fincaraiz.app
+            - img "Botón que dirige a la tienda de aplicaciones de Google Play" [ref=e2545]
+          - link "Botón que dirige a la tienda de aplicaciones de App Store" [ref=e2546] [cursor=pointer]:
+            - /url: https://itunes.apple.com/co/app/fincaraiz.com.co/id1068634301
+            - img "Botón que dirige a la tienda de aplicaciones de App Store" [ref=e2547]
+          - link "Botón que dirige a la tienda de aplicaciones de App Gallery" [ref=e2548] [cursor=pointer]:
+            - /url: https://appgallery.huawei.com/#/app/C101202375
+            - img "Botón que dirige a la tienda de aplicaciones de App Gallery" [ref=e2549]
+      - separator [ref=e2550]
+      - generic [ref=e2551]:
+        - generic [ref=e2552]:
+          - generic [ref=e2553]:
+            - heading "Apartamentos en Venta" [level=5] [ref=e2554]
+            - generic [ref=e2555]:
+              - link "Apartamentos en Venta en Chico norte" [ref=e2556] [cursor=pointer]:
+                - /url: /venta/apartamentos/chico-norte/zona-nororiental/bogota
+              - separator [ref=e2557]
+            - generic [ref=e2558]:
+              - link "Apartamentos en Venta en Los rosales" [ref=e2559] [cursor=pointer]:
+                - /url: /venta/apartamentos/los-rosales/zona-nororiental/bogota
+              - separator [ref=e2560]
+            - generic [ref=e2561]:
+              - link "Apartamentos en Venta en Santa Barbara" [ref=e2562] [cursor=pointer]:
+                - /url: /venta/apartamentos/santa-barbara/zona-norte/bogota
+              - separator [ref=e2563]
+            - generic [ref=e2564]:
+              - link "Apartamentos en Venta en Cedritos" [ref=e2565] [cursor=pointer]:
+                - /url: /venta/apartamentos/cedritos/zona-norte/bogota
+              - separator [ref=e2566]
+            - generic [ref=e2567]:
+              - link "Apartamentos en Venta en Colina Campestre" [ref=e2568] [cursor=pointer]:
+                - /url: /venta/apartamentos/colina-campestre/zona-norte/bogota
+              - separator [ref=e2569]
+            - generic [ref=e2570]:
+              - link "Apartamentos en Venta en Fontibon" [ref=e2571] [cursor=pointer]:
+                - /url: /venta/apartamentos/fontibon/zona-occidental/bogota
+              - separator [ref=e2572]
+            - generic [ref=e2573]:
+              - link "Apartamentos en Venta en Santa barbara central" [ref=e2574] [cursor=pointer]:
+                - /url: /venta/apartamentos/santa-barbara-central/zona-norte/bogota
+              - separator [ref=e2575]
+            - generic [ref=e2576]:
+              - link "Apartamentos en Venta en La cabrera" [ref=e2577] [cursor=pointer]:
+                - /url: /venta/apartamentos/la-cabrera/zona-nororiental/bogota
+              - separator [ref=e2578]
+            - generic [ref=e2579]:
+              - link "Apartamentos en Venta en Chicó Navarra" [ref=e2580] [cursor=pointer]:
+                - /url: /venta/apartamentos/chico-navarra/zona-norte/bogota
+              - separator [ref=e2581]
+            - generic [ref=e2582]:
+              - link "Apartamentos en Venta en Usaquen" [ref=e2583] [cursor=pointer]:
+                - /url: /venta/apartamentos/usaquen/bogota
+              - separator [ref=e2584]
+          - button "Más" [ref=e2585] [cursor=pointer]
+        - generic [ref=e2586]:
+          - generic [ref=e2587]:
+            - heading "Casas en Venta" [level=5] [ref=e2588]
+            - generic [ref=e2589]:
+              - link "Casas en Venta en Engativá" [ref=e2590] [cursor=pointer]:
+                - /url: /venta/casas/engativa/zona-noroccidente/bogota
+              - separator [ref=e2591]
+            - generic [ref=e2592]:
+              - link "Casas en Venta en Cedritos" [ref=e2593] [cursor=pointer]:
+                - /url: /venta/casas/cedritos/zona-norte/bogota
+              - separator [ref=e2594]
+            - generic [ref=e2595]:
+              - link "Casas en Venta en Suba" [ref=e2596] [cursor=pointer]:
+                - /url: /venta/casas/suba/bogota
+              - separator [ref=e2597]
+            - generic [ref=e2598]:
+              - link "Casas en Venta en San jose de bavaria" [ref=e2599] [cursor=pointer]:
+                - /url: /venta/casas/san-jose-de-bavaria/zona-norte/bogota
+              - separator [ref=e2600]
+            - generic [ref=e2601]:
+              - link "Casas en Venta en Bogotá" [ref=e2602] [cursor=pointer]:
+                - /url: /venta/casas/bogota/bogota-dc
+              - separator [ref=e2603]
+            - generic [ref=e2604]:
+              - link "Casas en Venta en Barrios Unidos" [ref=e2605] [cursor=pointer]:
+                - /url: /venta/casas/barrios-unidos/zona-noroccidente/bogota
+              - separator [ref=e2606]
+            - generic [ref=e2607]:
+              - link "Casas en Venta en Niza" [ref=e2608] [cursor=pointer]:
+                - /url: /venta/casas/niza/zona-noroccidente/bogota
+              - separator [ref=e2609]
+            - generic [ref=e2610]:
+              - link "Casas en Venta en Guaymaral" [ref=e2611] [cursor=pointer]:
+                - /url: /venta/casas/guaymaral/zona-norte/bogota
+              - separator [ref=e2612]
+            - generic [ref=e2613]:
+              - link "Casas en Venta en Fontibon" [ref=e2614] [cursor=pointer]:
+                - /url: /venta/casas/fontibon/zona-occidental/bogota
+              - separator [ref=e2615]
+            - generic [ref=e2616]:
+              - link "Casas en Venta en Modelia" [ref=e2617] [cursor=pointer]:
+                - /url: /venta/casas/modelia/zona-occidental/bogota
+              - separator [ref=e2618]
+          - button "Más" [ref=e2619] [cursor=pointer]
+        - generic [ref=e2620]:
+          - generic [ref=e2621]:
+            - heading "Apartaestudios en Venta" [level=5] [ref=e2622]
+            - generic [ref=e2623]:
+              - link "Apartaestudios en Venta en Cedritos" [ref=e2624] [cursor=pointer]:
+                - /url: /venta/apartaestudios/cedritos/zona-norte/bogota
+              - separator [ref=e2625]
+            - generic [ref=e2626]:
+              - link "Apartaestudios en Venta en Chico norte" [ref=e2627] [cursor=pointer]:
+                - /url: /venta/apartaestudios/chico-norte/zona-nororiental/bogota
+              - separator [ref=e2628]
+            - generic [ref=e2629]:
+              - link "Apartaestudios en Venta en Chapinero Alto" [ref=e2630] [cursor=pointer]:
+                - /url: /venta/apartaestudios/chapinero-alto/zona-chapinero/bogota
+              - separator [ref=e2631]
+            - generic [ref=e2632]:
+              - link "Apartaestudios en Venta en Chapinero central" [ref=e2633] [cursor=pointer]:
+                - /url: /venta/apartaestudios/chapinero-central/zona-chapinero/bogota
+              - separator [ref=e2634]
+            - generic [ref=e2635]:
+              - link "Apartaestudios en Venta en Las nieves" [ref=e2636] [cursor=pointer]:
+                - /url: /venta/apartaestudios/las-nieves/zona-centro/bogota
+              - separator [ref=e2637]
+            - generic [ref=e2638]:
+              - link "Apartaestudios en Venta en Centro Internacional" [ref=e2639] [cursor=pointer]:
+                - /url: /venta/apartaestudios/centro-internacional/zona-centro/bogota
+              - separator [ref=e2640]
+            - generic [ref=e2641]:
+              - link "Apartaestudios en Venta en Usaquen" [ref=e2642] [cursor=pointer]:
+                - /url: /venta/apartaestudios/usaquen/bogota
+              - separator [ref=e2643]
+            - generic [ref=e2644]:
+              - link "Apartaestudios en Venta en La granja norte" [ref=e2645] [cursor=pointer]:
+                - /url: /venta/apartaestudios/la-granja-norte/zona-norte/bogota
+              - separator [ref=e2646]
+            - generic [ref=e2647]:
+              - link "Apartaestudios en Venta en El chico" [ref=e2648] [cursor=pointer]:
+                - /url: /venta/apartaestudios/el-chico/zona-nororiental/bogota
+              - separator [ref=e2649]
+            - generic [ref=e2650]:
+              - link "Apartaestudios en Venta en Santa Barbara" [ref=e2651] [cursor=pointer]:
+                - /url: /venta/apartaestudios/santa-barbara/zona-norte/bogota
+              - separator [ref=e2652]
+          - button "Más" [ref=e2653] [cursor=pointer]
+        - generic [ref=e2654]:
+          - generic [ref=e2655]:
+            - heading "Lotes en Venta" [level=5] [ref=e2656]
+            - generic [ref=e2657]:
+              - link "Lotes en Venta en Bogotá" [ref=e2658] [cursor=pointer]:
+                - /url: /venta/lotes/bogota/bogota-dc
+              - separator [ref=e2659]
+            - generic [ref=e2660]:
+              - link "Lotes en Venta en Fontibon" [ref=e2661] [cursor=pointer]:
+                - /url: /venta/lotes/fontibon/zona-occidental/bogota
+              - separator [ref=e2662]
+            - generic [ref=e2663]:
+              - link "Lotes en Venta en Engativá" [ref=e2664] [cursor=pointer]:
+                - /url: /venta/lotes/engativa/zona-noroccidente/bogota
+              - separator [ref=e2665]
+            - generic [ref=e2666]:
+              - link "Lotes en Venta en Guaymaral" [ref=e2667] [cursor=pointer]:
+                - /url: /venta/lotes/guaymaral/zona-norte/bogota
+              - separator [ref=e2668]
+            - generic [ref=e2669]:
+              - link "Lotes en Venta en Suba" [ref=e2670] [cursor=pointer]:
+                - /url: /venta/lotes/suba/bogota
+              - separator [ref=e2671]
+            - generic [ref=e2672]:
+              - link "Lotes en Venta en Lagos de Torca" [ref=e2673] [cursor=pointer]:
+                - /url: /venta/lotes/lagos-de-torca/zona-norte/bogota
+              - separator [ref=e2674]
+            - generic [ref=e2675]:
+              - link "Lotes en Venta en Chico norte" [ref=e2676] [cursor=pointer]:
+                - /url: /venta/lotes/chico-norte/zona-nororiental/bogota
+              - separator [ref=e2677]
+            - generic [ref=e2678]:
+              - link "Lotes en Venta en Barrios Unidos" [ref=e2679] [cursor=pointer]:
+                - /url: /venta/lotes/barrios-unidos/zona-noroccidente/bogota
+              - separator [ref=e2680]
+            - generic [ref=e2681]:
+              - link "Lotes en Venta en Santa Barbara" [ref=e2682] [cursor=pointer]:
+                - /url: /venta/lotes/santa-barbara/zona-norte/bogota
+              - separator [ref=e2683]
+            - generic [ref=e2684]:
+              - link "Lotes en Venta en San jose de bavaria" [ref=e2685] [cursor=pointer]:
+                - /url: /venta/lotes/san-jose-de-bavaria/zona-norte/bogota
+              - separator [ref=e2686]
+          - button "Más" [ref=e2687] [cursor=pointer]
+        - generic [ref=e2688]:
+          - generic [ref=e2689]:
+            - heading "Proyectos De Vivienda" [level=5] [ref=e2690]
+            - generic [ref=e2691]:
+              - link "Proyectos De Vivienda en La felicidad" [ref=e2692] [cursor=pointer]:
+                - /url: /proyectos-vivienda/la-felicidad/zona-occidental/bogota
+              - separator [ref=e2693]
+            - generic [ref=e2694]:
+              - link "Proyectos De Vivienda en Fontibon" [ref=e2695] [cursor=pointer]:
+                - /url: /proyectos-vivienda/fontibon/zona-occidental/bogota
+              - separator [ref=e2696]
+            - generic [ref=e2697]:
+              - link "Proyectos De Vivienda en Tintala" [ref=e2698] [cursor=pointer]:
+                - /url: /proyectos-vivienda/tintala/zona-occidental/bogota
+              - separator [ref=e2699]
+            - generic [ref=e2700]:
+              - link "Proyectos De Vivienda en La picota sur" [ref=e2701] [cursor=pointer]:
+                - /url: /proyectos-vivienda/la-picota-sur/zona-sur/bogota
+              - separator [ref=e2702]
+            - generic [ref=e2703]:
+              - link "Proyectos De Vivienda en Chapinero" [ref=e2704] [cursor=pointer]:
+                - /url: /proyectos-vivienda/chapinero/zona-chapinero/bogota
+              - separator [ref=e2705]
+            - generic [ref=e2706]:
+              - link "Proyectos De Vivienda en Villas De Aranjuez" [ref=e2707] [cursor=pointer]:
+                - /url: /proyectos-vivienda/villas-de-aranjuez/zona-norte/bogota
+              - separator [ref=e2708]
+            - generic [ref=e2709]:
+              - link "Proyectos De Vivienda en Interindustrial" [ref=e2710] [cursor=pointer]:
+                - /url: /proyectos-vivienda/interindustrial/zona-occidental/bogota
+              - separator [ref=e2711]
+            - generic [ref=e2712]:
+              - link "Proyectos De Vivienda en Lagos de Torca" [ref=e2713] [cursor=pointer]:
+                - /url: /proyectos-vivienda/lagos-de-torca/zona-norte/bogota
+              - separator [ref=e2714]
+            - generic [ref=e2715]:
+              - link "Proyectos De Vivienda en Valladolid" [ref=e2716] [cursor=pointer]:
+                - /url: /proyectos-vivienda/valladolid/zona-occidental/bogota
+              - separator [ref=e2717]
+            - generic [ref=e2718]:
+              - link "Proyectos De Vivienda en Restrepo" [ref=e2719] [cursor=pointer]:
+                - /url: /proyectos-vivienda/restrepo/zona-sur/bogota
+              - separator [ref=e2720]
+          - button "Más" [ref=e2721] [cursor=pointer]
+        - generic [ref=e2722]:
+          - generic [ref=e2723]:
+            - heading "Inmobiliarias" [level=5] [ref=e2724]
+            - generic [ref=e2725]:
+              - link "Millan & Asociados Propiedad Raíz" [ref=e2726] [cursor=pointer]:
+                - /url: /inmobiliarias/millan-asociados-propiedad-raiz/174655345
+              - separator [ref=e2727]
+            - generic [ref=e2728]:
+              - link "Engel & Völkers" [ref=e2729] [cursor=pointer]:
+                - /url: /inmobiliarias/engel-volkers/174845933
+              - separator [ref=e2730]
+            - generic [ref=e2731]:
+              - link "BROKER" [ref=e2732] [cursor=pointer]:
+                - /url: /inmobiliarias/broker/174632350
+              - separator [ref=e2733]
+            - generic [ref=e2734]:
+              - link "Grupo Empresarial Mi" [ref=e2735] [cursor=pointer]:
+                - /url: /inmobiliarias/grupo-empresarial-mi/174706628
+              - separator [ref=e2736]
+            - generic [ref=e2737]:
+              - link "Prointegral" [ref=e2738] [cursor=pointer]:
+                - /url: /inmobiliarias/prointegral/174681635
+              - separator [ref=e2739]
+            - generic [ref=e2740]:
+              - link "Grupo Arenas" [ref=e2741] [cursor=pointer]:
+                - /url: /inmobiliarias/grupo-arenas/174745926
+              - separator [ref=e2742]
+            - generic [ref=e2743]:
+              - link "Inmobiliare Julio Corredor" [ref=e2744] [cursor=pointer]:
+                - /url: /inmobiliarias/inmobiliare-julio-corredor/174808172
+              - separator [ref=e2745]
+            - generic [ref=e2746]:
+              - link "Casa 360" [ref=e2747] [cursor=pointer]:
+                - /url: /inmobiliarias/casa-360/174787115
+              - separator [ref=e2748]
+            - generic [ref=e2749]:
+              - link "BIENES RAICES RISARALDA - CONSUELO MURILLO S." [ref=e2750] [cursor=pointer]:
+                - /url: /inmobiliarias/bienes-raices-risaralda-consuelo-murillo-s/174835003
+              - separator [ref=e2751]
+            - generic [ref=e2752]:
+              - link "NC INTERNATIONAL BUSINESS SAS" [ref=e2753] [cursor=pointer]:
+                - /url: /inmobiliarias/nc-international-business-sas/175965237
+              - separator [ref=e2754]
+          - button "Más" [ref=e2755] [cursor=pointer]
+        - generic [ref=e2756]:
+          - heading "Siguenos" [level=5] [ref=e2757]
+          - link "LinkedIn" [ref=e2758] [cursor=pointer]:
+            - /url: //www.linkedin.com/company/fincaraiz-com-co/
+            - img [ref=e2759]
+            - text: LinkedIn
+          - link "YouTube" [ref=e2760] [cursor=pointer]:
+            - /url: //www.youtube.com/c/fincaraiz
+            - img [ref=e2761]
+            - text: YouTube
+          - link "Instagram" [ref=e2762] [cursor=pointer]:
+            - /url: //www.instagram.com/fincaraiz.com.co/
+            - img [ref=e2763]
+            - text: Instagram
+          - link "Facebook" [ref=e2764] [cursor=pointer]:
+            - /url: //www.facebook.com/fincaraiz.com.co
+            - img [ref=e2765]
+            - text: Facebook
+        - generic [ref=e2766]:
+          - heading "Acerca de nosotros" [level=5] [ref=e2767]
+          - link "Preguntas Frecuentes" [ref=e2768] [cursor=pointer]:
+            - /url: /informacion#preguntas-frecuentes
+          - link "Aviso Legal" [ref=e2769] [cursor=pointer]:
+            - /url: /informacion#aviso-legal
+          - link "Términos y Condiciones" [ref=e2770] [cursor=pointer]:
+            - /url: /informacion#terminos-y-condiciones
+          - link "Políticas de tratamiento de datos" [ref=e2771] [cursor=pointer]:
+            - /url: /informacion#politicas-de-privacidad
+          - link "Nosotros" [ref=e2772] [cursor=pointer]:
+            - /url: /informacion#anuncia-con-nosotros
+          - link "Recomendaciones de Seguridad" [ref=e2773] [cursor=pointer]:
+            - /url: /informacion#recomendaciones-de-seguridad
+          - link "Políticas de Cookies" [ref=e2774] [cursor=pointer]:
+            - /url: /informacion#politicas-de-cookies
+  - alert [ref=e2775]

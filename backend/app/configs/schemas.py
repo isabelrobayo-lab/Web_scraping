@@ -41,6 +41,14 @@ class ConfigCreate(BaseModel):
     tipo_operacion: TipoOperacion
     modo_ejecucion: ModoEjecucion
     cron_expression: str | None = None
+    include_patterns: list[str] | None = Field(
+        default=None,
+        description="Regex patterns for URLs to include in crawl",
+    )
+    exclude_patterns: list[str] | None = Field(
+        default=None,
+        description="Regex patterns for URLs to exclude from crawl",
+    )
 
     @field_validator("url_base")
     @classmethod
@@ -61,6 +69,23 @@ class ConfigCreate(BaseModel):
                 "URL debe ser una URL HTTP o HTTPS válida "
                 "(ej: https://www.ejemplo.com)"
             )
+        return v
+
+    @field_validator("include_patterns", "exclude_patterns")
+    @classmethod
+    def validate_regex_patterns(cls, v: list[str] | None) -> list[str] | None:
+        """Validate that each pattern is a valid regex."""
+        if v is None:
+            return v
+        import re
+
+        for pattern in v:
+            try:
+                re.compile(pattern)
+            except re.error as e:
+                raise ValueError(
+                    f"Patrón regex inválido '{pattern}': {e}"
+                )
         return v
 
     @field_validator("cron_expression")
@@ -96,6 +121,25 @@ class ConfigUpdate(BaseModel):
     tipo_operacion: TipoOperacion | None = None
     modo_ejecucion: ModoEjecucion | None = None
     cron_expression: str | None = None
+    include_patterns: list[str] | None = None
+    exclude_patterns: list[str] | None = None
+
+    @field_validator("include_patterns", "exclude_patterns")
+    @classmethod
+    def validate_regex_patterns(cls, v: list[str] | None) -> list[str] | None:
+        """Validate that each pattern is a valid regex."""
+        if v is None:
+            return v
+        import re
+
+        for pattern in v:
+            try:
+                re.compile(pattern)
+            except re.error as e:
+                raise ValueError(
+                    f"Patrón regex inválido '{pattern}': {e}"
+                )
+        return v
 
     @field_validator("url_base")
     @classmethod
@@ -153,6 +197,9 @@ class ConfigResponse(BaseModel):
     modo_ejecucion: str
     cron_expression: str | None = None
     cron_preview: str | None = None
+    include_patterns: list[str] | None = None
+    exclude_patterns: list[str] | None = None
+    selector_status: str = "pending"
     active: bool
     created_at: datetime
     updated_at: datetime

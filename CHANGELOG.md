@@ -27,6 +27,24 @@ El número de versión del changelog puede alinearse con `version` en `package.j
 
 ## [Unreleased]
 
+### Agregado
+
+- **Backend** Se implementó persistencia de datos en el ScrapingEngine — ahora los registros extraídos se validan con FieldValidator y se persisten vía UpsertService en cada página de detalle procesada
+- **Backend** Se agregó descubrimiento inteligente de paginación en el engine — URLs con patrones `/paginaX`, `/page/X`, `?page=X` se tratan al mismo nivel de profundidad para recorrer todas las páginas de listados
+- **Backend** Se agregó soporte de include/exclude patterns (regex) en ConfiguracionScraping para controlar qué URLs se incluyen o excluyen del crawl
+- **Backend** Se creó endpoint `POST /api/v1/selector-maps/{sitio_origen}/validate` para validación automática de CSS selectors contra una URL en vivo usando Playwright
+- **Backend** Se creó `SelectorValidator` que navega a una URL y prueba cada selector del mapa reportando cuáles funcionan y cuáles no
+- **Backend** Se integró `DeactivationDetector` en la tarea Celery para detectar inmuebles desactivados al finalizar cada ejecución de scraping
+- **Backend** Se agregó mapeo de campos PascalCase (selector map) a snake_case (DB columns) en el engine
+- **Backend** Se creó migración Alembic `002_add_url_patterns` para las nuevas columnas `include_patterns` y `exclude_patterns`
+- **Backend** Se actualizó seed de fincaraiz.com.co con patrones de exclusión para URLs de proyectos, login y registro
+
+### Cambiado
+
+- **Backend** Se mejoró `_discover_links` para preservar query params en URLs de paginación y aplicar filtros include/exclude antes de agregar al crawl queue
+- **Backend** Se mejoró `_is_internal_link` para comparar dominios sin prefijo `www.`
+- **Backend** Se actualizó la tarea Celery `_run_scraping_task` para pasar la sesión de DB al engine y registrar conteos de inserted/updated/skipped
+
 ### Added
 
 - **Config:** 16 Agent Hooks en `.kiro/hooks/` para enforcement de segregación de funciones del enjambre de agentes:

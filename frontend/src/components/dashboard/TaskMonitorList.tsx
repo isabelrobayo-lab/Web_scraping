@@ -29,7 +29,8 @@ export function TaskMonitorList({ onSelect }: TaskMonitorListProps) {
 
   const { data, isLoading } = useQuery({
     queryKey: ['tasks', page, filters],
-    queryFn: () => get<PaginatedResponse<TaskListItem>>('/tasks', { page, per_page: 15, ...filters }),
+    queryFn: () => get<PaginatedResponse<TaskListItem>>('/tasks', { page, size: 15, ...filters }),
+    refetchInterval: 5000,
   });
 
   const inputClass = 'flex h-8 rounded-md border border-input bg-background px-2 py-1 text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring';

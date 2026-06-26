@@ -32,7 +32,7 @@ export function ConfigList({ onEdit }: ConfigListProps) {
   const { data, isLoading } = useQuery({
     queryKey: ['configs', page],
     queryFn: () =>
-      get<PaginatedResponse<ConfigResponse>>('/configs', { page, per_page: 10 }),
+      get<PaginatedResponse<ConfigResponse>>('/configs', { page, size: 10 }),
   });
 
   const deleteMutation = useMutation({
@@ -47,6 +47,12 @@ export function ConfigList({ onEdit }: ConfigListProps) {
     mutationFn: (configId: number) => post(`/tasks/${configId}/execute`),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tasks'] });
+      queryClient.invalidateQueries({ queryKey: ['configs'] });
+    },
+    onError: (error: any) => {
+      if (error?.status === 409) {
+        alert('Ya hay un scraping en ejecución para esta configuración. Espere a que termine.');
+      }
     },
   });
 
@@ -66,6 +72,7 @@ export function ConfigList({ onEdit }: ConfigListProps) {
               <th className="px-4 py-3 text-left font-medium">Operación</th>
               <th className="px-4 py-3 text-left font-medium">Modo</th>
               <th className="px-4 py-3 text-left font-medium">Activo</th>
+              <th className="px-4 py-3 text-left font-medium">Selectores</th>
               <th className="px-4 py-3 text-left font-medium">Última ejecución</th>
               <th className="px-4 py-3 text-right font-medium">Acciones</th>
             </tr>
@@ -73,7 +80,7 @@ export function ConfigList({ onEdit }: ConfigListProps) {
           <tbody>
             {configs.length === 0 ? (
               <tr>
-                <td colSpan={6} className="px-4 py-8 text-center text-muted-foreground">
+                <td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">
                   No hay configuraciones registradas.
                 </td>
               </tr>
@@ -95,6 +102,30 @@ export function ConfigList({ onEdit }: ConfigListProps) {
                     >
                       {config.active ? 'Sí' : 'No'}
                     </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    {(() => {
+                      const status = (config as any).selector_status || 'pending';
+                      const styles: Record<string, string> = {
+                        ready: 'bg-green-100 text-green-800',
+                        discovering: 'bg-blue-100 text-blue-800',
+                        partial: 'bg-yellow-100 text-yellow-800',
+                        pending: 'bg-gray-100 text-gray-800',
+                        error: 'bg-red-100 text-red-800',
+                      };
+                      const labels: Record<string, string> = {
+                        ready: '✓ Listo',
+                        discovering: '⟳ Analizando...',
+                        partial: '⚠ Parcial',
+                        pending: '○ Pendiente',
+                        error: '✗ Error',
+                      };
+                      return (
+                        <span className={`inline-flex rounded-full px-2 py-0.5 text-xs font-medium ${styles[status] || styles.pending}`}>
+                          {labels[status] || status}
+                        </span>
+                      );
+                    })()}
                   </td>
                   <td className="px-4 py-3 text-muted-foreground">
                     {config.last_execution_at
@@ -118,7 +149,8 @@ export function ConfigList({ onEdit }: ConfigListProps) {
                           variant="ghost"
                           size="icon"
                           onClick={() => executeMutation.mutate(config.id)}
-                          disabled={executeMutation.isPending}
+                          disabled={executeMutation.isPending || !['ready', 'partial'].includes((config as any).selector_status || 'pending')}
+                          title={!['ready', 'partial'].includes((config as any).selector_status || 'pending') ? 'Esperando análisis de selectores...' : 'Ejecutar scraping'}
                           aria-label={`Ejecutar ${config.url_base}`}
                         >
                           <Play className="h-4 w-4" />
@@ -155,8 +187,8 @@ export function ConfigList({ onEdit }: ConfigListProps) {
       <ConfirmDialog
         open={!!deleteTarget}
         title="Eliminar configuración"
-        description={`¿Está seguro de desactivar la configuración para "${deleteTarget?.url_base}"? Esta acción marcará el registro como inactivo.`}
-        confirmLabel="Desactivar"
+        description={`¿Está seguro de eliminar la configuración para "${deleteTarget?.url_base}"? Esta acción no se puede deshacer.`}
+        confirmLabel="Eliminar"
         onConfirm={() => deleteTarget && deleteMutation.mutate(deleteTarget.id)}
         onCancel={() => setDeleteTarget(null)}
       />
